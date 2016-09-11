@@ -1,0 +1,2180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="abf0406d-0b1f-4620-8b2f-adcf47b993a6" name="Default" comment="" />
+    <ignored path="god.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/template/template-jpa-web/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-mybatis-svc/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-mybatis-web/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-mybatis-dao/target/" />
+    <ignored path="$PROJECT_DIR$/library/target/" />
+    <ignored path="$PROJECT_DIR$/template/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-jpa-svc/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-jpa-dao/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/template/template-jpa-api/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-mybatis-api/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-model/target/" />
+    <ignored path="$PROJECT_DIR$/template/template-api/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="god" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/template/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="37" column="18" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/template/template-mybatis-web/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-jpa-svc/src/main/java/com/jpa/service/TemplateServiceImpl.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-svc/src/main/resources/META-INF/template-svc-appContext.xml" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/core/jpa/JpaBaseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-dao/src/main/java/com/jpa/entity/Template.java" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-api/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-dao/src/main/java/com/mybatis/entity/Template.java" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-api/src/main/java/com/mybatis/api/TemplateService.java" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-dao/src/main/java/com/mybatis/dao/TemplateDao.java" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-dao/src/main/resources/META-INF/mapper/TemplateMapper.xml" />
+        <option value="$PROJECT_DIR$/template/template-model/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-dao/src/main/java/com/mybatis/dao/BaseTemplateDao.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-jpa-dao/src/main/java/com/jpa/dao/TemplateDao.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-api/src/main/java/com/jpa/api/TemplateService.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-api/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-api/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-jpa-svc/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-jpa-svc/src/main/java/com/jpa/svc/TemplateServiceImpl.java" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-svc/pom.xml" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-svc/src/main/java/com/mybatis/svc/TemplateServiceImpl.java" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-web/src/main/java/com/mybatis/controller/TemplateController.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-web/src/main/java/com/jpa/controller/TemplateController.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-dao/src/main/resources/META-INF/template-dao-appContext.xml" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/core/controller/BaseController.java" />
+        <option value="$PROJECT_DIR$/library/src/main/resources/META-INF/yserver-appContext.xml" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/core/config/Global.java" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/core/listener/WebContextListener.java" />
+        <option value="$PROJECT_DIR$/template/template-jpa-web/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-web/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/utils/PropertiesLoader.java" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/core/config/GlobalProperties.java" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/core/config/Constant.java" />
+        <option value="$PROJECT_DIR$/library/src/main/java/org/yserver/utils/SpringContextHolder.java" />
+        <option value="$PROJECT_DIR$/library/src/main/resources/META-INF/global.properties" />
+        <option value="$PROJECT_DIR$/template/template-mybatis-web/src/main/resources/META-INF/ehcache.xml" />
+        <option value="$PROJECT_DIR$/template/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\MyOracle\m3\repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="D:\MyOracle\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-3" />
+    <option name="width" value="1861" />
+    <option name="height" value="1092" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="god" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="god" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="god" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2982327" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../OrderProj/trunk/ManagementSever" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.yserver.utils" />
+      <recent name="org.yserver.core.config" />
+      <recent name="org.yserver.core.listener" />
+      <recent name="com.mybatis.entity" />
+      <recent name="com.mybatis.api" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyOracle\workspace\DreamProj\Java Web\yServer\template\template-jpa-api\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jetty Server.template">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="FlashPlayerDebugger.exe" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnitTestDiscovery" factoryName="JUnit Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="template-jpa-web" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JettyConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings>
+        <data>
+          <option name="configFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+          <option name="myConfigFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+        </data>
+      </server-settings>
+      <predefined_log_file id="Jetty" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="false" name="template" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 9.2.18.v20160721" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="template-jpa-web:war exploded">
+          <settings DEPLOYMENT_METHOD="contexts">
+            <option name="contextRoot" value="/jpa" />
+            <option name="defaultContextRoot" value="false" />
+          </settings>
+        </artifact>
+        <artifact name="template-mybatis-web:war exploded">
+          <settings DEPLOYMENT_METHOD="contexts">
+            <option name="contextRoot" value="/mybatis" />
+            <option name="defaultContextRoot" value="false" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <data>
+          <option name="configFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\annotations.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\cdi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\client.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\continuation.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\debug.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\deploy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ext.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\fcgi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\hawtio.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\home-base-warning.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\http.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\https.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ipaccess.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaas.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jamon.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaspi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jminix.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jmx-remote.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jndi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jolokia.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jsp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jstl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jvm.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\logging.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\lowresources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\monitor.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\plus.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\protonego.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\proxy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\quickstart.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\requestlog.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\resources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\rewrite.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\security.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\server.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlet.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlets.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\setuid.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spdy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spring.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ssl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\stats.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\webapp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\websocket.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\xinetd.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+          <option name="myConfigFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\annotations.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\cdi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\client.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\continuation.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\debug.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\deploy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ext.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\fcgi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\hawtio.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\home-base-warning.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\http.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\https.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ipaccess.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaas.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jamon.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaspi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jminix.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jmx-remote.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jndi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jolokia.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jsp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jstl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jvm.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\logging.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\lowresources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\monitor.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\plus.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\protonego.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\proxy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\quickstart.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\requestlog.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\resources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\rewrite.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\security.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\server.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlet.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlets.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\setuid.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spdy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spring.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ssl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\stats.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\webapp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\websocket.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\xinetd.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+        </data>
+      </server-settings>
+      <predefined_log_file id="Jetty" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="template-mybatis-web:war exploded" />
+          <artifact name="template-jpa-web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="false" name="jpa" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 9.2.18.v20160721" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/jpa/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="template-jpa-web:war exploded">
+          <settings DEPLOYMENT_METHOD="contexts">
+            <option name="contextRoot" value="/jpa" />
+            <option name="defaultContextRoot" value="false" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <data>
+          <option name="configFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\annotations.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\cdi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\client.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\continuation.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\debug.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\deploy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ext.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\fcgi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\hawtio.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\home-base-warning.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\http.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\https.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ipaccess.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaas.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jamon.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaspi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jminix.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jmx-remote.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jndi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jolokia.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jsp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jstl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jvm.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\logging.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\lowresources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\monitor.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\plus.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\protonego.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\proxy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\quickstart.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\requestlog.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\resources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\rewrite.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\security.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\server.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlet.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlets.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\setuid.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spdy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spring.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ssl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\stats.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\webapp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\websocket.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\xinetd.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+          <option name="myConfigFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\annotations.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\cdi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\client.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\continuation.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\debug.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\deploy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ext.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\fcgi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\hawtio.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\home-base-warning.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\http.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\https.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ipaccess.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaas.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jamon.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaspi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jminix.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jmx-remote.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jndi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jolokia.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jsp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jstl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jvm.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\logging.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\lowresources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\monitor.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\plus.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\protonego.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\proxy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\quickstart.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\requestlog.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\resources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\rewrite.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\security.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\server.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlet.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlets.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\setuid.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spdy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spring.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ssl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\stats.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\webapp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\websocket.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\xinetd.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+        </data>
+      </server-settings>
+      <predefined_log_file id="Jetty" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="template-jpa-web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="false" name="mybatis" type="JettyConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="Jetty 9.2.18.v20160721" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="template-mybatis-web:war exploded">
+          <settings DEPLOYMENT_METHOD="contexts">
+            <option name="contextRoot" value="/mybatis" />
+            <option name="defaultContextRoot" value="false" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <data>
+          <option name="configFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\annotations.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\cdi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\client.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\continuation.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\debug.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\deploy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ext.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\fcgi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\hawtio.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\home-base-warning.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\http.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\https.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ipaccess.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaas.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jamon.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaspi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jminix.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jmx-remote.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jndi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jolokia.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jsp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jstl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jvm.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\logging.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\lowresources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\monitor.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\plus.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\protonego.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\proxy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\quickstart.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\requestlog.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\resources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\rewrite.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\security.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\server.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlet.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlets.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\setuid.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spdy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spring.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ssl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\stats.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\webapp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\websocket.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\xinetd.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+          <option name="myConfigFiles">
+            <list>
+              <JettyConfigFile>
+                <option name="active" value="true" />
+                <option name="path" value="modules\jmx.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\annotations.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\cdi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\client.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\continuation.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\debug.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\deploy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ext.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\fcgi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\hawtio.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\home-base-warning.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\http.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\https.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ipaccess.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaas.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jamon.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jaspi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jminix.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jmx-remote.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jndi.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jolokia.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jsp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jstl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\jvm.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\logging.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\lowresources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\monitor.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\plus.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\protonego.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\proxy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\quickstart.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\requestlog.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\resources.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\rewrite.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\security.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\server.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlet.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\servlets.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\setuid.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spdy.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\spring.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\ssl.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\stats.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\webapp.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\websocket.mod" />
+              </JettyConfigFile>
+              <JettyConfigFile>
+                <option name="path" value="modules\xinetd.mod" />
+              </JettyConfigFile>
+            </list>
+          </option>
+        </data>
+      </server-settings>
+      <predefined_log_file id="Jetty" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="template-mybatis-web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Jetty Server.template" />
+      <item index="1" class="java.lang.String" itemvalue="Jetty Server.jpa" />
+      <item index="2" class="java.lang.String" itemvalue="Jetty Server.mybatis" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="abf0406d-0b1f-4620-8b2f-adcf47b993a6" name="Default" comment="" />
+      <created>1473530150417</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1473530150417</updated>
+      <workItem from="1473530152523" duration="1404000" />
+      <workItem from="1473558628163" duration="14867000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="16271000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-3" y="0" width="1861" height="1092" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.4980523" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.47579297" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5240586" sideWeight="0.24040067" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5240586" sideWeight="0.7595993" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-api/src/main/resources/META-INF/template-svc-appContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.2.RELEASE/spring-context-4.3.2.RELEASE.jar!/org/springframework/remoting/rmi/RmiServiceExporter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
+          <folding>
+            <element signature="e#2076#2077#0" expanded="true" />
+            <element signature="e#2124#2125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_102/src.zip!/java/sql/Timestamp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/jpa/JpaBaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/jpa/JpaBaseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="e#330#331#0" expanded="false" />
+            <element signature="e#367#368#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar!/javax/persistence/TemporalType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#234#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/mybatis/MyBatisBaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1101">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-api/src/main/java/com/mybatis/api/TemplateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-svc/src/main/resources/META-INF/template-svc-appContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-142">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/mybatis/MyBatisBaseDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="116" column="19" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-dao/src/main/resources/META-INF/mapper/TemplateMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1473606384738" expanded="true" signature="401:504" ph="SELECT o FRO... Template" />
+            <marker date="1473606384738" expanded="true" signature="401:511" ph="SELECT o FRO... WHERE" />
+            <marker date="1473606384738" expanded="true" signature="599:703" ph="SELECT FROM WHERE" />
+            <marker date="1473606384738" expanded="true" signature="794:840" ph="SELECT FROM... " />
+            <marker date="1473606384738" expanded="true" signature="918:1024" ph="INSERT INTO " />
+            <marker date="1473606384738" expanded="true" signature="1067:1130" ph="UPDATE SET W... " />
+            <marker date="1473606384738" expanded="true" signature="1176:1245" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-dao/src/main/java/com/jpa/entity/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-model/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-dao/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-dao/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-dao/src/main/java/com/jpa/dao/TemplateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-api/src/main/java/com/template/api/TemplateService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-api/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-svc/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-svc/src/main/java/com/jpa/svc/TemplateServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-svc/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-svc/src/main/java/com/mybatis/svc/TemplateServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-web/src/main/java/com/mybatis/controller/TemplateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="38" column="16" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-web/src/main/java/com/jpa/controller/TemplateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-web/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/jpa/DaoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-model/src/main/java/com/template/model/Template.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-dao/src/main/java/com/mybatis/dao/BaseTemplateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-dao/src/main/java/com/mybatis/dao/TemplateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.2.RELEASE/spring-web-4.3.2.RELEASE.jar!/org/springframework/http/HttpStatus.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/controller/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="78" column="16" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+          <folding>
+            <element signature="e#1147#1148#0" expanded="false" />
+            <element signature="e#1177#1178#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/utils/ReflectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-dao/src/main/resources/META-INF/template-dao-appContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="18" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/commons-io/commons-io/2.4/commons-io-2.4-sources.jar!/org/apache/commons/io/IOUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="244" column="23" selection-start-line="244" selection-start-column="23" selection-end-line="244" selection-end-column="23" />
+          <folding>
+            <element signature="e#8291#8292#0" expanded="false" />
+            <element signature="e#8337#8338#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/resources/META-INF/yserver-appContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
+          <folding>
+            <element signature="e#1151#1178#0" expanded="true" />
+            <element signature="e#1247#1273#0" expanded="true" />
+            <element signature="e#1345#1373#0" expanded="true" />
+            <element signature="e#1464#1495#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-jpa-web/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-web/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/listener/WebContextListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/utils/PropertiesLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+          <folding>
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/config/GlobalProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/core/config/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/java/org/yserver/utils/SpringContextHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/src/main/resources/META-INF/global.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-dao/src/main/resources/META-INF/template.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-dao/src/main/resources/META-INF/template-dao-appContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/template-mybatis-web/src/main/resources/META-INF/ehcache.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>template-jpa-web:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2982327" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (template-jpa-web)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2982327" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web|template-mybatis-web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2982327" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2982327" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

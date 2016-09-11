@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
+    <context:component-scan base-package="com.mybatis.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+    <!-- ContentNegotiatingViewResolver类根据不同的请求，将返回会结果指派给InternalResourceViewResolver和BeanNameViewResolver来处理, 
+		当媒体类型是'text/html'是, 将指派给InternalResourceViewResolver类处理, 其他类型，将指派给 BeanNameViewResolver类处理。 -->
+    <bean
+            class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="contentNegotiationManager" ref="cnManager"/>
+
+        <property name="viewResolvers">
+            <list>
+                <!-- Default viewClass: JSTL view (JSP with html output) -->
+                <bean
+                        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <!-- Example: a logical view name of 'vets' is mapped to '/WEB-INF/jsp/vets.jsp' -->
+                    <property name="prefix" value="/WEB-INF/views/"/>
+                    <property name="suffix" value=".jsp"/>
+                </bean>
+
+                <!-- Used here for 'xml' and 'atom' views -->
+                <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"></bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="cnManager"
+          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true"/>
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="defaultContentType" value="text/html"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="text/html"/>
+                <entry key="json" value="application/json"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="exceptionResolver" class="org.yserver.exception.HandlerExceptionResolver"></bean>
+
+    <!-- 上传拦截，如最大上传值及最小上传值 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize">
+            <value>104857600</value>
+        </property>
+        <property name="maxInMemorySize">
+            <value>4096</value>
+        </property>
+        <property name="defaultEncoding">
+            <value>utf-8</value>
+        </property>
+    </bean>
+</beans>

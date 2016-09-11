@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="org.yserver.core"/>
+
+    <!-- 加载属性文件 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations" value="classpath:META-INF/global.properties"/>
+        <!-- ignoreUnresolvablePlaceholders为是否忽略不可解析的 Placeholder，如配置了多个PropertyPlaceholderConfigurer，则需设置为true -->
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+    <!-- 线程池 -->
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <!-- 核心线程数 -->
+        <property name="corePoolSize" value="${base.task.corePoolSize}"/>
+        <!-- 最大线程数 -->
+        <property name="maxPoolSize" value="${base.task.maxPoolSize}"/>
+        <!-- 队列最大长度 -->
+        <property name="queueCapacity" value="${base.task.queueCapacity}"/>
+        <!-- 线程池维护线程所允许的空闲时间，默认为60s -->
+        <property name="keepAliveSeconds" value="${base.task.keepAliveSeconds}"/>
+    </bean>
+</beans>
