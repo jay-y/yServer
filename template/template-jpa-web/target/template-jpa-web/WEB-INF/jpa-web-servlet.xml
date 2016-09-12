@@ -49,7 +49,7 @@
         </property>
     </bean>
 
-    <bean id="exceptionResolver" class="org.yserver.exception.HandlerExceptionResolver"></bean>
+    <bean id="exceptionResolver" class="org.yserver.utils.ExceptionManager"></bean>
 
     <!-- 上传拦截，如最大上传值及最小上传值 -->
     <bean id="multipartResolver"

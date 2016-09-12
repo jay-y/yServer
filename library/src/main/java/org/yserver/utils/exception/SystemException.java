@@ -1,4 +1,4 @@
-package org.yserver.exception;
+package org.yserver.utils.exception;
 
 /**
  * Description: 自定义系统异常处理.<br>

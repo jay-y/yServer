@@ -2,7 +2,8 @@ package org.yserver.utils;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.util.StringUtils;
-import org.yserver.exception.SystemException;
+import org.yserver.utils.exception.SystemException;
+import org.yserver.y;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -16,11 +17,6 @@ public final class ReflectionUtil {
      * 对于被cglib AOP过的对象包含此符号
      */
     public static final String CGLIB_CLASS_SEPARATOR = "$$";
-
-    /**
-     * 日志记录器
-     */
-    private static final Log LOGGER = Log.getLogger(ReflectionUtil.class);
 
     private ReflectionUtil() {
     }
@@ -73,7 +69,7 @@ public final class ReflectionUtil {
         try {
             result = field.get(obj);
         } catch (IllegalAccessException e) {
-            LOGGER.error(e.getMessage());
+            y.log().error(e.getMessage());
         }
         return result;
     }
@@ -93,7 +89,7 @@ public final class ReflectionUtil {
         try {
             field.set(obj, value);
         } catch (IllegalAccessException e) {
-            LOGGER.error(e.getMessage());
+            y.log().error(e.getMessage());
         }
     }
 
@@ -141,7 +137,7 @@ public final class ReflectionUtil {
                 field.setAccessible(true);
                 return field;
             } catch (NoSuchFieldException e) {
-                LOGGER.error(e.getMessage());
+                y.log().error(e.getMessage());
             }
         }
         return null;
@@ -167,7 +163,7 @@ public final class ReflectionUtil {
                 return method;
 
             } catch (NoSuchMethodException e) {
-                LOGGER.error(e.getMessage());
+                y.log().error(e.getMessage());
             }
         }
         return null;
@@ -241,7 +237,7 @@ public final class ReflectionUtil {
                 }
             }
         } catch (IllegalAccessException e) {
-            LOGGER.error(e.getMessage());
+            y.log().error(e.getMessage());
         }
         return true;
     }

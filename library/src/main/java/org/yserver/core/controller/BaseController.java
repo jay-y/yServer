@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 import org.yserver.core.config.Constant;
-import org.yserver.exception.SystemException;
+import org.yserver.utils.exception.SystemException;
 import org.yserver.utils.Log;
 
 import javax.servlet.http.HttpServletRequest;

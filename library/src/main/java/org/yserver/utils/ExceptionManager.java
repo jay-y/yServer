@@ -1,4 +1,4 @@
-package org.yserver.exception;
+package org.yserver.utils;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -29,7 +29,7 @@ import java.util.List;
  * Date: 2016/09/04<br>
  * Author: ysj
  */
-public class HandlerExceptionResolver extends ExceptionHandlerExceptionResolver {
+public class ExceptionManager extends ExceptionHandlerExceptionResolver {
     /**
      * 缺省的错误页面
      */
@@ -38,7 +38,7 @@ public class HandlerExceptionResolver extends ExceptionHandlerExceptionResolver 
     /**
      * 设置执行顺序为最先执行
      */
-    public HandlerExceptionResolver() {
+    public ExceptionManager() {
         super.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
