@@ -1,106 +1,57 @@
 package org.yserver.utils;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
 import java.util.List;
 import java.util.Map;
 
 /**
- * Description: Gson封装.<br>
+ * Description: JsonUtil.<br>
  * Date: 2016/4/7 18:05 <br>
  * Author: ysj
  */
-public class JsonUtil {
-    private final static Gson GSON = new Gson();
-
+public interface JsonUtil {
     /**
-     * 转成json
-     *
+     * 对象转JSON字符串
      * @param object
      * @return
      */
-    public static String toJson(Object object) {
-        String jsonString = null;
-        if (GSON != null) {
-            jsonString = GSON.toJson(object);
-        }
-        return jsonString;
-    }
+    String toJson(Object object);
 
     /**
-     * 转成json(格式化后的)
-     *
+     * 对象转JSON字符串(格式化后的)
      * @param object
      * @return
      */
-    public static String toPrettyJson(Object object) {
-        return new GsonBuilder().setPrettyPrinting().create().toJson(object);
-    }
+    String toPrettyJson(Object object);
 
     /**
-     * 转成bean
-     *
-     * @param JsonString
+     * Json字符串转对象
+     * @param json
      * @param cls
+     * @param <T>
      * @return
      */
-    public static <T> T jsonToBean(String JsonString, Class<T> cls) {
-        T t = null;
-        if (GSON != null) {
-            t = GSON.fromJson(JsonString, cls);
-        }
-        return t;
-    }
+    <T> T jsonToObject(String json, Class<T> cls);
 
     /**
-     * 转成list
-     *
-     * @param JsonString
+     * Json字符串转换成List
+     * @param json
      * @param cls
+     * @param <T>
      * @return
      */
-    public static <T> List<T> jsonToList(String JsonString, Class<T> cls) {
-        List<T> list = null;
-        if (GSON != null) {
-            list = GSON.fromJson(JsonString, new TypeToken<List<T>>() {
-            }.getType());
-        }
-        return list;
-    }
+    <T> List<T> jsonToList(String json, Class<T> cls);
 
     /**
-     * 转成list中有map的
-     *
-     * @param JsonString
+     * Json字符串转换成List<Map>
+     * @param json
      * @return
      */
-    public static <T> List<Map<String, T>> jsonToListMap(String JsonString) {
-        List<Map<String, T>> list = null;
-        if (GSON != null) {
-            list = GSON.fromJson(JsonString,
-                    new TypeToken<List<Map<String, T>>>() {
-                    }.getType());
-        }
-        return list;
-    }
+    <T> List<Map<String, T>> jsonToListMap(String json);
 
     /**
-     * 转成map的
-     *
-     * @param JsonString
+     * Json字符串转换成Map
+     * @param json
      * @return
      */
-    public static <T> Map<String, T> jsonToMap(String JsonString) {
-        Map<String, T> map = null;
-        if (GSON != null) {
-            map = GSON.fromJson(JsonString, new TypeToken<Map<String, T>>() {
-            }.getType());
-        }
-        return map;
-    }
-
-    private JsonUtil() {
-    }
+    <T> Map<String, T> jsonToMap(String json);
 }

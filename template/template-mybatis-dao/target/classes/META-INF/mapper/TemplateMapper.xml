@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TemplateMapper">
+    <sql id="columns">
+        ID,
+        CODE,
+        `DSC`,
+        IS_DEL,
+        CREATED_TIME,
+        UPDATED_TIME
+	</sql>
+
+    <sql id="tableName">
+		template
+	</sql>
+
+    <select id="findAllCreated">
+        SELECT <include refid="columns"/>
+        FROM <include refid="tableName"/>
+        WHERE UPDATED_TIME IS NULL
+    </select>
+
+    <select id="find" resultType="com.template.model.Template">
+        SELECT <include refid="columns"/>
+        FROM <include refid="tableName"/>
+        WHERE CODE = #{code}
+    </select>
+
+    <select id="findAll" resultType="com.template.model.Template">
+        SELECT <include refid="columns"/>
+        FROM <include refid="tableName"/>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO <include refid="tableName"/>(
+        <include refid="columns"/>
+        ) VALUES (
+
+        )
+    </insert>
+
+    <update id="update">
+		UPDATE <include refid="tableName"/> SET
+
+		WHERE CODE = #{CODE}
+	</update>
+
+    <delete id="delete">
+        DELETE FROM <include refid="tableName"/>
+        WHERE CODE = #{CODE}
+    </delete>
+</mapper>

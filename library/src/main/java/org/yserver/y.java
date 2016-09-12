@@ -1,7 +1,10 @@
 package org.yserver;
 
-import org.yserver.task.TaskManagerImpl;
+import org.yserver.utils.task.TaskManagerImpl;
+import org.yserver.utils.JsonUtil;
 import org.yserver.utils.Log;
+import org.yserver.utils.json.JacksonImpl;
+import org.yserver.utils.TaskManeger;
 
 /**
  * ClassName: y <br>
@@ -12,31 +15,19 @@ import org.yserver.utils.Log;
  * @since JDK 1.7
  */
 public final class y {
+    public static JsonUtil json(){
+        return JacksonImpl.getInstance();
+    }
+
+    public static TaskManeger task() {
+        return TaskManagerImpl.getInstance();
+    }
 
     public static Log log() {
         StackTraceElement caller = new Throwable().getStackTrace()[2];
         return Log.getLogger(caller.getClass());
     }
 
-    public static TaskManeger task() {
-        if (Core.taskManeger == null) {
-            TaskManagerImpl.registerInstance();
-        }
-        return Core.taskManeger;
-    }
-
     private y() {
-    }
-
-    public static class Core {
-        private static TaskManeger taskManeger;
-        private static Log logger;
-
-        public static void setTaskController(TaskManeger taskManeger) {
-            Core.taskManeger = taskManeger;
-        }
-
-        private Core() {
-        }
     }
 }
