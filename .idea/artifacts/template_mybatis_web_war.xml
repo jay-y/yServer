@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="template-mybatis-web:war">
-    <output-path>$PROJECT_DIR$/template/template-mybatis-web/target</output-path>
-    <root id="archive" name="template-mybatis-web.war">
-      <element id="artifact" artifact-name="template-mybatis-web:war exploded" />
-    </root>
-  </artifact>
-</component>
