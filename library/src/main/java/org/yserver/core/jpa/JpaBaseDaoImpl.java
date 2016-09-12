@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.yserver.exception.SystemException;
-import org.yserver.utils.JsonUtil;
 import org.yserver.utils.Log;
 import org.yserver.utils.MessagesUtil;
+import org.yserver.y;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -62,7 +62,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
         }
         String[] flds;
         try {
-            flds = JsonUtil.jsonToBean(jsonFlds, String[].class);
+            flds = y.json().jsonToObject(jsonFlds, String[].class);
             StringBuilder frgmt = new StringBuilder("");
             for (int i = 0; i < flds.length; i++) {
                 if (i > 0) {
@@ -95,7 +95,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
         try {
             StringBuilder frgmt = new StringBuilder();
             if (StringUtils.isNotEmpty(jsonParams)) {// 拼接查询条件
-                Map<String, Object> map = JsonUtil.jsonToMap(jsonParams);
+                Map<String, Object> map = y.json().jsonToMap(jsonParams);
                 Set<String> keys = map.keySet();
                 for (String key : keys) {
                     String val = String.valueOf(map.get(key));
@@ -124,7 +124,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
             StringBuilder frgmt = new StringBuilder();
             if (StringUtils.isNotEmpty(jsonSort)) {
                 frgmt.append(" ORDER BY ");
-                Map<String, Object> map = JsonUtil.jsonToMap(jsonSort);
+                Map<String, Object> map = y.json().jsonToMap(jsonSort);
                 Set<String> keys = map.keySet();
                 boolean flag = false;
                 for (String key : keys) {
@@ -162,7 +162,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
                 List<Predicate> predicates = new ArrayList<>();
 
                 try {
-                    Map<String, Object> map = JsonUtil.jsonToMap(jsonParams);
+                    Map<String, Object> map = y.json().jsonToMap(jsonParams);
                     Set<String> keys = map.keySet();
                     for (String key : keys) {
                         String val = String.valueOf(map.get(key));

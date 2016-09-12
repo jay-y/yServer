@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.yserver.core.controller.BaseController;
 import org.yserver.utils.JsonUtil;
+import org.yserver.y;
 
 import java.util.List;
 import java.util.Map;
@@ -35,9 +36,9 @@ public class TemplateController extends BaseController {
     @RequestMapping(value = "/list")
     @ResponseBody
     public Map<String, Object> list() {
-//        logBefore(logger, "template/list:::" + JsonUtil.toJson(pd));
+//        logBefore(logger, "template/list:::" + y.json().toJson(pd));
         List<Template> list =  templateSvc.findAllCreated();
-        logger.debug(JsonUtil.toJson(list));
+        logger.debug(y.json().toJson(list));
         try {
             return success(list);
         } catch (Exception e) {

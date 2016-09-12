@@ -1,6 +1,6 @@
 package org.yserver.core.mybatis;
 
-import org.yserver.utils.Log;
+import org.yserver.y;
 
 import java.util.List;
 
@@ -15,11 +15,6 @@ import java.util.List;
  */
 public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> implements MyBatisBaseService<T,DAO> {
     /**
-     * 日志记录器
-     */
-    protected final static Log LOGGER = Log.getLogger(MyBatisBaseServiceImpl.class);
-
-    /**
      * insert:(新增). <br>
      *
      * @param entity
@@ -31,7 +26,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             getDao().insert(getDao().getMapperName() + MyBatisDaoConstant.METHOD_INSERT, entity);
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
     }
 
@@ -47,7 +42,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             getDao().update(getDao().getMapperName() + MyBatisDaoConstant.METHOD_UPDATE, entity);
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
     }
 
@@ -63,7 +58,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             getDao().delete(getDao().getMapperName() + MyBatisDaoConstant.METHOD_DELETE, entity);
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
     }
 
@@ -71,7 +66,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             getDao().batchDelete(getDao().getMapperName() + MyBatisDaoConstant.METHOD_DELETE_LIST, list);
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
     }
 
@@ -79,7 +74,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             getDao().delete(getDao().getMapperName() + MyBatisDaoConstant.METHOD_DELETE_ALL, new Object());
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
     }
 
@@ -96,7 +91,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             return (T) getDao().findForObject(getDao().getMapperName() + MyBatisDaoConstant.METHOD_FIND, entity);
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
         return null;
     }
@@ -114,7 +109,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             return (List<T>) getDao().findForList(getDao().getMapperName() + MyBatisDaoConstant.METHOD_FIND_LIST, entity);
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
         return null;
     }
@@ -132,7 +127,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
         try {
             return (List<T>) getDao().findForList(getDao().getMapperName() + MyBatisDaoConstant.METHOD_FIND_ALL, new Object());
         } catch (Throwable e) {
-            LOGGER.error(e.getMessage(), e);
+            y.log().error(e.getMessage(), e);
         }
         return null;
     }

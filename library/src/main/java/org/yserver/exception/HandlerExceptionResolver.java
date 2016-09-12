@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver;
-import org.yserver.utils.Log;
+import org.yserver.y;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,12 +30,6 @@ import java.util.List;
  * Author: ysj
  */
 public class HandlerExceptionResolver extends ExceptionHandlerExceptionResolver {
-
-    /**
-     * 日志记录器
-     */
-    private static final Log LOGGER = Log.getLogger(HandlerExceptionResolver.class);
-
     /**
      * 缺省的错误页面
      */
@@ -76,7 +70,7 @@ public class HandlerExceptionResolver extends ExceptionHandlerExceptionResolver 
             HttpServletRequest request, HttpServletResponse response,
             HandlerMethod handlerMethod, Exception exception) {
 
-        LOGGER.error(exception.getMessage());
+        y.log().error(exception.getMessage());
 
         // 若干reponse输出流被使用，需要重置
         response.reset();
@@ -138,7 +132,7 @@ public class HandlerExceptionResolver extends ExceptionHandlerExceptionResolver 
                     try {
                         response.sendError(responseStatus.value(), reason);
                     } catch (IOException e) {
-                        LOGGER.error(e.getMessage());
+                        y.log().error(e.getMessage());
                     }
                 }
             }
@@ -186,7 +180,7 @@ public class HandlerExceptionResolver extends ExceptionHandlerExceptionResolver 
                     }
                 }
             }
-            LOGGER.warn("Could not find HttpMessageConverter that supports return type ["
+            y.log().warn("Could not find HttpMessageConverter that supports return type ["
                     + returnValueType + "] and " + acceptedMediaTypes);
             return null;
         } finally {
