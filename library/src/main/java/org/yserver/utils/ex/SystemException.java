@@ -1,7 +1,7 @@
-package org.yserver.utils.exception;
+package org.yserver.utils.ex;
 
 /**
- * Description: 自定义系统异常处理.<br>
+ * Description: 自定义系统异常.<br>
  * Date: 2016/4/7 18:05 <br>
  * Author: ysj
  */

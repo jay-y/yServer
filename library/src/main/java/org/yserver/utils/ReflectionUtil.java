@@ -2,7 +2,7 @@ package org.yserver.utils;
 
 import org.apache.commons.lang3.Validate;
 import org.springframework.util.StringUtils;
-import org.yserver.utils.exception.SystemException;
+import org.yserver.utils.ex.SystemException;
 import org.yserver.y;
 
 import java.lang.reflect.Field;
