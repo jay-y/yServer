@@ -1,5 +1,6 @@
 package org.yserver.core.listener;
 
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.web.context.WebApplicationContext;
 import org.yserver.utils.SpringContextHolder;
 
@@ -20,7 +21,6 @@ public class WebContextListener extends
 				.initWebApplicationContext(servletContext);
 		
 //		TaskExecutor taskExecutor = SpringContextHolder.getBean("taskExecutor");
-		
 		return context;
 	}
 }

@@ -12,11 +12,11 @@
     </bean>
 
     <!-- 扫描 base-package指定需要扫描的包，它会扫描指定包中的类和子包里面类 -->
-    <context:component-scan base-package="com.jpa.svc" />
+    <context:component-scan base-package="modules.jpa.svc" />
 
-    <!-- 服务器端配置 -->
+    <!--&lt;!&ndash; 服务器端配置 &ndash;&gt;-->
     <!--<bean id="jpaSvcRegistry" class="org.springframework.remoting.rmi.RmiRegistryFactoryBean">-->
-        <!--<property name="host" value="${base.rmi.host}" />-->
+        <!--&lt;!&ndash;<property name="host" value="${base.rmi.host}" />&ndash;&gt;-->
         <!--<property name="port" value="${base.rmi.port}" />-->
     <!--</bean>-->
     <!--&lt;!&ndash; 动态表单服务 服务端配置 &ndash;&gt;-->
@@ -26,7 +26,7 @@
         <!--&lt;!&ndash; 定义提供服务的实现类，在客户端不用定义 &ndash;&gt;-->
         <!--<property name="service" ref="templateService" />-->
         <!--&lt;!&ndash; 定义提供服务的接口类，在客户端必须定义 &ndash;&gt;-->
-        <!--<property name="serviceInterface" value="com.jpa.api.TemplateService" />-->
+        <!--<property name="serviceInterface" value="modules.template.api.TemplateService" />-->
         <!--&lt;!&ndash; 定义提供服务的地址，客户端使用 &ndash;&gt;-->
         <!--<property name="registry" ref="jpaSvcRegistry" />-->
     <!--</bean>-->

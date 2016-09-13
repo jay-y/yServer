@@ -63,7 +63,7 @@
         <property name="persistenceProvider" ref="persistenceProvider"/>
         <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
         <property name="jpaDialect" ref="jpaDialect"/>
-        <property name="packagesToScan" value="com.template.model"></property>
+        <property name="packagesToScan" value="modules.template.model"></property>
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.ejb.naming_strategy">${hibernate.ejb.naming_strategy}</prop>
@@ -148,11 +148,11 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- 配置spring data -->
-    <jpa:repositories base-package="com.jpa.dao"
+    <jpa:repositories base-package="modules.jpa.dao"
                       entity-manager-factory-ref="entityManagerFactory"
                       transaction-manager-ref="transactionManager" repository-impl-postfix="Impl"
-                      factory-class="org.yserver.core.jpa.DaoFactoryBean"></jpa:repositories>
+                      factory-class="org.yserver.core.jpa.JpaDaoFactoryBean"></jpa:repositories>
 
     <!-- 配置自动扫描的包 -->
-    <context:component-scan base-package="com.jpa.dao"/>
+    <context:component-scan base-package="modules.jpa.dao"/>
 </beans>

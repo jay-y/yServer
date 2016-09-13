@@ -20,13 +20,13 @@
         WHERE UPDATED_TIME IS NULL
     </select>
 
-    <select id="find" resultType="com.template.model.Template">
+    <select id="find" resultType="modules.template.model.Template">
         SELECT <include refid="columns"/>
         FROM <include refid="tableName"/>
         WHERE CODE = #{code}
     </select>
 
-    <select id="findAll" resultType="com.template.model.Template">
+    <select id="findAll" resultType="modules.template.model.Template">
         SELECT <include refid="columns"/>
         FROM <include refid="tableName"/>
     </select>

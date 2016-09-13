@@ -13,8 +13,6 @@
                         http://www.springframework.org/schema/tx
 						http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="com.mybatis.dao"/>
-
     <!-- 加载属性文件 -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" autowire="byName">
@@ -115,4 +113,5 @@
         <constructor-arg ref="sqlSessionFactory"/>
     </bean>
 
+    <context:component-scan base-package="modules.mybatis.dao"/>
 </beans>

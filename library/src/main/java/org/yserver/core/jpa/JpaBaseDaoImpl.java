@@ -5,22 +5,19 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
-import org.yserver.utils.ex.SystemException;
 import org.yserver.utils.Log;
 import org.yserver.utils.MessagesUtil;
+import org.yserver.utils.ex.SystemException;
 import org.yserver.y;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @NoRepositoryBean
-public class JpaBaseDaoImpl<T, ID extends Serializable> extends
+public class JpaBaseDaoImpl<T extends JpaBaseEntity, ID extends Serializable> extends
         SimpleJpaRepository<T, ID> implements JpaBaseDao<T, ID> {
     private static final Log LOGGER = Log.getLogger(JpaBaseDaoImpl.class);
 
@@ -48,8 +45,19 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
         return this.em;
     }
 
+    @Override
+    public <S extends T> S save(S entity) {
+        if (StringUtils.isNotBlank(entity.getCode())) {
+            entity.setUpdatedTime(new Date());
+        } else {
+            entity.setCreatedTime(new Date());
+        }
+        return super.save(entity);
+    }
+
     /**
      * 构建查询字段
+     *
      * @param jsonFlds
      * @return
      * @throws SystemException
@@ -87,6 +95,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
 
     /**
      * 构建查询条件
+     *
      * @param jsonParams
      * @return
      * @throws SystemException
@@ -115,6 +124,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
 
     /**
      * 构建排序字段
+     *
      * @param jsonSort
      * @return
      * @throws SystemException
@@ -149,6 +159,7 @@ public class JpaBaseDaoImpl<T, ID extends Serializable> extends
 
     /**
      * 构建连接查询
+     *
      * @param jsonParams
      * @return
      */
