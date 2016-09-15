@@ -15,9 +15,6 @@ import java.util.Date;
 public abstract class JpaBaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "ID")
-    private long id;
-
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
@@ -35,6 +32,7 @@ public abstract class JpaBaseEntity implements Serializable {
     @Column(name = "UPDATED_TIME")
     private Date updatedTime;
 
+    @Column(name = "VERSION")
     @Version
     private Integer version = 0;//乐观锁
 
@@ -51,14 +49,6 @@ public abstract class JpaBaseEntity implements Serializable {
 
     public void setVersion(Integer version) {
         this.version = version;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getCode() {

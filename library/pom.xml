@@ -12,11 +12,6 @@
     <artifactId>library</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <main.basedir>${basedir}/../</main.basedir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <build>
         <finalName>${project.artifactId}</finalName>
     </build>

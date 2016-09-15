@@ -28,9 +28,9 @@ public interface MyBatisBaseService<T,DAO extends MyBatisBaseDao> {
     /**
      * deleteList
      *
-     * @param entity
+     * @param list
      */
-    void deleteList(List<T> entity);
+    void deleteList(List<T> list);
 
     /**
      * deleteList

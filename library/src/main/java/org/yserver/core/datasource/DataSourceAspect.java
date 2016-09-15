@@ -27,23 +27,25 @@ public class DataSourceAspect implements MethodBeforeAdvice,
     @Override
     public void before(Method method, Object[] args, Object target)
             throws Throwable {
+        String source = null;
         // 这里DataSource是自定义的注解，不是java里的DataSource接口
         if (method.isAnnotationPresent(DataSource.class)) {
             DataSource datasource = method.getAnnotation(DataSource.class);
-            DataSourceHolder.setDataSource(datasource.value());
+            source = datasource.value();
         } else if (target.getClass().isAnnotationPresent(DataSource.class)) {
             DataSource datasource = target.getClass().getAnnotation(DataSource.class);
-            DataSourceHolder.setDataSource(datasource.value());
-            y.log().debug(datasource.value());
+            source = datasource.value();
         } else {
             try {
                 // target是被织入增强处理的目标对象，通过获取getDataSource函数来获取target的数据源名称
-                DataSourceHolder.setDataSource(target.getClass()
-                        .getMethod("getDataSource").invoke(target).toString());
+                source = target.getClass()
+                        .getMethod("getDataSource").invoke(target).toString();
             } catch (NoSuchMethodException e) {
                 // do nothing
-                y.log().error(e.getMessage(),e);
+                y.log().error(e.getMessage(), e);
             }
         }
+        y.log().debug(source);
+        DataSourceHolder.setDataSource(source);
     }
 }

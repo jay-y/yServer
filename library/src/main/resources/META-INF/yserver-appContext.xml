@@ -2,8 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="org.yserver.core"/>
 
@@ -26,4 +27,32 @@
         <!-- 线程池维护线程所允许的空闲时间，默认为60s -->
         <property name="keepAliveSeconds" value="${base.task.keepAliveSeconds}"/>
     </bean>
+
+    <!-- 事务 -->
+    <tx:advice id="txAdvice">
+        <tx:attributes>
+            <tx:method name="*"/>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="select*" read-only="true"/>
+            <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <bean id="dataSourceAspect" class="org.yserver.core.datasource.DataSourceAspect"/>
+
+    <!-- 事务入口 -->
+    <aop:config>
+        <!-- 配置all service切入点 -->
+        <aop:pointcut expression="execution(* modules.*.svc..*.*(..))" id="servicePointcut"/>
+        <!-- 配置 custom service切入点 -->
+        <aop:pointcut expression="execution(* modules.*.svc..*.*(..))" id="customService"/>
+        <aop:advisor pointcut-ref="servicePointcut" advice-ref="txAdvice" order="2"/>
+        <aop:advisor pointcut-ref="customService" advice-ref="dataSourceAspect" order="1"/>
+    </aop:config>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
 </beans>

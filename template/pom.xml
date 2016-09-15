@@ -14,14 +14,10 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>template-jpa-dao</module>
-        <module>template-jpa-svc</module>
-        <module>template-jpa-web</module>
-        <module>template-mybatis-dao</module>
-        <module>template-mybatis-svc</module>
-        <module>template-mybatis-web</module>
-        <module>template-model</module>
         <module>template-api</module>
+        <module>template-model</module>
+        <module>template-jpa-webapp</module>
+        <module>template-mybatis-webapp</module>
     </modules>
 
 </project>
