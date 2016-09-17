@@ -1,4 +1,4 @@
-package modules.jpa.dao;
+package modules.template.dao;
 
 import modules.template.model.Template;
 import org.springframework.data.jpa.repository.Query;

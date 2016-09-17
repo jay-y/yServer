@@ -1,4 +1,4 @@
-package modules.mybatis.dao;
+package modules.template.dao;
 
 import modules.template.model.Template;
 import org.mybatis.spring.SqlSessionTemplate;

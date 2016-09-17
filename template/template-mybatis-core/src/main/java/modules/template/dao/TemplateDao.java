@@ -1,4 +1,4 @@
-package modules.mybatis.dao;
+package modules.template.dao;
 
 import org.springframework.stereotype.Repository;
 

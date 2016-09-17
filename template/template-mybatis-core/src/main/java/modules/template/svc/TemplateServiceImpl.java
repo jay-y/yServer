@@ -1,7 +1,7 @@
-package modules.mybatis.svc;
+package modules.template.svc;
 
-import modules.mybatis.dao.TemplateDao;
 import modules.template.api.TemplateService;
+import modules.template.dao.TemplateDao;
 import modules.template.model.Template;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +33,7 @@ public class TemplateServiceImpl extends MyBatisBaseServiceImpl<Template, Templa
     @Override
     public List<Template> findAllCreated() {
         try {
-            return dao.findForList(dao.getMapperName()+".findAllCreated",null);
+            return getDao().findForList(getDao().getMapperName()+".findAllCreated",null);
         } catch (Exception e) {
             y.log().error(e.getMessage(),e);
         }

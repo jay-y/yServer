@@ -1,6 +1,6 @@
-package modules.mybatis.controller;
+package modules.template.controller;
 
-import modules.mybatis.svc.TemplateServiceImpl;
+import modules.template.svc.TemplateServiceImpl;
 import modules.template.model.Template;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +40,7 @@ public class TemplateController extends BaseController {
     @ResponseBody
     public Map<String, Object> list() {
 //        logBefore(logger, "template/list:::" + y.json().toJson(pd));
-        List<Template> list =  templateSvc.findAll();
+        List<Template> list =  templateSvc.findAllCreated();
         logger.debug(y.json().toJson(list));
         try {
             return success(list);
