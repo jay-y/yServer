@@ -14,10 +14,10 @@
     <version>1.0.0</version>
 
     <modules>
-        <module>template-api</module>
-        <module>template-model</module>
-        <module>template-jpa-webapp</module>
-        <module>template-mybatis-webapp</module>
+        <module>template-common</module>
+        <module>template-jpa-core</module>
+        <module>template-mybatis-core</module>
+        <module>template-webapp</module>
     </modules>
 
 </project>

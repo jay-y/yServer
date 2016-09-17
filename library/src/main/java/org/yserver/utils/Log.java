@@ -35,28 +35,44 @@ public class Log {
         logger.info(object);
     }
 
+    public void info(String object, Object... objs) {
+        logger.info(genTag() + object, objs);
+    }
+
     public void info(String object, Throwable e) {
         logger.info(object, e);
     }
 
     public void warn(String object) {
-        logger.warn(object);
+        logger.warn(genTag() + object);
+    }
+
+    public void warn(String object, Object... objs) {
+        logger.warn(genTag() + object, objs);
     }
 
     public void warn(String object, Throwable e) {
-        logger.warn(object,e);
+        logger.warn(genTag() + object, e);
     }
 
     public void error(String object) {
-        logger.error(genTag()+object);
+        logger.error(genTag() + object);
+    }
+
+    public void error(String object, Object... objs) {
+        logger.error(genTag() + object, objs);
     }
 
     public void error(String object, Throwable e) {
-        logger.error(genTag()+object,e);
+        logger.error(genTag() + object, e);
     }
 
     public void trace(String object) {
         logger.trace(object);
+    }
+
+    public void trace(String object, Object... objs) {
+        logger.trace(genTag() + object, objs);
     }
 
     public void trace(String object, Throwable e) {
@@ -64,14 +80,22 @@ public class Log {
     }
 
     public void debug(String object) {
-        logger.debug(genTag()+object);
+        logger.debug(genTag() + object);
+    }
+
+    public void debug(String object, Object... objs) {
+        logger.debug(genTag() + object, objs);
     }
 
     public void debug(String object, Throwable e) {
-        logger.debug(genTag()+object,e);
+        logger.debug(genTag() + object, e);
     }
 
-    private String genTag(){
+    public boolean isDebug() {
+        return logger.isDebugEnabled();
+    }
+
+    private String genTag() {
         StackTraceElement caller = new Throwable().getStackTrace()[2];
         String tag = "%s.%s(L:%d):";
         String callerClazzName = caller.getClassName();

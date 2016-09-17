@@ -15,6 +15,7 @@ import org.yserver.utils.task.TaskManagerImpl;
  * @since JDK 1.7
  */
 public final class y {
+
     public static JsonUtil json(){
         return JacksonImpl.getInstance();
     }

@@ -25,8 +25,6 @@ public class Constant {
     public static final String _SUCCESS = "success";
 
     public static class ServerConfig {
-        public static final String NO_INTERCEPTOR_PATH = ".*/((timeout)|(login)|(versionCheck)|(getKeyWord)|(getSize)|(getArrList)|(getExtAreas)).*";
-
         /**
          * Response Constants
          */
@@ -44,5 +42,7 @@ public class Constant {
         public static final String RESPONSE_SUCCESS_CODE_200 = "200"; // 请求成功
         public static final String RESPONSE_ERROR_CODE_300 = "300"; // 重定向请求
         public static final String RESPONSE_ERROR_CODE_500 = "500"; // 系统错误
+
+        public static final String HTTP_CHARSET = "UTF-8";
     }
 }

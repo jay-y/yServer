@@ -1,8 +1,11 @@
 package org.yserver.core.jpa;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import java.io.Serializable;
 import java.util.List;
 
+@Transactional
 public abstract class JpaBaseServiceImpl<T extends JpaBaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> implements
         JpaBaseService<T, ID, DAO> {
 
