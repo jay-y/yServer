@@ -1,10 +1,9 @@
 package modules.template.dao;
 
+import modules.template.dao.base.TmpBaseDao;
 import modules.template.model.Template;
 import org.springframework.data.jpa.repository.Query;
-import org.yserver.core.jpa.JpaBaseDao;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,7 +11,7 @@ import java.util.List;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface TemplateDao extends JpaBaseDao<Template, Serializable> {
+public interface TemplateDao extends TmpBaseDao<Template> {
 
     @Query("select o from Template o where o.updatedTime is null")
     List<Template> findAllCreated();

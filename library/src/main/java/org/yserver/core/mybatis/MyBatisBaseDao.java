@@ -14,12 +14,6 @@ public interface MyBatisBaseDao<T extends Object> {
 	SqlSessionTemplate getSqlSessionTemplate();
 
 	/**
-	 * 获取数据库源名
-	 * @return
-	 */
-	String getDataSource();
-
-	/**
 	 * 获取映射名
 	 * @return
 	 */

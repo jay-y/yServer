@@ -1,5 +1,8 @@
 package org.yserver.core.jpa;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.io.Serializable;
 import java.rmi.Remote;
 import java.util.List;
@@ -18,6 +21,15 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      * @param entity
      */
     T save(T entity);
+
+    /**
+     * batch save
+     *
+     * @param entities
+     * @param <S>
+     * @return
+     */
+    <S extends T> List<S> save(List<S> entities);
 
     /**
      * delete
@@ -60,4 +72,12 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      * @return
      */
     List<T> findAll();
+
+    /**
+     * findPage
+     *
+     * @param pageable
+     * @return
+     */
+    Page<T> findPage(Pageable pageable);
 }

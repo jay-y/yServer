@@ -14,6 +14,7 @@ import java.util.List;
  * @since JDK 1.7
  */
 public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> implements MyBatisBaseService<T,DAO> {
+
     /**
      * insert:(新增). <br>
      *

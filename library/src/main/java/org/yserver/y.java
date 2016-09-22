@@ -25,8 +25,7 @@ public final class y {
     }
 
     public static Log log() {
-        StackTraceElement caller = new Throwable().getStackTrace()[2];
-        return Log.getLogger(caller.getClass());
+        return Log.getLogger(y.class);
     }
 
     private y() {

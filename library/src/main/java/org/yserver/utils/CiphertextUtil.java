@@ -22,7 +22,7 @@ public class CiphertextUtil {
      * @param algorithmsName 算法名称(如:MD5,SHA-1,SHA-256)
      * @return
      */
-    public static String passAlgorithmsCiphering(String sourceStr, String algorithmsName) {
+    public static String encrypt(String sourceStr, String algorithmsName) {
         String password = "";
         MessageDigest md;
         try {

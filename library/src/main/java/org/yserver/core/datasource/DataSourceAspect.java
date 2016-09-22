@@ -2,6 +2,7 @@ package org.yserver.core.datasource;
 
 import org.springframework.aop.AfterReturningAdvice;
 import org.springframework.aop.MethodBeforeAdvice;
+import org.yserver.utils.ReflectionUtil;
 import org.yserver.y;
 
 import java.lang.reflect.Method;
@@ -27,25 +28,24 @@ public class DataSourceAspect implements MethodBeforeAdvice,
     @Override
     public void before(Method method, Object[] args, Object target)
             throws Throwable {
+        DataSource datasource = null;
         String source = null;
+        Class<?> cls;
         // 这里DataSource是自定义的注解，不是java里的DataSource接口
         if (method.isAnnotationPresent(DataSource.class)) {
-            DataSource datasource = method.getAnnotation(DataSource.class);
-            source = datasource.value();
+            datasource = method.getAnnotation(DataSource.class);
         } else if (target.getClass().isAnnotationPresent(DataSource.class)) {
-            DataSource datasource = target.getClass().getAnnotation(DataSource.class);
-            source = datasource.value();
+            cls = target.getClass();
+            datasource = cls.getAnnotation(DataSource.class);
         } else {
-            try {
-                // target是被织入增强处理的目标对象，通过获取getDataSource函数来获取target的数据源名称
-                source = target.getClass()
-                        .getMethod("getDataSource").invoke(target).toString();
-            } catch (NoSuchMethodException e) {
-                // do nothing
-                y.log().error(e.getMessage(), e);
+            cls = ReflectionUtil.getUserClass(target.getClass());
+            if (cls.isAnnotationPresent(DataSource.class)) {
+                datasource = cls.getAnnotation(DataSource.class);
+            } else {
+                y.log().warn("{} could not be loaded.", target.getClass().getName());
             }
         }
-        y.log().debug(source);
+        if (null != datasource) source = datasource.value();
         DataSourceHolder.setDataSource(source);
     }
 }

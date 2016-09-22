@@ -23,6 +23,9 @@ public class Constant {
     public static final String _MSG = "msg";
     public static final String _ERROR = "error";
     public static final String _SUCCESS = "success";
+    public static final String _UTF_8 = "UTF-8";
+    public static final String _TRUE = "true";
+    public static final String _FALSE = "false";
 
     public static class ServerConfig {
         /**
@@ -37,12 +40,10 @@ public class Constant {
         public static final char RESPONSE_STATUS_SUCCESS = '0';
         public static final char RESPONSE_STATUS_ERROR = '1';
         public static final char RESPONSE_STATUS_FAIL = '2';
-        public static final char RESPONSE_STATUS_GETCODE_TIMEOUT = '8';
         public static final char RESPONSE_STATUS_TIMEOUT = '9';
         public static final String RESPONSE_SUCCESS_CODE_200 = "200"; // 请求成功
         public static final String RESPONSE_ERROR_CODE_300 = "300"; // 重定向请求
+        public static final String RESPONSE_ERROR_CODE_400 = "400"; // 请求错误
         public static final String RESPONSE_ERROR_CODE_500 = "500"; // 系统错误
-
-        public static final String HTTP_CHARSET = "UTF-8";
     }
 }

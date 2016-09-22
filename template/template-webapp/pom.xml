@@ -14,12 +14,37 @@
     <dependencies>
         <dependency>
             <groupId>org.yserver</groupId>
-            <artifactId>template-jpa-core</artifactId>
+            <artifactId>template-mybatis-core</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yserver</groupId>
+            <artifactId>source-smart</artifactId>
+            <version>${project.version}</version>
+            <type>war</type>
         </dependency>
     </dependencies>
 
     <build>
         <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven-war-plugin.version}</version>
+                <configuration>
+                    <overlays>
+                        <overlay>
+                            <groupId>org.yserver</groupId>
+                            <artifactId>source-smart</artifactId>
+                            <excludes>
+                                <exclude>**/lib/</exclude>
+                                <exclude>**/web.xml</exclude>
+                            </excludes>
+                        </overlay>
+                    </overlays>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

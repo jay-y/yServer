@@ -19,22 +19,20 @@ public abstract class JpaBaseEntity implements Serializable {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
     @Column(name = "CODE")
-    private String code;
+    protected String code;
 
     @Column(name = "IS_DEL", nullable = false)
-    private char isDel;
+    protected char isDel;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "CREATED_TIME", nullable = false)
-    private Date createdTime;
+    protected Date createdTime;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED_TIME")
-    private Date updatedTime;
+    protected Date updatedTime;
 
     @Column(name = "VERSION")
     @Version
-    private Integer version = 0;//乐观锁
+    protected Integer version = 0;//乐观锁
 
     public JpaBaseEntity() {
     }

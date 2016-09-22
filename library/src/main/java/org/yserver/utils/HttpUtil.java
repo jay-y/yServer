@@ -100,7 +100,7 @@ public class HttpUtil {
             HttpEntity entity = response.getEntity();
             if (entity != null) {
                 InputStream instream = entity.getContent();
-                result = IOUtils.toString(instream, Constant.ServerConfig.HTTP_CHARSET);
+                result = IOUtils.toString(instream, Constant._UTF_8);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -136,10 +136,10 @@ public class HttpUtil {
                         .getValue().toString());
                 pairList.add(pair);
             }
-            httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(Constant.ServerConfig.HTTP_CHARSET)));
+            httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(Constant._UTF_8)));
             response = getHttpClient().execute(httpPost);
             HttpEntity entity = response.getEntity();
-            httpStr = EntityUtils.toString(entity, Constant.ServerConfig.HTTP_CHARSET);
+            httpStr = EntityUtils.toString(entity, Constant._UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -166,13 +166,13 @@ public class HttpUtil {
         HttpPost httpPost = new HttpPost(apiUrl);
         CloseableHttpResponse response = null;
         try {
-            StringEntity stringEntity = new StringEntity(json.toString(), Constant.ServerConfig.HTTP_CHARSET);//解决中文乱码问题
-            stringEntity.setContentEncoding(Constant.ServerConfig.HTTP_CHARSET);
+            StringEntity stringEntity = new StringEntity(json.toString(), Constant._UTF_8);//解决中文乱码问题
+            stringEntity.setContentEncoding(Constant._UTF_8);
             stringEntity.setContentType("application/json");
             httpPost.setEntity(stringEntity);
             response = getHttpClient().execute(httpPost);
             HttpEntity entity = response.getEntity();
-            httpStr = EntityUtils.toString(entity, Constant.ServerConfig.HTTP_CHARSET);
+            httpStr = EntityUtils.toString(entity, Constant._UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -210,7 +210,7 @@ public class HttpUtil {
                         .getValue().toString());
                 pairList.add(pair);
             }
-            httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(Constant.ServerConfig.HTTP_CHARSET)));
+            httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(Constant._UTF_8)));
             response = getHttpClient().execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode != HttpStatus.SC_OK) {
@@ -220,7 +220,7 @@ public class HttpUtil {
             if (entity == null) {
                 return null;
             }
-            httpStr = EntityUtils.toString(entity, Constant.ServerConfig.HTTP_CHARSET);
+            httpStr = EntityUtils.toString(entity, Constant._UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -252,8 +252,8 @@ public class HttpUtil {
         CloseableHttpResponse response = null;
         String httpStr = null;
         try {
-            StringEntity stringEntity = new StringEntity(json.toString(), Constant.ServerConfig.HTTP_CHARSET);//解决中文乱码问题
-            stringEntity.setContentEncoding(Constant.ServerConfig.HTTP_CHARSET);
+            StringEntity stringEntity = new StringEntity(json.toString(), Constant._UTF_8);//解决中文乱码问题
+            stringEntity.setContentEncoding(Constant._UTF_8);
             stringEntity.setContentType("application/json");
             httpPost.setEntity(stringEntity);
             response = getHttpClient().execute(httpPost);
@@ -265,7 +265,7 @@ public class HttpUtil {
             if (entity == null) {
                 return null;
             }
-            httpStr = EntityUtils.toString(entity, Constant.ServerConfig.HTTP_CHARSET);
+            httpStr = EntityUtils.toString(entity, Constant._UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

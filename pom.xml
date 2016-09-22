@@ -11,6 +11,7 @@
 
     <modules>
         <module>library</module>
+        <module>source</module>
         <module>template</module>
     </modules>
 
@@ -28,6 +29,7 @@
         <maven-javadoc-plugin.version>[2.9,)</maven-javadoc-plugin.version>
         <maven-dependency-plugin.version>[2.9,)</maven-dependency-plugin.version>
         <maven-jar-plugin.version>[2.4,)</maven-jar-plugin.version>
+        <maven-war-plugin.version>[2.4,)</maven-war-plugin.version>
         <web.framework>spring</web.framework>
         <dependency.default.scope>provided</dependency.default.scope>
 
@@ -171,11 +173,55 @@
             <version>${poi.version}</version>
         </dependency>
 
+        <!-- security -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-cas</artifactId>
+            <version>${shiro.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-ehcache</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+
         <!-- jstl -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>${javax-jstl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>${standard.version}</version>
         </dependency>
 
         <!-- servlet -->
@@ -481,7 +527,7 @@
     </issueManagement>
 
     <organization>
-        <name>safehy team</name>
+        <name>Safehy Team</name>
         <url>http://www.safehy.com/index.html</url>
     </organization>
 

@@ -89,7 +89,7 @@
     <mvc:default-servlet-handler/>
 
     <!-- 对静态资源文件的访问 restful -->
-    <mvc:resources mapping="/source/**" location="/WEB-INF/source/"/>
+    <mvc:resources mapping="/source/**" location="/source/"/>
 
     <!-- 定义无Controller的path<->view直接映射 -->
     <mvc:view-controller path="/" view-name="redirect:/"/>

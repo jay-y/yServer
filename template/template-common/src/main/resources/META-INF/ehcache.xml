@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache updateCheck="false">
 
-    <diskStore path="../temp/yweb/cache" /> <!-- 缓存存放目录(此目录为放入系统默认缓存目录),也可以是”D:/cache“ java.io.tmpdir -->
+    <diskStore path="../temp/yserver/cache"/> <!-- 缓存存放目录(此目录为放入系统默认缓存目录),也可以是”D:/cache“ java.io.tmpdir -->
+
+    <!-- 默认缓存配置. -->
     <defaultCache
             maxElementsInMemory="10000"
             eternal="false"
@@ -11,9 +13,33 @@
             maxElementsOnDisk="10000000"
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="120"
-            memoryStoreEvictionPolicy="LRU"
-            />
-      <!--
+            memoryStoreEvictionPolicy="LRU"/>
+
+    <!-- 系统缓存 -->
+    <cache name="sysCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true"/>
+
+    <!-- 用户缓存 -->
+    <cache name="userCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true"/>
+
+    <!-- 基本业务信息缓存 -->
+    <cache name="baseCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true"/>
+
+    <!-- 工作流模块缓存 -->
+    <!-- 	<cache name="actCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true"/> -->
+
+    <!-- 内容管理模块缓存
+    <cache name="cmsCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true"/> -->
+
+    <!-- 系统活动会话缓存 -->
+    <cache name="companySessionsCache" maxEntriesLocalHeap="10000" overflowToDisk="true"
+           eternal="true" timeToLiveSeconds="0" timeToIdleSeconds="0"
+           diskPersistent="true" diskExpiryThreadIntervalSeconds="600"/>
+
+    <!-- 简单页面缓存
+    <cache name="SimplePageCachingFilter" maxEntriesLocalHeap="100" eternal="false" overflowToDisk="true"
+    	timeToIdleSeconds="120" timeToLiveSeconds="120" memoryStoreEvictionPolicy="LFU"/> -->
+
+    <!--
     name：Cache的唯一标识
     maxElementsInMemory：内存中最大缓存对象数
     maxElementsOnDisk：磁盘中最大缓存对象数，若是0表示无穷大

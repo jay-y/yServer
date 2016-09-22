@@ -1,12 +1,12 @@
 package org.yserver.core.jpa;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 import org.yserver.utils.Log;
 import org.yserver.utils.MessagesUtil;
+import org.yserver.utils.StringUtils;
 import org.yserver.utils.ex.SystemException;
 import org.yserver.y;
 

@@ -1,5 +1,7 @@
 package org.yserver.core.jpa;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
@@ -9,38 +11,40 @@ import java.util.List;
 public abstract class JpaBaseServiceImpl<T extends JpaBaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> implements
         JpaBaseService<T, ID, DAO> {
 
-    @Override
     public T save(T entity) {
         return getDao().save(entity);
     }
 
-    @Override
+    public <S extends T> List<S> save(List<S> entities) {
+        return getDao().save(entities);
+    }
+
     public void delete(T entity) {
         getDao().delete(entity);
     }
 
-    @Override
     public void deleteList(List<T> list) {
         getDao().delete(list);
     }
 
-    @Override
     public void deleteAll() {
         getDao().deleteAllInBatch();
     }
 
-    @Override
     public T find(ID id) {
         return getDao().findOne(id);
     }
 
-    @Override
     public List<T> findList(List<ID> ids) {
         return getDao().findAll(ids);
     }
 
-    @Override
     public List<T> findAll() {
         return getDao().findAll();
+    }
+
+    @Override
+    public Page<T> findPage(Pageable pageable) {
+        return getDao().findAll(pageable);
     }
 }
