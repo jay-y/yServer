@@ -64,7 +64,7 @@
             var sTitle = c.checkEmpty(col.sTitle) ? (hasData ? col.mData : "") : col.sTitle;
             conditionTr += "<th class='hasinput" + (col.class == 'hidden' ? " " + col.class : "") + "'>"
                 + (hasData ? "<input type='" + sType + "' class='form-control custom-condition' placeholder='" + sTitle + "'/>" : "")
-                + "</th>"
+                + "</th>";
             headTr += "<th>" + sTitle + "</th>"
         }
         conditionTr += "</tr>";

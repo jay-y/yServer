@@ -82,12 +82,12 @@ public class BaseController implements ControllerApi {
             return getRespBuilder(response)
                     .setModel(model)
                     .setMsg("请求错误")
-                    .error();
+                    .fail();
         } else {
             return getRespBuilder(response)
                     .setModel(model)
                     .setMsg("系统异常")
-                    .fail();
+                    .error();
         }
     }
 

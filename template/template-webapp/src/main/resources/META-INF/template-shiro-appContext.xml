@@ -19,6 +19,7 @@
                 /cas = cas
                 /login = authc
                 /logout = logout
+                ${clientPath}/** = anon
                 ${adminPath}/** = user
                 /** = user
             </value>

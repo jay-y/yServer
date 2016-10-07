@@ -21,8 +21,8 @@ public abstract class JpaBaseEntity implements Serializable {
     @Column(name = "CODE")
     protected String code;
 
-    @Column(name = "IS_DEL", nullable = false)
-    protected char isDel;
+    @Column(name = "REMARKS")
+    protected String remarks;
 
     @Column(name = "CREATED_TIME", nullable = false)
     protected Date createdTime;
@@ -33,6 +33,9 @@ public abstract class JpaBaseEntity implements Serializable {
     @Column(name = "VERSION")
     @Version
     protected Integer version = 0;//乐观锁
+
+    @Column(name = "IS_DEL", nullable = false)
+    protected char isDel = 'n';
 
     public JpaBaseEntity() {
     }
@@ -63,6 +66,14 @@ public abstract class JpaBaseEntity implements Serializable {
 
     public void setIsDel(char isDel) {
         this.isDel = isDel;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
     }
 
     public Date getCreatedTime() {

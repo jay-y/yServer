@@ -15,5 +15,6 @@
     <modules>
         <module>source-common</module>
         <module>source-smart</module>
+        <module>source-weui</module>
     </modules>
 </project>

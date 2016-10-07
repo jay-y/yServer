@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="/WEB-INF/include/taglib.jsp" %>
+<%@ include file="/WEB-INF/template-inc/taglib.jsp" %>
 
 <!DOCTYPE html>
 <html lang="en-us" id="extr-page">

@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ include file="/WEB-INF/include/taglib.jsp" %>
+<%@ include file="/WEB-INF/template-inc/taglib.jsp" %>
 
 <div class="row">
     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">

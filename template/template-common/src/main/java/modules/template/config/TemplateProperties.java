@@ -16,7 +16,7 @@ public class TemplateProperties {
     /**
      * 属性文件加载对象
      */
-    private static final PropertiesLoader loader = new PropertiesLoader("META-INF/wechat.properties");
+    private static final PropertiesLoader loader = new PropertiesLoader("META-INF/template.properties");
 
     /**
      * 保存全局属性值

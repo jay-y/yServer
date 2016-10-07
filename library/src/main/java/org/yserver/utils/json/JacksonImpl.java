@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
-public class JacksonImpl implements JsonUtil {
+public class JacksonImpl extends ObjectMapper implements JsonUtil {
     private static JsonUtil instance;
 
     private ObjectMapper objectMapper;

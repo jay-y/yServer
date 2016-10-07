@@ -1,5 +1,4 @@
 <%@ tag language="java" pageEncoding="UTF-8" %>
-<%@ include file="/WEB-INF/include/taglib.jsp" %>
 <%@ attribute name="name" type="java.lang.String" required="true" description="验证码输入框名称" %>
 <%@ attribute name="inputCssStyle" type="java.lang.String" required="false" description="验证框样式" %>
 <%@ attribute name="imageCssStyle" type="java.lang.String" required="false" description="验证码图片样式" %>
