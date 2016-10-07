@@ -21,6 +21,7 @@ public abstract class JpaBaseEntity implements Serializable {
     @Column(name = "CODE")
     protected String code;
 
+    @Lob
     @Column(name = "REMARKS")
     protected String remarks;
 
