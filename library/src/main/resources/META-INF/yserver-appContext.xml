@@ -52,10 +52,8 @@
     <aop:config>
         <!-- 配置all service切入点 -->
         <aop:pointcut expression="execution(* modules.*.svc..*.*(..))" id="servicePointcut"/>
-        <!-- 配置 custom service切入点 -->
-        <aop:pointcut expression="execution(* modules.*.svc..*.*(..))" id="customService"/>
         <aop:advisor pointcut-ref="servicePointcut" advice-ref="txAdvice" order="2"/>
-        <aop:advisor pointcut-ref="customService" advice-ref="dataSourceAspect" order="1"/>
+        <aop:advisor pointcut-ref="servicePointcut" advice-ref="dataSourceAspect" order="1"/>
     </aop:config>
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
