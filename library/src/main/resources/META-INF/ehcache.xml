@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache updateCheck="false">
+<ehcache updateCheck="false" name="defaultCache">
 
-    <diskStore path="../temp/yserver/cache"/> <!-- 缓存存放目录(此目录为放入系统默认缓存目录),也可以是”D:/cache“ java.io.tmpdir -->
+    <diskStore path="../yserver/cache" /> <!-- 缓存存放目录(此目录为放入系统默认缓存目录),也可以是”D:/cache“ java.io.tmpdir -->
 
     <!-- 默认缓存配置. -->
     <defaultCache

@@ -107,7 +107,7 @@ public class Log {
     /**
      * 构造方法，初始化Log4j的日志对象
      */
-    private Log(org.slf4j.Logger logger) {
+    private Log(Logger logger) {
         this.logger = logger;
     }
 }

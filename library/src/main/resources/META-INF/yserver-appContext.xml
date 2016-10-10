@@ -55,4 +55,9 @@
     </aop:config>
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- 缓存配置 -->
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:META-INF/ehcache.xml"/>
+    </bean>
 </beans>
