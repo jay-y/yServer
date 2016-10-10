@@ -57,7 +57,7 @@ public class TemplateController extends TmpBaseController {
      * @return
      */
     @RequiresPermissions("user")
-    @RequestMapping(value = {"", "${adminPath}"})
+    @RequestMapping(value = "${adminPath}")
     public String index(HttpServletRequest request, HttpServletResponse response) {
 //        SystemAuthorizingRealm.Principal principal = UserUtil.getPrincipal();
 //        // 登录成功后，验证码计算器清零

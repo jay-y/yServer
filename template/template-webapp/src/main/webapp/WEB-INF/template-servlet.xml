@@ -33,22 +33,6 @@
                     <bean class="org.yserver.utils.json.JacksonImpl"></bean>
                 </property>
             </bean>
-            <!-- 使用XML格式输出数据 -->
-            <!--<bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">-->
-            <!--<constructor-arg>-->
-            <!--<bean class="org.springframework.oxm.xstream.XStreamMarshaller">-->
-            <!--<property name="streamDriver">-->
-            <!--<bean class="com.thoughtworks.xstream.io.xml.StaxDriver"/>-->
-            <!--</property>-->
-            <!--<property name="annotatedClasses">-->
-            <!--<list>-->
-            <!--<value>org.yserver.core.xxx.xxxEntity</value>-->
-            <!--</list>-->
-            <!--</property>-->
-            <!--</bean>-->
-            <!--</constructor-arg>-->
-            <!--<property name="supportedMediaTypes" value="application/xml"></property>-->
-            <!--</bean>-->
         </mvc:message-converters>
     </mvc:annotation-driven>
 
@@ -71,19 +55,6 @@
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
-    <!-- ContentNegotiatingViewResolver类根据不同的请求，将返回会结果指派给InternalResourceViewResolver和BeanNameViewResolver来处理,
-		当媒体类型是'text/html'是, 将指派给InternalResourceViewResolver类处理, 其他类型，将指派给 BeanNameViewResolver类处理。 -->
-    <!--<bean-->
-    <!--class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
-    <!--<property name="contentNegotiationManager" ref="contentNegotiationManager"/>-->
-
-    <!--<property name="viewResolvers">-->
-    <!--<list>-->
-    <!--&lt;!&ndash; Used here for 'xml' and 'atom' views &ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"></bean>-->
-    <!--</list>-->
-    <!--</property>-->
-    <!--</bean>-->
 
     <!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
     <mvc:default-servlet-handler/>
@@ -92,7 +63,7 @@
     <mvc:resources mapping="/source/**" location="/source/"/>
 
     <!-- 定义无Controller的path<->view直接映射 -->
-    <mvc:view-controller path="/" view-name="redirect:/"/>
+    <mvc:view-controller path="/" view-name="redirect:${adminPath}"/>
 
     <bean id="exceptionResolver" class="org.yserver.core.exception.CustomHandlerExceptionResolver"></bean>
 
