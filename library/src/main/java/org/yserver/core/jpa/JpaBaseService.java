@@ -1,5 +1,7 @@
 package org.yserver.core.jpa;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -20,6 +22,7 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      *
      * @param entity
      */
+    @CacheEvict(value = "baseCache", key = "#entity.code + 'find'")
     T save(T entity);
 
     /**
@@ -29,6 +32,7 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      * @param <S>
      * @return
      */
+    @CacheEvict(value = "baseCache", allEntries = true)
     <S extends T> List<S> save(List<S> entities);
 
     /**
@@ -36,6 +40,7 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      *
      * @param entity
      */
+    @CacheEvict(value = "baseCache", key = "#entity.code + 'find'")
     void delete(T entity);
 
     /**
@@ -43,11 +48,13 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      *
      * @param list
      */
+    @CacheEvict(value = "baseCache", allEntries = true)
     void deleteList(List<T> list);
 
     /**
-     * deleteList
+     * deleteAll
      */
+    @CacheEvict(value = "baseCache", allEntries = true)
     void deleteAll();
 
     /**
@@ -56,6 +63,7 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
      * @param id
      * @return
      */
+    @Cacheable(value = "baseCache", key = "#id + 'find'")
     T find(ID id);
 
     /**
