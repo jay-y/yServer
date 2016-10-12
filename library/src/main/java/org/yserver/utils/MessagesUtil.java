@@ -10,21 +10,20 @@ import java.util.ResourceBundle;
  */
 public final class MessagesUtil {
 
-	/**
-	 * getComMsg:根据系统当前语言环境，从公共ResourceBundle中获得属性值. <br/>
-	 * 
-	 * @author zhaogang
-	 * @param key
-	 * @return
-	 * @since JDK 1.6 date: 2014年6月15日 下午3:43:38 <br/>
-	 */
-	public static String getValue(String key) {
-		Locale currentLocale = Locale.getDefault();
-		ResourceBundle resb = ResourceBundle.getBundle(
-				"META-INF/messages", currentLocale);
-		return resb.getString(key);
-	}
+    /**
+     * getValue:根据系统当前语言环境，从公共ResourceBundle中获得属性值. <br/>
+     *
+     * @param key
+     * @return
+     * @date: 2014年6月15日 下午3:43:38 <br/>
+     */
+    public static String getValue(String key) {
+        Locale currentLocale = Locale.getDefault();
+        ResourceBundle resb = ResourceBundle.getBundle(
+                "META-INF/messages", currentLocale);
+        return resb.getString(key);
+    }
 
-	private MessagesUtil() {
-	}
+    private MessagesUtil() {
+    }
 }

@@ -33,6 +33,12 @@ import java.util.Map;
 public class BaseController implements ControllerApi {
     protected Log logger = Log.getLogger(this.getClass());
 
+    /**
+     * 仅用于renderString
+     *
+     * @param response
+     * @return
+     */
     public ResponseBuilder getRespBuilder(HttpServletResponse response) {
         return new ResponseBuilder().with(response);
     }
