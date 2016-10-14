@@ -130,10 +130,19 @@
                             result.iTotalDisplayRecords = data.length;
                         } else {
                             result.iTotalRecords = data.totalElements;
-                            result.iTotalDisplayRecords = data.content.length;
+                            result.iTotalDisplayRecords = data.totalElements;
                             result.data = data.content;
                         }
                         fnCallback(result);//服务器端返回的对象resp是要求的格式
+                    },
+                    "error": function (error) {
+                        var result = "系统异常";
+                        try {
+                            result = error.responseJSON;
+                            dialog.error(result.msg);
+                        } catch (e) {
+                            alert(result);
+                        }
                     }
                 });
             },
