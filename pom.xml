@@ -13,7 +13,6 @@
         <module>library</module>
         <module>source</module>
         <module>template</module>
-        <module>system</module>
     </modules>
 
     <properties>

@@ -35,7 +35,7 @@ public abstract class JpaBaseServiceImpl<T extends JpaBaseEntity, ID extends Ser
         return getDao().findOne(id);
     }
 
-    public List<T> findList(List<ID> ids) {
+    public List<T> findAll(List<ID> ids) {
         return getDao().findAll(ids);
     }
 
@@ -43,8 +43,11 @@ public abstract class JpaBaseServiceImpl<T extends JpaBaseEntity, ID extends Ser
         return getDao().findAll();
     }
 
-    @Override
-    public Page<T> findPage(Pageable pageable) {
+    public Page<T> findAll(Pageable pageable) {
         return getDao().findAll(pageable);
+    }
+
+    public Page<T> findAll(String jsonParams, Pageable pageable) {
+        return getDao().findAll(jsonParams, pageable);
     }
 }

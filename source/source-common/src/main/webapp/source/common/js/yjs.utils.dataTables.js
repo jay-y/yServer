@@ -6,7 +6,14 @@
  */
 
 !function (a, b, c) {
-    c.dataTables = {};
+    c.dataTables = {
+        hasHead: true,
+        successCall: function (r) {
+        },
+        errorCall: function (e) {
+        }
+    };
+
     /**
      * 初始化表格
      *
@@ -14,15 +21,14 @@
      * @param tableObj
      * @param columns
      * @param columnsFormatter
-     * @param successCallBack
      * @returns {*}
      */
-    c.dataTables.onInit = function (url, tableObj, columns, columnsFormatter, successCallBack) {
+    c.dataTables.onInit = function (url, tableObj, columns, columnsFormatter) {
         if (c.checkEmpty(url) || c.checkEmpty(tableObj)) {
             alert("URLs and table can not be empty.");
             return;
         }
-        return tableObj.DataTable(c.dataTables.getDataTableConfig(url, tableObj, columns, columnsFormatter, successCallBack));
+        return tableObj.DataTable(c.dataTables.getDataTableConfig(url, tableObj, columns, columnsFormatter));
     };
 
     /**
@@ -44,7 +50,7 @@
         return tableObj.DataTable(config);
     };
 
-    c.dataTables.getDataTableConfig = function (url, tableObj, columns, columnsFormatter, successCallBack) {
+    c.dataTables.getDataTableConfig = function (url, tableObj, columns, columnsFormatter) {
         if (c.checkEmpty(url) || c.checkEmpty(tableObj)) {
             alert("URLs and table can not be empty.");
             return;
@@ -60,16 +66,23 @@
         for (var index in columns) {
             var col = columns[index];
             var hasData = !c.checkEmpty(col.mData);
+            var sName = c.checkEmpty(col.sName) ? col.mData : col.sName;
             var sType = c.checkEmpty(col.sType) ? "text" : col.sType;
             var sTitle = c.checkEmpty(col.sTitle) ? (hasData ? col.mData : "") : col.sTitle;
+            var cTitle = c.checkEmpty(col.cTitle) ? sTitle : col.cTitle;
+            var searchable = col.searchable != false ? true : col.searchable;
             conditionTr += "<th class='hasinput" + (col.class == 'hidden' ? " " + col.class : "") + "'>"
-                + (hasData ? "<input type='" + sType + "' class='form-control custom-condition' placeholder='" + sTitle + "'/>" : "")
+                + (hasData && searchable ? "<input name='" + sName + "' type='" + sType + "' class='form-control custom-condition' placeholder='" + cTitle + "'/>" : "")
                 + "</th>";
             headTr += "<th>" + sTitle + "</th>"
         }
         conditionTr += "</tr>";
         headTr += "</tr>";
-        tableObj[0].innerHTML = "<thead>" + conditionTr + headTr + "</thead>";
+        if (c.dataTables.hasHead) {
+            tableObj[0].innerHTML = "<thead>" + conditionTr + headTr + "</thead>";
+        } else {
+            tableObj.find('thead').append(headTr);
+        }
         var config = {
             "oLanguage": { // 汉化
                 "sLengthMenu": "每页显示 _MENU_ 条记录",
@@ -109,11 +122,12 @@
                 aoData.push({"name": "page", "value": params["iDisplayStart"] / params["iDisplayLength"]});
                 aoData.push({"name": "size", "value": params["iDisplayLength"]});
                 //表单栏位
-                var columnsLength = params["iColumns"];
-                var searchParam = {};
-                for (var i = 0; i < columnsLength; i++) {
-                    if (!c.checkEmpty(params["sSearch_" + i])) {
-                        searchParam[params["mDataProp_" + i]] = params["sSearch_" + i];
+                var conditions = tableObj.find(".custom-condition");
+		var searchParam = {};
+                for (var i = 0; i < conditions.length; i++) {
+                    var condition = conditions[i];
+                    if (!c.checkEmpty(condition.value) && !c.checkEmpty(condition.name)) {
+                        searchParam[condition.name] = condition.value;
                     }
                 }
                 aoData.push({"name": "searchParam", "value": JSON.stringify(searchParam)});
@@ -123,6 +137,7 @@
                     "url": sSource,
                     "data": aoData,
                     "success": function (result) {
+                        var successCallBack = c.dataTables.successCall;
                         if (null != successCallBack && undefined != successCallBack) successCallBack(result);
                         var data = result.data;
                         if (data instanceof Array) {
@@ -131,11 +146,13 @@
                         } else {
                             result.iTotalRecords = data.totalElements;
                             result.iTotalDisplayRecords = data.totalElements;
-                            result.data = data.content;
+                            result.data = yjs.checkNotEmpty(data.content) ? data.content : [];
                         }
                         fnCallback(result);//服务器端返回的对象resp是要求的格式
                     },
                     "error": function (error) {
+                        var errorCallBack = c.dataTables.errorCall;
+                        if (null != errorCallBack && undefined != errorCallBack) errorCallBack(error);
                         var result = "系统异常";
                         try {
                             result = error.responseJSON;

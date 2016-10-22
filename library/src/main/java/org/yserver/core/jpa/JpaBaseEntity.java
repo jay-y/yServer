@@ -25,7 +25,7 @@ public abstract class JpaBaseEntity implements Serializable {
     @Column(name = "REMARKS")
     protected String remarks;
 
-    @Column(name = "CREATED_TIME", nullable = false)
+    @Column(name = "CREATED_TIME")
     protected Date createdTime;
 
     @Column(name = "UPDATED_TIME")

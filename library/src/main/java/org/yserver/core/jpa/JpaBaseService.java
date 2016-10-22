@@ -67,14 +67,6 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
     T find(ID id);
 
     /**
-     * findList
-     *
-     * @param ids
-     * @return
-     */
-    List<T> findList(List<ID> ids);
-
-    /**
      * findAll
      *
      * @return
@@ -82,10 +74,27 @@ public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable
     List<T> findAll();
 
     /**
-     * findPage
+     * findAll(by ids)
+     *
+     * @param ids
+     * @return
+     */
+    List<T> findAll(List<ID> ids);
+
+    /**
+     * findAll
      *
      * @param pageable
      * @return
      */
-    Page<T> findPage(Pageable pageable);
+    Page<T> findAll(Pageable pageable);
+
+    /**
+     * findAll(by json params)
+     *
+     * @param jsonParams
+     * @param pageable
+     * @return
+     */
+    Page<T> findAll(String jsonParams, Pageable pageable);
 }
