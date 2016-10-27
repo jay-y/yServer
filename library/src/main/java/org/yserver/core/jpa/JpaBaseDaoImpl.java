@@ -9,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.yserver.core.model.BaseEntity;
 import org.yserver.utils.Log;
 import org.yserver.utils.MessagesUtil;
 import org.yserver.utils.StringUtils;
@@ -22,7 +23,7 @@ import java.util.Date;
 import java.util.Iterator;
 
 @NoRepositoryBean
-public class JpaBaseDaoImpl<T extends JpaBaseEntity, ID extends Serializable> extends
+public class JpaBaseDaoImpl<T extends BaseEntity, ID extends Serializable> extends
         SimpleJpaRepository<T, ID> implements JpaBaseDao<T, ID> {
     private static final Log LOG = Log.getLogger(JpaBaseDaoImpl.class);
 
@@ -35,14 +36,14 @@ public class JpaBaseDaoImpl<T extends JpaBaseEntity, ID extends Serializable> ex
 
     // private Class<M> entityClass;
     private String entityName;
-    private String idName;
+//    private String idName;
 
     public JpaBaseDaoImpl(JpaEntityInformation<T, ID> entityInformation, EntityManager entityManager) {
         super(entityInformation, entityManager);
         this.entityInformation = entityInformation;
         // this.entityClass = this.entityInformation.getJavaType();
         this.entityName = this.entityInformation.getEntityName();
-        this.idName = this.entityInformation.getIdAttributeNames().iterator().next();
+//        this.idName = this.entityInformation.getIdAttributeNames().iterator().next();
         this.em = entityManager;
     }
 

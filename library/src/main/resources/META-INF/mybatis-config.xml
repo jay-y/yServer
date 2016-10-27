@@ -41,7 +41,7 @@
 
 	<!-- 全局别名设置,在映射文件中只需写别名,而不必写出整个类路径  -->
 	<typeAliases>
-		<!--&lt;!&ndash; 分页 &ndash;&gt;-->
-		<!--<typeAlias type="org.yserver.entity.Page" alias="Page" />-->
+		<!-- 分页 -->
+		<typeAlias type="org.yserver.core.model.Pagination" alias="Pagination" />
 	</typeAliases>
 </configuration>

@@ -1,4 +1,4 @@
-package org.yserver.core.jpa;
+package org.yserver.core.model;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -7,12 +7,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Description: JpaBaseEntity.<br>
+ * Description: BaseEntity.<br>
  * Date: 2016/9/7 23:43<br>
  * Author: ysj
  */
 @MappedSuperclass
-public abstract class JpaBaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -38,10 +38,10 @@ public abstract class JpaBaseEntity implements Serializable {
     @Column(name = "IS_DEL", nullable = false)
     protected char isDel = 'n';
 
-    public JpaBaseEntity() {
+    public BaseEntity() {
     }
 
-    public JpaBaseEntity(String code) {
+    public BaseEntity(String code) {
         this.code = code;
     }
 

@@ -4,6 +4,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.yserver.core.model.BaseEntity;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -14,7 +15,7 @@ import java.util.List;
  * Date: 2016/9/7 23:43<br>
  * Author: ysj
  */
-public interface JpaBaseService<T extends JpaBaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> extends Remote {
+public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> extends Remote {
     DAO getDao();
 
     /**

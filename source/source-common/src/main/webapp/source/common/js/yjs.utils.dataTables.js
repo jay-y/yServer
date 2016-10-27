@@ -123,14 +123,12 @@
                 aoData.push({"name": "size", "value": params["iDisplayLength"]});
                 //表单栏位
                 var conditions = tableObj.find(".custom-condition");
-		var searchParam = {};
                 for (var i = 0; i < conditions.length; i++) {
                     var condition = conditions[i];
-                    if (!c.checkEmpty(condition.value) && !c.checkEmpty(condition.name)) {
-                        searchParam[condition.name] = condition.value;
+                    if (!c.checkEmpty(condition.name) && !c.checkEmpty(condition.value)) {
+                        aoData.push({"name": "params[" + condition.name + "]", "value": condition.value});
                     }
                 }
-                aoData.push({"name": "searchParam", "value": JSON.stringify(searchParam)});
                 oSettings.jqXHR = a.jQuery.ajax({
                     "dataType": 'json',
                     "type": "POST",
@@ -144,8 +142,8 @@
                             result.iTotalRecords = data.length;
                             result.iTotalDisplayRecords = data.length;
                         } else {
-                            result.iTotalRecords = data.totalElements;
-                            result.iTotalDisplayRecords = data.totalElements;
+                            result.iTotalRecords = data.count;
+                            result.iTotalDisplayRecords = data.count;
                             result.data = yjs.checkNotEmpty(data.content) ? data.content : [];
                         }
                         fnCallback(result);//服务器端返回的对象resp是要求的格式

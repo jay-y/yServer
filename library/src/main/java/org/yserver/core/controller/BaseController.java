@@ -1,6 +1,7 @@
 package org.yserver.core.controller;
 
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,12 @@ import java.util.Map;
 @Controller
 public class BaseController implements ControllerApi {
     protected Log logger = Log.getLogger(this.getClass());
+
+    @Value("${adminPath}")
+    protected String adminPath;
+
+    @Value("${clientPath}")
+    protected String clientPath;
 
     /**
      * 仅用于renderString

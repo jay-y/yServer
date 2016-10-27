@@ -7,6 +7,7 @@ import org.springframework.data.repository.core.RepositoryMetadata;
 import org.springframework.data.repository.query.EvaluationContextProvider;
 import org.springframework.data.repository.query.QueryLookupStrategy;
 import org.springframework.util.Assert;
+import org.yserver.core.model.BaseEntity;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import java.io.Serializable;
  * Date: 2016/9/7 23:53<br>
  * Author: ysj
  */
-public class JpaDaoFactory<T extends JpaBaseEntity, ID extends Serializable> extends JpaRepositoryFactory {
+public class JpaDaoFactory<T extends BaseEntity, ID extends Serializable> extends JpaRepositoryFactory {
 
     private EntityManager entityManager;
 

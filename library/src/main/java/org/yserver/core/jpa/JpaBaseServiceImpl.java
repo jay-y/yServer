@@ -3,12 +3,13 @@ package org.yserver.core.jpa;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
+import org.yserver.core.model.BaseEntity;
 
 import java.io.Serializable;
 import java.util.List;
 
 @Transactional
-public abstract class JpaBaseServiceImpl<T extends JpaBaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> implements
+public abstract class JpaBaseServiceImpl<T extends BaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> implements
         JpaBaseService<T, ID, DAO> {
 
     public T save(T entity) {
