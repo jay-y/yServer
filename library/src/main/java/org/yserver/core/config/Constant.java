@@ -11,6 +11,8 @@ package org.yserver.core.config;
  */
 public class Constant {
     public static final String _NULL = "";
+    public static final String _1 = "1";
+    public static final String _0 = "0";
     public static final String _Y = "y";
     public static final String _N = "n";
     public static final String _YES = "yes";
@@ -40,6 +42,7 @@ public class Constant {
         public static final char RESPONSE_STATUS_SUCCESS = '0';
         public static final char RESPONSE_STATUS_ERROR = '1';
         public static final char RESPONSE_STATUS_FAIL = '2';
+        public static final char RESPONSE_STATUS_REDIRECT = '3';
         public static final char RESPONSE_STATUS_TIMEOUT = '9';
         public static final String RESPONSE_SUCCESS_CODE_200 = "200"; // 请求成功
         public static final String RESPONSE_ERROR_CODE_300 = "300"; // 重定向请求

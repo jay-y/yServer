@@ -72,9 +72,9 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
-        logger.debug("注入ApplicationContext到SpringContextHolder:{}", applicationContext);
+        logger.debug("ApplicationContext injected into the SpringContextHolder:{}", applicationContext);
         if (SpringContextHolder.applicationContext != null) {
-            logger.info("SpringContextHolder中的ApplicationContext被覆盖, 原有ApplicationContext为:" + SpringContextHolder.applicationContext);
+            logger.info("ApplicationContext in the SpringContextHolder is covered, the original ApplicationContext is:" + SpringContextHolder.applicationContext);
         }
         SpringContextHolder.applicationContext = applicationContext;
     }

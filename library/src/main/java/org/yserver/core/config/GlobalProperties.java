@@ -2,15 +2,14 @@ package org.yserver.core.config;
 
 import com.google.common.collect.Maps;
 import org.apache.commons.lang3.StringUtils;
+import org.yserver.core.listener.WebContextListener;
 import org.yserver.utils.PropertiesLoader;
 
 import java.util.Map;
 
 /**
- * 全局配置类
- *
- * @author ThinkGem
- * @version 2014-06-25
+ * Description: 全局配置类.<br>
+ * Author: ysj
  */
 public class GlobalProperties {
 
@@ -38,6 +37,7 @@ public class GlobalProperties {
 
     /**
      * 获取配置
+     *
      * @param key
      * @return
      */
@@ -48,5 +48,58 @@ public class GlobalProperties {
             map.put(key, value != null ? value : StringUtils.EMPTY);
         }
         return value;
+    }
+
+    /**
+     * 获取管理端请求根路径
+     */
+    public static String getAdminPath() {
+        return getConfig("adminPath");
+    }
+
+    /**
+     * 获取客户端请求根路径
+     */
+    public static String getClientPath() {
+        return getConfig("clientPath");
+    }
+
+    /**
+     * 获取接口根路径
+     */
+    public static String getApiPath() {
+        return getConfig("apiPath");
+    }
+
+    /**
+     * 获取View路径
+     */
+    public static String getViewPrefix() {
+        return getConfig("viewPrefix");
+    }
+
+    /**
+     * 获取View后缀
+     */
+    public static String getViewSuffix() {
+        return getConfig("viewSuffix");
+    }
+
+    /**
+     * 获取文件的根目录
+     *
+     * @return
+     */
+    public static String getWebAppDir() {
+        String dir;
+        try {
+            dir = WebContextListener.getCurrentWebApplicationContext().getServletContext().getRealPath("/");
+        } catch (Exception e) {
+            return "";
+        }
+        if (!dir.endsWith("/")) {
+            dir += "/";
+        }
+        return dir;
     }
 }

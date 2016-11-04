@@ -62,13 +62,14 @@ public class JpaBaseDaoImpl<T extends BaseEntity, ID extends Serializable> exten
     }
 
     public Page<T> findAll(String jsonParams, Pageable pageable) {
+        String cond = buildCond(jsonParams);
         String jpql = "SELECT obj FROM " + this.entityName + " obj WHERE 1=1 "
-                + buildCond(jsonParams)
+                + cond
                 + (null != pageable.getSort() ? buildSort(pageable.getSort()) : "");
         Query query = getEntityManager().createQuery(jpql);
         query.setFirstResult(pageable.getOffset());
         query.setMaxResults(pageable.getPageSize());
-        return new PageImpl(query.getResultList());
+        return new PageImpl(query.getResultList(), pageable, getCount(cond));
     }
 
     private String buildCond(String jsonParams) throws SystemException {
@@ -125,5 +126,18 @@ public class JpaBaseDaoImpl<T extends BaseEntity, ID extends Serializable> exten
             LOG.error(e.getMessage(), e);
             throw new SystemException(sysErrMsg, e);
         }
+    }
+
+    private long getCount(String wheres) {
+        String sql = this.getCountQueryString(wheres);
+        return this.getEntityManager().createQuery(sql, Long.class).getSingleResult().longValue();
+    }
+
+    private String getCountQueryString(String wheres) {
+        String jpql = "select count(*) from " + this.entityName + " obj where 1=1 ";
+        if (StringUtils.isNotBlank(wheres)) {
+            jpql += wheres;
+        }
+        return jpql;
     }
 }

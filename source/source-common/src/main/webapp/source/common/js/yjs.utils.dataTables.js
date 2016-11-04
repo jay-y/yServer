@@ -142,8 +142,8 @@
                             result.iTotalRecords = data.length;
                             result.iTotalDisplayRecords = data.length;
                         } else {
-                            result.iTotalRecords = data.count;
-                            result.iTotalDisplayRecords = data.count;
+                            result.iTotalRecords = data.totalElements;
+                            result.iTotalDisplayRecords = data.totalElements;
                             result.data = yjs.checkNotEmpty(data.content) ? data.content : [];
                         }
                         fnCallback(result);//服务器端返回的对象resp是要求的格式

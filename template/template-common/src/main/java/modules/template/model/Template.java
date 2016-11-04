@@ -1,6 +1,6 @@
 package modules.template.model;
 
-import org.yserver.core.jpa.JpaBaseEntity;
+import org.yserver.core.model.BaseEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -12,5 +12,5 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "template")
-public class Template extends JpaBaseEntity{
+public class Template extends BaseEntity {
 }

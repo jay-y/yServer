@@ -5,7 +5,7 @@
 <html lang="zh_CN" class="smart-style-5">
 <head>
     <meta charset="utf-8">
-    <title>WeChat Manager System</title>
+    <title>Universal Manager System</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport"
@@ -394,7 +394,6 @@
 <!-- jQuery + jQueryUI; fall back to local -->
 <script src="${commonSource}/js/jquery-2.1.1.min.js"></script>
 <script src="${commonSource}/js/jquery-ui-1.10.3.min.js"></script>
-
 <!-- IMPORTANT: APP CONFIG -->
 <script src="${smartSource}/js/app.config.js"></script>
 <script type="text/javascript">
@@ -463,24 +462,23 @@
      *
      * @param a
      * @param b
-     * @param date
+     * @param data
      * @param hasSerialize
      */
-    function loadSubmit(a, b, date, hasSerialize) {
+    function loadSubmit(a, b, data, hasSerialize) {
         hasSerialize = (hasSerialize == null || hasSerialize == undefined) ? true : hasSerialize;
         if (hasSerialize) {
-            date = date.serializeArray();
+            data = data.serializeArray();
         }
-        console.log("loadSubmit");
-        debugState && root.root.console.log("Loading URL: %c" + a, debugStyle),
+        debugState &&
+        root.root.console.log("Loading URL: %c" + a, debugStyle),
                 $.ajax({
                     "type": "POST",
                     "url": a,
-                    "data": date,
+                    "data": data,
                     "dataType": "html",
                     "cache": !0,
                     "beforeSend": function () {
-                        console.log("beforeSend");
                         if ($.navAsAjax
                                 && $(".google_maps")[0]
                                 && b[0] == $("#content")[0]) {
@@ -537,7 +535,6 @@
                         }, "fast"))
                     },
                     "success": function (a) {
-                        console.log("success");
                         b.css({
                             "opacity": "0.0"
                         }).html(a).delay(50).animate({
@@ -551,7 +548,7 @@
                         b.html('<h4 class="ajax-loading-error"><i class="fa fa-warning txt-color-orangeDark"></i> Error requesting <span class="txt-color-red">' + a + "</span>: " + c.status + ' <span style="text-transform: capitalize;">' + e + "</span></h4>")
                     },
                     "async": !0
-                })
+                });
     }
 </script>
 </body>
