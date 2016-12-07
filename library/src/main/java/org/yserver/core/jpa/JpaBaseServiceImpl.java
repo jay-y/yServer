@@ -2,6 +2,7 @@ package org.yserver.core.jpa;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 import org.yserver.core.model.BaseEntity;
 
@@ -38,6 +39,14 @@ public abstract class JpaBaseServiceImpl<T extends BaseEntity, ID extends Serial
 
     public List<T> findAll(List<ID> ids) {
         return getDao().findAll(ids);
+    }
+
+    public List<T> findAll(String jsonParams) {
+        return getDao().findAll(jsonParams);
+    }
+
+    public List<T> findAll(String jsonParams, Sort sort) {
+        return getDao().findAll(jsonParams, sort);
     }
 
     public List<T> findAll() {

@@ -35,7 +35,7 @@ public abstract class BaseEntity implements Serializable {
     @Version
     protected Integer version = 0;//乐观锁
 
-    @Column(name = "IS_DEL", nullable = false)
+    @Column(name = "IS_DEL")
     protected char isDel = 'n';
 
     public BaseEntity() {

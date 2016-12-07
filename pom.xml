@@ -24,25 +24,33 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <maven-plugin.compiler.version>[3.1,)</maven-plugin.compiler.version>
-        <maven-surefire-plugin.version>[2.9,)</maven-surefire-plugin.version>
-        <maven-javadoc-plugin.version>[2.9,)</maven-javadoc-plugin.version>
-        <maven-dependency-plugin.version>[2.9,)</maven-dependency-plugin.version>
-        <maven-jar-plugin.version>[2.4,)</maven-jar-plugin.version>
-        <maven-war-plugin.version>[2.4,)</maven-war-plugin.version>
+        <maven-plugin.compiler.version>3.1</maven-plugin.compiler.version>
+        <maven-surefire-plugin.version>2.9</maven-surefire-plugin.version>
+        <maven-javadoc-plugin.version>2.9</maven-javadoc-plugin.version>
+        <maven-dependency-plugin.version>2.9</maven-dependency-plugin.version>
+        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
+        <maven-war-plugin.version>2.4</maven-war-plugin.version>
         <web.framework>spring</web.framework>
         <dependency.default.scope>provided</dependency.default.scope>
 
         <!-- Framework dependency versions -->
+        <!-- 1.8 -->
         <spring.version>4.3.2.RELEASE</spring.version>
         <spring-data-jpa.version>1.10.2.RELEASE</spring-data-jpa.version>
         <hibernate.version>5.2.2.Final</hibernate.version>
-        <hibernate-validator.version>4.3.1.Final</hibernate-validator.version>
+        <!-- 1.7 -->
+        <!--<spring.version>4.1.9.RELEASE</spring.version>-->
+        <!--<spring-data-jpa.version>1.9.6.RELEASE</spring-data-jpa.version>-->
+        <!--<hibernate.version>4.3.2.Final</hibernate.version>-->
+
+        <hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
         <mybatis.version>3.2.8</mybatis.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
         <mysql-driver.version>5.1.38</mysql-driver.version>
         <alibaba-druid.version>1.0.20</alibaba-druid.version>
-        <junit.version>4.4</junit.version>
+
+        <rxjava.version>1.0.2</rxjava.version>
+        <junit.version>4.5</junit.version>
 
         <!-- Project dependency versions -->
         <commons-io.version>2.5</commons-io.version>
@@ -82,7 +90,8 @@
         <javax-jstl.version>1.2</javax-jstl.version>
         <javax-activation.version>1.1.1</javax-activation.version>
         <javax-validator.version>1.0.0.GA</javax-validator.version>
-        <javaee-api.version>7.0</javaee-api.version>
+
+        <!--<javaee-api.version>7.0</javaee-api.version>-->
 
         <!-- global dependency versions  -->
         <yserver.version>${version}</yserver.version>
@@ -92,16 +101,14 @@
     <dependencies>
         <!-- mail -->
         <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>${javax-activation.version}</version>
+        </dependency>
+        <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>${javax-mail.version}</version>
-        </dependency>
-
-        <!-- junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
         </dependency>
 
         <!-- 日志 -->
@@ -128,6 +135,13 @@
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>${commons-fileupload.version}</version>
+        </dependency>
+
+        <!-- 定时调度 -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>${quartz.version}</version>
         </dependency>
 
         <!-- lang扩展 -->
@@ -336,6 +350,17 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectj-aspectjrt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj-aspectjweaver.version}</version>
+        </dependency>
+
         <!-- spring and springmvc -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -398,17 +423,21 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- test -->
         <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>${aspectj-aspectjrt.version}</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
         </dependency>
+        <!-- junit -->
         <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>${aspectj-aspectjweaver.version}</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
-
+        <!-- common -->
         <dependency>
             <groupId>org.yserver</groupId>
             <artifactId>library</artifactId>
@@ -449,7 +478,7 @@
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${maven-dependency-plugin.version}</version>
                     <configuration>
-                        <outputDirectory>D:\ServerDependencies</outputDirectory>
+                        <outputDirectory>/yserver/dependencies</outputDirectory>
                         <overWriteReleases>true</overWriteReleases>
                         <overWriteSnapshots>true</overWriteSnapshots>
                         <excludeTransitive>false</excludeTransitive>
@@ -461,33 +490,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${maven-jar-plugin.version}</version>
-                </plugin>
-
-                <!-- Ignore/Execute plugin execution -->
-                <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-                            <pluginExecutions>
-                                <!-- copy-dependency plugin -->
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>org.apache.maven.plugins</groupId>
-                                        <artifactId>maven-dependency-plugin</artifactId>
-                                        <versionRange>[1.0.0,)</versionRange>
-                                        <goals>
-                                            <goal>copy-dependencies</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore/>
-                                    </action>
-                                </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -541,7 +543,7 @@
                 <role>Project Manager</role>
                 <role>Architect</role>
             </roles>
-            <timezone>-5</timezone>
+            <timezone>8</timezone>
         </developer>
     </developers>
 </project>

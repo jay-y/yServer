@@ -44,7 +44,7 @@ public class CiphertextUtil {
      * @param bytes
      * @return 返回16进制字符串
      */
-    private static String byteArrayToHex(byte[] bytes) {
+    public static String byteArrayToHex(byte[] bytes) {
         // 一个字节占8位，一个十六进制字符占4位；十六进制字符数组的长度为字节数组长度的两倍
         char[] chars = new char[bytes.length * 2];
         int index = 0;

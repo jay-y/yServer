@@ -70,7 +70,7 @@ public class HttpUtil {
      * @return
      */
     public static String doGet(String url) {
-        return doGet(url, new HashMap<>());
+        return doGet(url, new HashMap<String, Object>());
     }
 
     /**

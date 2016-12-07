@@ -80,7 +80,7 @@ public abstract class MyBatisBaseServiceImpl<T,DAO extends MyBatisBaseDao> imple
     }
 
     /**
-     * get:(获取). <br>
+     * find:(获取). <br>
      *
      * @param entity
      * @return

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributesModelMap;
 import org.yserver.core.config.Constant;
 import org.yserver.utils.DateUtil;
 import org.yserver.utils.Log;
@@ -39,6 +41,9 @@ public class BaseController implements ControllerApi {
 
     @Value("${clientPath}")
     protected String clientPath;
+
+    @Value("${apiPath}")
+    protected String apiPath;
 
     /**
      * 仅用于renderString
@@ -117,8 +122,11 @@ public class BaseController implements ControllerApi {
         ERROR(Constant.ServerConfig.RESPONSE_STATUS_ERROR,
                 Constant.ServerConfig.RESPONSE_ERROR_CODE_500,
                 "系统错误"),
-        TIMEOUT(Constant.ServerConfig.RESPONSE_STATUS_TIMEOUT,
+        REDIRECT(Constant.ServerConfig.RESPONSE_STATUS_REDIRECT,
                 Constant.ServerConfig.RESPONSE_ERROR_CODE_300,
+                "请求重定向"),
+        TIMEOUT(Constant.ServerConfig.RESPONSE_STATUS_TIMEOUT,
+                Constant.ServerConfig.RESPONSE_ERROR_CODE_500,
                 "请求超时");
 
         private Object status;
@@ -162,6 +170,7 @@ public class BaseController implements ControllerApi {
         private Object data;
         private String msg;
         private String index;
+        private boolean isRedirect = false;
 
         public ResponseBuilder with(HttpServletResponse response) {
             this.response = response;
@@ -175,6 +184,11 @@ public class BaseController implements ControllerApi {
 
         public ResponseBuilder setModel(Model model) {
             this.model = model;
+            return this;
+        }
+
+        public ResponseBuilder setRedirect(boolean isRedirect) {
+            this.isRedirect = isRedirect;
             return this;
         }
 
@@ -208,6 +222,10 @@ public class BaseController implements ControllerApi {
             return response(ResponseEnum.TIMEOUT);
         }
 
+        public <T extends Object> T redirect() {
+            return response(ResponseEnum.REDIRECT);
+        }
+
         public <T extends Object> T response(ResponseEnum responseEnum) {
             if (StringUtils.isEmpty(msg)) {
                 this.msg = responseEnum.getMsg();
@@ -233,12 +251,16 @@ public class BaseController implements ControllerApi {
             if (null == response) {
                 throw new SystemException("HttpServletResponse can not be empty.");
             }
+            if (isRedirect) {
+                return renderString(response,
+                        wrapRedirectAttributes((RedirectAttributes) model, responseEnum.getStatus(), responseEnum.getCode(), msg, data));
+            }
             return renderString(response,
                     wrapModel(model, responseEnum.getStatus(), responseEnum.getCode(), msg, data));
         }
 
         /**
-         * 组装Model
+         * wrapModel
          *
          * @param model
          * @param status
@@ -256,6 +278,27 @@ public class BaseController implements ControllerApi {
                 model.addAttribute(Constant.ServerConfig.RESPONSE_DATA, data);
             }
             return model;
+        }
+
+        /**
+         * wrapRedirectAttributes
+         *
+         * @param redirectAttributes
+         * @param status
+         * @param code
+         * @param msg
+         * @param data
+         * @return
+         */
+        protected RedirectAttributes wrapRedirectAttributes(RedirectAttributes redirectAttributes, Object status, Object code, Object msg, Object data) {
+            if (null == redirectAttributes) redirectAttributes = new RedirectAttributesModelMap();
+            redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_STATUS, status);
+            redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_CODE, code);
+            redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_MSG, msg);
+            if (null != data) {
+                redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_DATA, data);
+            }
+            return redirectAttributes;
         }
 
         /**
@@ -289,6 +332,9 @@ public class BaseController implements ControllerApi {
             }
             if (StringUtils.isEmpty(index)) {
                 return null;
+            }
+            if (isRedirect) {
+                index = "redirect:" + index;
             }
             return (T) index;
         }

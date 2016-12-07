@@ -62,7 +62,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      */
     public static void clearHolder() {
         if (logger.isDebugEnabled()) {
-            logger.debug("清除SpringContextHolder中的ApplicationContext:" + applicationContext);
+            logger.debug("clear SpringContextHolder in ApplicationContext:" + applicationContext);
         }
         applicationContext = null;
     }

@@ -7,16 +7,13 @@ import org.yserver.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Description: Pagination<T>.<br>
  * Date: 2016/9/20 14:01<br>
  * Author: ysj
  */
-public class Pagination<T> {
-    private Map params;
-
+public class Pagination<T> extends MapRequest {
     private String sortValue;
 
     private String sortMode;
@@ -37,14 +34,6 @@ public class Pagination<T> {
             sort = new Sort(Sort.Direction.fromString(sortMode), sortValue);
         }
         return new PageRequest(page, size, sort);
-    }
-
-    public Map getParams() {
-        return params;
-    }
-
-    public void setParams(Map params) {
-        this.params = params;
     }
 
     public String getSortValue() {

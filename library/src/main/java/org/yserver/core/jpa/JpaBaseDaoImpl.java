@@ -21,6 +21,7 @@ import javax.persistence.Query;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.List;
 
 @NoRepositoryBean
 public class JpaBaseDaoImpl<T extends BaseEntity, ID extends Serializable> extends
@@ -61,15 +62,34 @@ public class JpaBaseDaoImpl<T extends BaseEntity, ID extends Serializable> exten
         return super.save(entity);
     }
 
-    public Page<T> findAll(String jsonParams, Pageable pageable) {
+    @Override
+    public List<T> findAll(String jsonParams) {
         String cond = buildCond(jsonParams);
         String jpql = "SELECT obj FROM " + this.entityName + " obj WHERE 1=1 "
-                + cond
-                + (null != pageable.getSort() ? buildSort(pageable.getSort()) : "");
+                + cond;
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<T> findAll(String jsonParams, Sort sort) {
+        String condSql = buildCond(jsonParams);
+        String sortSql = (null != sort ? buildSort(sort) : "");
+        String jpql = "SELECT obj FROM " + this.entityName + " obj WHERE 1=1 "
+                + condSql + sortSql;
+        Query query = getEntityManager().createQuery(jpql);
+        return query.getResultList();
+    }
+
+    public Page<T> findAll(String jsonParams, Pageable pageable) {
+        String condSql = buildCond(jsonParams);
+        String sortSql = (null != pageable.getSort() ? buildSort(pageable.getSort()) : "");
+        String jpql = "SELECT obj FROM " + this.entityName + " obj WHERE 1=1 "
+                + condSql + sortSql;
         Query query = getEntityManager().createQuery(jpql);
         query.setFirstResult(pageable.getOffset());
         query.setMaxResults(pageable.getPageSize());
-        return new PageImpl(query.getResultList(), pageable, getCount(cond));
+        return new PageImpl(query.getResultList(), pageable, getCount(condSql));
     }
 
     private String buildCond(String jsonParams) throws SystemException {

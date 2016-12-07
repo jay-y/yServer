@@ -4,6 +4,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.yserver.core.model.BaseEntity;
 
 import java.io.Serializable;
@@ -83,7 +84,24 @@ public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, D
     List<T> findAll(List<ID> ids);
 
     /**
-     * findAll
+     * findAll(by json params)
+     *
+     * @param jsonParams
+     * @return
+     */
+    List<T> findAll(String jsonParams);
+
+    /**
+     * findAll(by json params with sort)
+     *
+     * @param jsonParams
+     * @param sort
+     * @return
+     */
+    List<T> findAll(String jsonParams, Sort sort);
+
+    /**
+     * findAll(pageable)
      *
      * @param pageable
      * @return
@@ -91,7 +109,7 @@ public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, D
     Page<T> findAll(Pageable pageable);
 
     /**
-     * findAll(by json params)
+     * findAll(by json params with pageable)
      *
      * @param jsonParams
      * @param pageable

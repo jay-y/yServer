@@ -1,6 +1,6 @@
 /**
  * yjs.utils.dataTables.js
- * 依赖于:y.utils.core.js、jquery.dataTables.min.js、dataTables.colVis.min.js、dataTables.tableTools.min.js、datatables.responsive.min.js
+ * 依赖于:yjs.utils.core.js、jquery.dataTables.min.js、dataTables.colVis.min.js、dataTables.tableTools.min.js、datatables.responsive.min.js
  *
  * Created by ysj on 2016
  */
