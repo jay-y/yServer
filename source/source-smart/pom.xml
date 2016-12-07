@@ -35,7 +35,6 @@
                             <artifactId>source-common</artifactId>
                             <excludes>
                                 <exclude>**/lib/</exclude>
-                                <exclude>**/web.xml</exclude>
                             </excludes>
                         </overlay>
                     </overlays>
