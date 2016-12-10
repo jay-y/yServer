@@ -1,6 +1,7 @@
 package modules.template.dao.base;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.yserver.core.model.BaseEntity;
 import org.yserver.core.mybatis.MyBatisBaseDaoImpl;
 
 import javax.annotation.Resource;
@@ -10,7 +11,7 @@ import javax.annotation.Resource;
  * Date: 2016/9/6 1:28<br>
  * Author: ysj
  */
-public abstract class TmpBaseDaoImpl<T extends Object> extends MyBatisBaseDaoImpl<T> {
+public abstract class TmpBaseDaoImpl<T extends BaseEntity> extends MyBatisBaseDaoImpl<T> {
     @Resource(name = "sqlSessionTemplate")
     private SqlSessionTemplate sqlSessionTemplate;
 

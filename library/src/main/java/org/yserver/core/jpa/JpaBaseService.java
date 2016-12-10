@@ -5,7 +5,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.yserver.core.model.BaseEntity;
 
 import java.io.Serializable;
 import java.rmi.Remote;
@@ -16,7 +15,7 @@ import java.util.List;
  * Date: 2016/9/7 23:43<br>
  * Author: ysj
  */
-public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> extends Remote {
+public interface JpaBaseService<T, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> extends Remote {
     DAO getDao();
 
     /**
@@ -31,11 +30,10 @@ public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, D
      * batch save
      *
      * @param entities
-     * @param <S>
      * @return
      */
     @CacheEvict(value = "baseCache", allEntries = true)
-    <S extends T> List<S> save(List<S> entities);
+    List<T> save(List<T> entities);
 
     /**
      * delete
@@ -46,10 +44,19 @@ public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, D
     void delete(T entity);
 
     /**
+     * batch delete
+     *
+     * @param list
+     */
+    @CacheEvict(value = "baseCache", allEntries = true)
+    void delete(List<T> list);
+
+    /**
      * deleteList
      *
      * @param list
      */
+    @Deprecated
     @CacheEvict(value = "baseCache", allEntries = true)
     void deleteList(List<T> list);
 
@@ -60,7 +67,7 @@ public interface JpaBaseService<T extends BaseEntity, ID extends Serializable, D
     void deleteAll();
 
     /**
-     * get
+     * find
      *
      * @param id
      * @return

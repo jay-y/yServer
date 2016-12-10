@@ -50,7 +50,7 @@
         <alibaba-druid.version>1.0.20</alibaba-druid.version>
 
         <rxjava.version>1.0.2</rxjava.version>
-        <junit.version>4.5</junit.version>
+        <junit.version>4.12</junit.version>
 
         <!-- Project dependency versions -->
         <commons-io.version>2.5</commons-io.version>

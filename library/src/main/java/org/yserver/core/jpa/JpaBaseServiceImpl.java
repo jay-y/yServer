@@ -17,12 +17,16 @@ public abstract class JpaBaseServiceImpl<T extends BaseEntity, ID extends Serial
         return getDao().save(entity);
     }
 
-    public <S extends T> List<S> save(List<S> entities) {
+    public List<T> save(List<T> entities) {
         return getDao().save(entities);
     }
 
     public void delete(T entity) {
         getDao().delete(entity);
+    }
+
+    public void delete(List<T> list) {
+        getDao().delete(list);
     }
 
     public void deleteList(List<T> list) {

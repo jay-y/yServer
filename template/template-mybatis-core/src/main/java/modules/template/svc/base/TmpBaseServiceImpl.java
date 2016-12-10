@@ -3,6 +3,7 @@ package modules.template.svc.base;
 import modules.template.dao.base.TmpBaseDao;
 import org.springframework.transaction.annotation.Transactional;
 import org.yserver.core.datasource.DataSource;
+import org.yserver.core.model.BaseEntity;
 import org.yserver.core.mybatis.MyBatisBaseServiceImpl;
 
 /**
@@ -12,5 +13,5 @@ import org.yserver.core.mybatis.MyBatisBaseServiceImpl;
  */
 @DataSource(value = "default")
 @Transactional
-public abstract class TmpBaseServiceImpl<T, DAO extends TmpBaseDao> extends MyBatisBaseServiceImpl<T, DAO> {
+public abstract class TmpBaseServiceImpl<T extends BaseEntity, DAO extends TmpBaseDao> extends MyBatisBaseServiceImpl<T, DAO> {
 }

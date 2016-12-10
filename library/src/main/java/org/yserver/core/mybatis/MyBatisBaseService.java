@@ -3,32 +3,34 @@ package org.yserver.core.mybatis;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 
+import java.rmi.Remote;
 import java.util.List;
 
 /**
- * Description: ServiceApi API.<br>
+ * Description: MyBatisBaseService.<br>
  * Date: 2016/9/7 23:43<br>
  * Author: ysj
  */
-public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> {
+public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> extends Remote {
 
     DAO getDao();
 
     /**
-     * insert
+     * save
      *
      * @param entity
      */
     @CacheEvict(value = "baseCache", key = "#entity.code + 'find'")
-    void insert(T entity);
+    T save(T entity);
 
     /**
-     * update
+     * batch save
      *
-     * @param entity
+     * @param entities
+     * @return
      */
-    @CacheEvict(value = "baseCache", key = "#entity.code + 'find'")
-    void update(T entity);
+    @CacheEvict(value = "baseCache", allEntries = true)
+    List<T> save(List<T> entities);
 
     /**
      * delete
@@ -39,12 +41,12 @@ public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> {
     void delete(T entity);
 
     /**
-     * deleteList
+     * batch delete
      *
      * @param list
      */
     @CacheEvict(value = "baseCache", allEntries = true)
-    void deleteList(List<T> list);
+    void delete(List<T> list);
 
     /**
      * deleteList
@@ -53,7 +55,7 @@ public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> {
     void deleteAll();
 
     /**
-     * get
+     * find
      *
      * @param entity
      * @return
@@ -67,7 +69,7 @@ public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> {
      * @param entity
      * @return
      */
-    List<T> findList(T entity);
+    List<T> findAll(T entity);
 
     /**
      * findAll
