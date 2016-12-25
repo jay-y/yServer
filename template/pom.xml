@@ -20,4 +20,12 @@
         <module>template-webapp</module>
     </modules>
 
+    <dependencies>
+        <!-- common -->
+        <dependency>
+            <groupId>org.yserver</groupId>
+            <artifactId>template-common</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+    </dependencies>
 </project>

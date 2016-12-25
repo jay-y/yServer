@@ -1,15 +1,13 @@
 package modules.template.svc.impl;
 
 import modules.template.dao.TemplateDao;
-import modules.template.dao.impl.TemplateDaoImpl;
 import modules.template.model.Template;
 import modules.template.svc.TemplateService;
 import modules.template.svc.base.TmpBaseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.yserver.core.datasource.DataSource;
-
-import javax.annotation.Resource;
 
 /**
  * Description: Template.<br>
@@ -21,11 +19,11 @@ import javax.annotation.Resource;
 @Transactional
 public class TemplateServiceImpl extends TmpBaseServiceImpl<Template, TemplateDao>
         implements TemplateService {
-    @Resource(name = "TemplateDao")
-    private TemplateDaoImpl dao;
+    @Autowired
+    private TemplateDao dao;
 
     @Override
-    public TemplateDaoImpl getDao() {
+    public TemplateDao getDao() {
         return dao;
     }
 }

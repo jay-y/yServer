@@ -11,6 +11,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath*:META-INF/yserver-appContext.xml
+            classpath*:META-INF/mybatis-appContext.xml
             classpath*:META-INF/template-appContext.xml
             classpath*:META-INF/template-*-appContext.xml
         </param-value>
