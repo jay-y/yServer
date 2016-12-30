@@ -1,13 +1,12 @@
 package org.yserver.core.mybatis;
 
 import org.yserver.core.model.BaseEntity;
+import org.yserver.core.model.Pagination;
 import org.yserver.utils.Log;
 import org.yserver.utils.RandomUtil;
 import org.yserver.utils.StringUtils;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * ClassName: MyBatisBaseServiceImpl <br>
@@ -22,18 +21,14 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
     private final static Log logger = Log.getLogger(MyBatisBaseServiceImpl.class);
 
     public T save(T entity) {
-        try {
-            if (StringUtils.isNotBlank(entity.getCode())) {
-                entity.setUpdatedTime(new Date());
-                getDao().update(entity);
-            } else {
-                //生成主键
-                entity.setCode(RandomUtil.uuid());
-                entity.setCreatedTime(new Date());
-                getDao().insert(entity);
-            }
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
+        if (StringUtils.isNotBlank(entity.getCode())) {
+            entity.setUpdatedTime(new Date());
+            getDao().update(entity);
+        } else {
+            //生成主键
+            entity.setCode(RandomUtil.uuid());
+            entity.setCreatedTime(new Date());
+            getDao().insert(entity);
         }
         return entity;
     }
@@ -48,27 +43,15 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
     }
 
     public void delete(T entity) {
-        try {
-            getDao().delete(entity);
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
+        getDao().delete(entity);
     }
 
     public void delete(List<T> list) {
-        try {
-            getDao().delete(list);
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
+        getDao().delete(list);
     }
 
     public void deleteAll() {
-        try {
-            getDao().deleteAll();
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
+        getDao().deleteAll();
     }
 
     /**
@@ -81,12 +64,7 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
      * date: 2016年8月12日 下午5:50:41 <br>
      */
     public T find(T entity) {
-        try {
-            return (T) getDao().findOne(entity);
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
-        return null;
+        return (T) getDao().findOne(entity);
     }
 
     /**
@@ -99,12 +77,7 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
      * date: 2016年8月12日 下午5:50:14 <br>
      */
     public List<T> findAll(T entity) {
-        try {
-            return (List<T>) getDao().findAll(entity);
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
-        }
-        return null;
+        return (List<T>) getDao().findAll(entity);
     }
 
     /**
@@ -117,11 +90,22 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
      * date: 2016年8月12日 下午5:50:27 <br>
      */
     public List<T> findAll() {
-        try {
-            return (List<T>) getDao().findAll();
-        } catch (Throwable e) {
-            logger.error(e.getMessage(), e);
+        return (List<T>) getDao().findAll();
+    }
+
+    @Override
+    public Map<String, Object> findPage(Pagination<T> pagination) {
+        Map<String, Object> map = null != pagination.getParams() ? pagination.getParams() : new HashMap<>();
+        map.put("page", pagination.getPage());
+        map.put("size", pagination.getSize());
+        map.put("index", pagination.getIndex());
+        List<T> list = getDao().findPage(map);
+        map = new HashMap<>();
+        if (null != list && list.size() > 0) {
+            pagination.setContent(list);
+            map.put("content", list);
         }
-        return null;
+        map.put("totalElements", getDao().count(pagination.getParams()));
+        return map;
     }
 }

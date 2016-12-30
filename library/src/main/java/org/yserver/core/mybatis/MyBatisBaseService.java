@@ -2,9 +2,12 @@ package org.yserver.core.mybatis;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Pageable;
+import org.yserver.core.model.Pagination;
 
 import java.rmi.Remote;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description: MyBatisBaseService.<br>
@@ -77,4 +80,11 @@ public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> extends Remot
      * @return
      */
     List<T> findAll();
+
+    /**
+     * findAll
+     *
+     * @return
+     */
+    Map<String, Object> findPage(Pagination<T> pagination);
 }

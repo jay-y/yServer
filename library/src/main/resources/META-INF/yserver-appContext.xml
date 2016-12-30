@@ -42,6 +42,7 @@
             <tx:method name="delete*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
             <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
             <tx:method name="add*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
+            <tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
             <tx:method name="insert*" propagation="REQUIRED" rollback-for="java.lang.Throwable"/>
         </tx:attributes>
     </tx:advice>

@@ -1,22 +1,27 @@
 package org.yserver.core.mybatis;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public interface MyBatisBaseDao<T, ID extends Serializable> {
-    <S extends T> S insert(S entity);
+    int insert(T entity);
 
-    <S extends T> S update(S entity);
+    int update(T entity);
 
     <S extends T> S findOne(S entity);
 
     boolean exists(ID id);
 
-    Collection<T> findAll();
+    List<T> findAll();
 
-    Collection<T> findAll(T entity);
+    List<T> findAll(T entity);
+
+    List<T> findPage(Map<String, Object> map);
 
     long count();
+
+    long count(Object obj);
 
     void delete(T entity);
 
