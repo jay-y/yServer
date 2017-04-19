@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+       default-lazy-init="true">
+
+    <description>Shiro Configuration</description>
+
+    <!-- 加载属性文件 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:META-INF/global.properties</value>
+                <value>classpath:META-INF/system.properties</value>
+            </list>
+        </property>
+        <!-- ignoreUnresolvablePlaceholders为是否忽略不可解析的 Placeholder，如配置了多个PropertyPlaceholderConfigurer，则需设置为true -->
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+    <!-- Shiro权限过滤过滤器定义 -->
+    <bean name="shiroFilterChainDefinitions" class="java.lang.String">
+        <constructor-arg>
+            <value>
+                /cas = cas
+                /source/** = anon
+                /servlet/** = anon
+                ${clientPath}/** = anon
+		${apiPath}/** = anon
+                ${adminPath}/login = authc
+                ${adminPath}/logout = logout
+                ${adminPath}/** = user
+                /** = user
+            </value>
+        </constructor-arg>
+    </bean>
+
+    <!-- 表单验证过滤类 -->
+    <bean id="formAuthenticationFilter" class="modules.system.security.FormAuthenticationFilter"/>
+
+    <!-- 系统安全认证实现类 -->
+    <bean id="systemAuthorizingRealm" class="modules.system.security.SystemAuthorizingRealm"/>
+
+    <!-- 安全认证过滤器 -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/><!--
+		<property name="loginUrl" value="${cas.server.url}?service=${cas.project.url}${adminPath}/cas" /> -->
+        <property name="loginUrl" value="${adminPath}/login"/>
+        <property name="successUrl" value="${adminPath}"/>
+        <property name="filters">
+            <map>
+                <entry key="cas" value-ref="casFilter"/>
+                <entry key="authc" value-ref="formAuthenticationFilter"/>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <ref bean="shiroFilterChainDefinitions"/>
+        </property>
+    </bean>
+
+    <!-- CAS认证过滤器 -->
+    <bean id="casFilter" class="org.apache.shiro.cas.CasFilter">
+        <property name="failureUrl" value="${adminPath}/login"/>
+    </bean>
+
+    <!-- 定义Shiro安全管理配置 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="systemAuthorizingRealm"/>
+        <!--<property name="sessionManager" ref="sessionManager"/>-->
+        <property name="cacheManager" ref="shiroCacheManager"/>
+    </bean>
+
+    <!--&lt;!&ndash; 自定义会话管理配置 &ndash;&gt;-->
+    <!--<bean id="sessionManager" class="modules.system.shiro.session.SessionManager">-->
+        <!--<property name="sessionDAO" ref="sessionDao"/>-->
+        <!--&lt;!&ndash; 会话超时时间，单位：毫秒  &ndash;&gt;-->
+        <!--<property name="globalSessionTimeout" value="${session.sessionTimeout}"/>-->
+
+        <!--&lt;!&ndash; 定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话   &ndash;&gt;-->
+        <!--<property name="sessionValidationInterval" value="${session.sessionTimeoutClean}"/>-->
+        <!--&lt;!&ndash; <property name="sessionValidationSchedulerEnabled" value="false"/> &ndash;&gt;-->
+        <!--<property name="sessionValidationSchedulerEnabled" value="true"/>-->
+
+        <!--<property name="sessionIdCookie" ref="sessionIdCookie"/>-->
+        <!--<property name="sessionIdCookieEnabled" value="true"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 指定本系统SESSIONID, 默认为: JSESSIONID 问题: 与SERVLET容器名冲突, 如JETTY, TOMCAT 等默认JSESSIONID,-->
+    <!--当跳出SHIRO SERVLET时如ERROR-PAGE容器会为JSESSIONID重新分配值导致登录会话丢失! &ndash;&gt;-->
+    <!--<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">-->
+        <!--<constructor-arg name="name" value="${session.idKey}"/>-->
+    <!--</bean>-->
+    <!--<bean id="idGen" class="modules.system.utils.IdGen"></bean>-->
+
+    <!--&lt;!&ndash; 自定义Session存储容器 &ndash;&gt;-->
+    <!--<bean id="sessionDao" class="modules.system.shiro.session.CacheShiroSessionDaoImpl">-->
+        <!--<property name="sessionIdGenerator" ref="idGen"/>-->
+        <!--<property name="activeSessionsCacheName" value="ySessionsCache"/>-->
+        <!--<property name="cacheManager" ref="shiroCacheManager"/>-->
+    <!--</bean>-->
+
+    <!-- 定义授权缓存管理器 -->
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <property name="cacheManager" ref="ehcacheManagerFactory"/>
+    </bean>
+
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- AOP式方法级权限检查  -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+</beans>

@@ -1,25 +1,19 @@
 package org.yserver.utils.task;
 
 import java.util.Comparator;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * ClassName: PriorityExecutor <br> 
- * Description: 支持优先级的线程池管理类. <br> 
- * Date: 2015-12-2 下午3:41:42 <br> 
- * 
- * @author ysj 
- * @version  
+ * ClassName: TaskExecutor <br>
+ * Description: 支持优先级的线程池管理类. <br>
+ * Date: 2015-12-2 下午3:41:42 <br>
+ *
+ * @author ysj
  * @since JDK 1.7
  */
 public class TaskExecutor implements Executor {
-    private static final int CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors()*2; // 核心线程数
+    private static final int CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2; // 核心线程数
     private static final int MAXIMUM_POOL_SIZE = 256; // 最大线程数
     private static final int KEEP_ALIVE = 1; // 线程池维护线程所允许的空闲时间
 
@@ -28,7 +22,7 @@ public class TaskExecutor implements Executor {
 
         @Override
         public Thread newThread(Runnable runnable) {
-            return new Thread(runnable, "PriorityExecutor #" + mCount.getAndIncrement());
+            return new Thread(runnable, "TaskExecutor #" + mCount.getAndIncrement());
         }
     };
 
@@ -36,7 +30,7 @@ public class TaskExecutor implements Executor {
 
         @Override
         public int compare(Runnable lhs, Runnable rhs) {
-        	// 根据优先级排序
+            // 根据优先级排序
             if (lhs instanceof TaskRunnable && rhs instanceof TaskRunnable) {
                 return ((TaskRunnable) lhs).priority.ordinal() - ((TaskRunnable) rhs).priority.ordinal();
             } else {
@@ -44,7 +38,7 @@ public class TaskExecutor implements Executor {
             }
         }
     };
-    
+
     private final ThreadPoolExecutor mThreadPoolExecutor;
 
     public TaskExecutor() {

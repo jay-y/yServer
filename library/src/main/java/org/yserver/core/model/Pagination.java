@@ -13,7 +13,8 @@ import java.util.List;
  * Date: 2016/9/20 14:01<br>
  * Author: ysj
  */
-public class Pagination<T> extends MapRequest {
+public class Pagination<T> extends RequestEntity
+{
     private String sortValue;
 
     private String sortMode;
@@ -28,64 +29,79 @@ public class Pagination<T> extends MapRequest {
 
     private int count = 0;
 
-    public Pageable getPageable() {
+    public Pageable getPageable()
+    {
         Sort sort = null;
-        if (StringUtils.isNotBlank(sortMode) && StringUtils.isNotBlank(sortValue)) {
+        if (StringUtils.isNotBlank(sortMode) && StringUtils.isNotBlank(sortValue))
+        {
             sort = new Sort(Sort.Direction.fromString(sortMode), sortValue);
         }
         return new PageRequest(page, size, sort);
     }
 
-    public String getSortValue() {
+    public String getSortValue()
+    {
         return sortValue;
     }
 
-    public void setSortValue(String sortValue) {
+    public void setSortValue(String sortValue)
+    {
         this.sortValue = sortValue;
     }
 
-    public String getSortMode() {
+    public String getSortMode()
+    {
         return sortMode;
     }
 
-    public void setSortMode(String sortMode) {
+    public void setSortMode(String sortMode)
+    {
         this.sortMode = sortMode;
     }
 
-    public int getPage() {
+    public int getPage()
+    {
         return page;
     }
 
-    public void setPage(int page) {
+    public void setPage(int page)
+    {
         this.page = page;
     }
 
-    public int getSize() {
+    public int getSize()
+    {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(int size)
+    {
         this.size = size;
     }
 
-    public int getIndex() {
+    public int getIndex()
+    {
         this.index = page * size;
         return index;
     }
 
-    public List<T> getContent() {
+    public List<T> getContent()
+    {
         return content;
     }
 
-    public void setContent(List<T> content) {
+    public void setContent(List<T> content)
+    {
         this.content = content;
     }
 
-    public int getCount() {
+    public int getCount()
+    {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(int count)
+    {
         this.count = count;
     }
 }

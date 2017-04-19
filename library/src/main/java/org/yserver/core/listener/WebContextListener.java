@@ -19,7 +19,6 @@ public class WebContextListener extends
 		WebApplicationContext context = super
 				.initWebApplicationContext(servletContext);
 		
-//		TaskExecutor taskExecutor = SpringContextHolder.getBean("taskExecutor");
 		return context;
 	}
 }

@@ -374,10 +374,10 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6">
 				<span class="txt-color-white">${fns:getConfig('platform')}
-					${fns:getConfigByProj('version')} <span class="hidden-xs"> -
-						&nbsp; Powered By <a href="${fns:getConfig('website')}"
-                                             target="_blank">${fns:getConfigByProj('company')}</a>
-				</span> Copyright &copy; ${fns:getConfigByProj('copyrightYear')}
+					${fns:getPropertyByProj('version')} <span class="hidden-xs"> -
+						&nbsp; Powered By <a href="${fns:getProperty('website')}"
+                                             target="_blank">${fns:getPropertyByProj('company')}</a>
+				</span> Copyright &copy; ${fns:getPropertyByProj('copyrightYear')}
 				</span>
         </div>
 

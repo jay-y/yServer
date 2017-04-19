@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>JSTL 1.1 functions library</description>
+    <display-name>JSTL functions sys</display-name>
+    <tlib-version>1.1</tlib-version>
+    <short-name>sys</short-name>
+    <uri>http://java.sun.com/jsp/jstl/functionss</uri>
+
+    <!-- UserUtil -->
+    <function>
+        <description>获取当前用户对象</description>
+        <name>getUser</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>modules.system.model.User getUser()</function-signature>
+        <example>${sys:getUser()}</example>
+    </function>
+
+    <function>
+        <description>根据编码获取用户对象</description>
+        <name>getUserById</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>modules.system.model.User get(java.lang.String)</function-signature>
+        <example>${sys:getUserById(id)}</example>
+    </function>
+
+    <function>
+        <description>获取授权用户信息</description>
+        <name>getPrincipal</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>modules.system.shiro.SystemAuthorizingRealm.Principal getPrincipal()</function-signature>
+        <example>${sys:getPrincipal()}</example>
+    </function>
+
+    <function>
+        <description>获取菜单列表</description>
+        <name>getMenuList</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>java.util.List getMenuList()</function-signature>
+        <example>${sys:getMenuList()}</example>
+    </function>
+
+    <function>
+        <description>获取当前用户菜单列表</description>
+        <name>getUserMenuList</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>java.util.List getUserMenuList()</function-signature>
+        <example>${sys:getUserMenuList()}</example>
+    </function>
+
+    <function>
+        <description>获取角色列表</description>
+        <name>getRoleList</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>java.util.List getRoleList()</function-signature>
+        <example>${sys:getRoleList()}</example>
+    </function>
+
+    <function>
+        <description>获取区域列表</description>
+        <name>getAreaList</name>
+        <function-class>modules.system.utils.UserUtil</function-class>
+        <function-signature>java.util.List getAreaList()</function-signature>
+        <example>${sys:getAreaList()}</example>
+    </function>
+
+    <function>
+        <description>获取字典列表(指定类型)</description>
+        <name>getDictList</name>
+        <function-class>modules.system.utils.SysUtil</function-class>
+        <function-signature>java.util.List getDictList(java.lang.String)</function-signature>
+        <example>${sys:getDictList(type)}</example>
+    </function>
+
+    <function>
+        <description>获取字典列表(指定类型)</description>
+        <name>getDict</name>
+        <function-class>modules.system.utils.SysUtil</function-class>
+        <function-signature>modules.system.model.Dict getDict(java.lang.String,java.lang.String)</function-signature>
+        <example>${sys:getDict(type,val)}</example>
+    </function>
+</taglib>

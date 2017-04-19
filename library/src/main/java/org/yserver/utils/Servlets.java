@@ -24,7 +24,7 @@ public class Servlets {
     public static final long ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
 
     // 静态文件格式后缀
-    private final static String[] fileSuffix = StringUtils.split(GlobalProperties.getConfig("fileSuffix"), ",");
+    private final static String[] fileSuffix = StringUtils.split(GlobalProperties.getProperty("fileSuffix"), ",");
 
     // 动态映射URL后缀
     private final static String videwSuffix = GlobalProperties.getViewSuffix();

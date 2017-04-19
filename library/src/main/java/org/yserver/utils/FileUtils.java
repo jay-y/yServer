@@ -19,7 +19,7 @@ import java.util.zip.ZipOutputStream;
  */
 public class FileUtils extends org.apache.commons.io.FileUtils {
 
-    private static Log logger = Log.getLogger(FileUtils.class);
+    private final static Log logger = Log.getLogger(FileUtils.class);
 
     /**
      * 复制单个文件，如果目标文件存在，则不覆盖

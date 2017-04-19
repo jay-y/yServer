@@ -41,7 +41,7 @@ public class GlobalProperties {
      * @param key
      * @return
      */
-    public static String getConfig(String key) {
+    public static String getProperty(String key) {
         String value = map.get(key);
         if (value == null) {
             value = loader.getProperty(key);
@@ -54,35 +54,35 @@ public class GlobalProperties {
      * 获取管理端请求根路径
      */
     public static String getAdminPath() {
-        return getConfig("adminPath");
+        return getProperty("adminPath");
     }
 
     /**
      * 获取客户端请求根路径
      */
     public static String getClientPath() {
-        return getConfig("clientPath");
+        return getProperty("clientPath");
     }
 
     /**
      * 获取接口根路径
      */
     public static String getApiPath() {
-        return getConfig("apiPath");
+        return getProperty("apiPath");
     }
 
     /**
      * 获取View路径
      */
     public static String getViewPrefix() {
-        return getConfig("viewPrefix");
+        return getProperty("viewPrefix");
     }
 
     /**
      * 获取View后缀
      */
     public static String getViewSuffix() {
-        return getConfig("viewSuffix");
+        return getProperty("viewSuffix");
     }
 
     /**

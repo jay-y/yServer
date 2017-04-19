@@ -26,11 +26,26 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
     public static boolean printKeyLoadMessage() {
         StringBuilder sb = new StringBuilder();
         sb.append("\r\n======================================================================\r\n");
-        sb.append("\r\n    Welcome to use " + GlobalProperties.getConfig("platform")
-                + "\r\n    Powered By " + GlobalProperties.getConfig("website") + "\r\n");
+        sb.append("\r\n    Welcome to use " + GlobalProperties.getProperty("platform")
+                + "\r\n    Powered By " + GlobalProperties.getProperty("website") + "\r\n");
         sb.append("\r\n======================================================================\r\n");
         System.out.println(sb.toString());
         return true;
+    }
+
+    /**
+     * 手动注入ApplicationContext
+     *
+     * @param applicationContext
+     */
+    public static void injectApplicationContext(ApplicationContext applicationContext) {
+        if (SpringContextHolder.applicationContext == null) {
+            synchronized (SpringContextHolder.class) {
+                if (SpringContextHolder.applicationContext == null) {
+                    SpringContextHolder.applicationContext = applicationContext;
+                }
+            }
+        }
     }
 
     /**
@@ -91,6 +106,6 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      * 检查ApplicationContext不为空.
      */
     private static void assertContextInjected() {
-        Validate.validState(applicationContext != null, "applicaitonContext属性未注入, 请在applicationContext.xml中定义SpringContextHolder.");
+        Validate.validState(applicationContext != null, "ApplicaitonContext attribute not injected,please define applicationContext.xml in SpringContextHolder.");
     }
 }

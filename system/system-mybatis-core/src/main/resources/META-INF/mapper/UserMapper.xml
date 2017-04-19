@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="modules.system.dao.UserDao">
+    <sql id="columns">
+        o.`CODE`,
+        o.IS_DEL AS 'isDel',
+        o.REMARKS,
+        o.CREATED_TIME,
+        o.UPDATED_TIME,
+        o.VERSION,
+        o.USERNAME,
+        o.PASSWORD,
+        o.`NAME`,
+        o.EMAIL,
+        o.PHONE,
+        o.STATUS,
+        o.IP,
+        o.SKIN,
+        o.PHOTO,
+        o.ROLE_CODE AS 'role.code'
+    </sql>
+
+    <sql id="joinColumns">
+        ,sr.NAME AS 'role.name',
+        sr.ENNAME AS 'role.enname',
+        sr.ROLE_TYPE AS 'role.roleType',
+        sr.IS_AVAILABLE AS 'role..isAvailable'
+    </sql>
+
+    <sql id="tableName">
+        sys_user o
+    </sql>
+
+    <sql id="joinTables">
+        LEFT JOIN sys_role sr ON sr.`CODE` = o.ROLE_CODE
+    </sql>
+
+    <sql id="conditions">
+        1=1
+        <if test="null != code and '' != code">
+            AND o.CODE = #{code}
+        </if>
+        <if test="null != username and '' != username">
+            AND o.USERNAME = #{username}
+        </if>
+        <if test="null != password and '' != password">
+            AND o.PASSWORD = #{password}
+        </if>
+    </sql>
+
+    <select id="findByUserName" parameterType="java.lang.String" resultType="modules.system.model.User">
+        SELECT
+        <include refid="columns"/>
+        <include refid="joinColumns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE o.USERNAME = #{username}
+    </select>
+
+    <select id="count" resultType="java.lang.Long">
+        SELECT COUNT(o.CODE)
+        FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="conditions"/>
+    </select>
+
+    <select id="findOne" resultType="modules.system.model.User">
+        SELECT
+        <include refid="columns"/>
+        <include refid="joinColumns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE
+        <include refid="conditions"/>
+    </select>
+
+    <select id="findAll" resultType="modules.system.model.User">
+        SELECT
+        <include refid="columns"/>
+        <include refid="joinColumns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE
+        <include refid="conditions"/>
+    </select>
+
+    <select id="findPage" resultType="modules.system.model.User">
+        SELECT
+        <include refid="columns"/>
+        <include refid="joinColumns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE
+        <include refid="conditions"/>
+        <if test="null != index and null != size and 0 != size">
+            LIMIT #{index},#{size}
+        </if>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO sys_user(
+        `CODE`,
+        IS_DEL,
+        REMARKS,
+        CREATED_TIME,
+        UPDATED_TIME,
+        VERSION,
+        USERNAME,
+        PASSWORD,
+        `NAME`,
+        EMAIL,
+        PHONE,
+        STATUS,
+        IP,
+        SKIN,
+        PHOTO,
+        ROLE_CODE
+        ) VALUES (
+        #{code},
+        #{isDel},
+        #{remarks},
+        #{createdTime},
+        #{updatedTime},
+        #{version},
+        #{username},
+        #{password},
+        #{name},
+        #{email},
+        #{phone},
+        #{status},
+        #{ip},
+        #{skin},
+        #{photo},
+        #{role.code}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE
+        sys_user
+        SET
+        IS_DEL = #{isDel},
+        REMARKS = #{remarks},
+        CREATED_TIME = #{createdTime},
+        UPDATED_TIME = #{updatedTime},
+        VERSION = #{version},
+        USERNAME = #{username},
+        PASSWORD = #{password},
+        `NAME` = #{name},
+        EMAIL = #{email},
+        PHONE = #{phone},
+        STATUS = #{status},
+        IP = #{ip},
+        SKIN = #{skin},
+        PHOTO = #{photo},
+        ROLE_CODE = #{role.code}
+        WHERE CODE = #{code}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        sys_user
+        WHERE CODE = #{code}
+    </delete>
+
+    <!-- 批量删除 -->
+    <delete id="deleteList" parameterType="java.util.List">
+        DELETE FROM
+        sys_user
+        WHERE CODE in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item.code}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE FROM
+        sys_user
+    </delete>
+</mapper>

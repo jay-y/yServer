@@ -72,7 +72,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
         y.log().debug("---------------------------------------------");
 //        Principal principal = (Principal) getAvailablePrincipal(principals);
         // 获取当前已登录的用户
-//        if (!Constant._TRUE.equals(WeChatProperties.getConfig("multiAccountLogin"))) {
+//        if (!Constant._TRUE.equals(WeChatProperties.getProperty("multiAccountLogin"))) {
 //            Collection<Session> sessions = getSystemService().getSessionDao().getActiveSessions(true, principal, UserUtil.getSession());
 //            if (sessions.size() > 0) {
 //                // 如果是登录进来的，则踢出已在线用户

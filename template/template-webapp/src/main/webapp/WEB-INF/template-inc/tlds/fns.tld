@@ -12,18 +12,18 @@
     <uri>http://java.sun.com/jsp/jstl/functionss</uri>
     <function>
         <description>获取配置</description>
-        <name>getConfig</name>
+        <name>getProperty</name>
         <function-class>org.yserver.core.config.GlobalProperties</function-class>
-        <function-signature>java.lang.String getConfig(java.lang.String)</function-signature>
-        <example>${fns:getConfig(key)}</example>
+        <function-signature>java.lang.String getProperty(java.lang.String)</function-signature>
+        <example>${fns:getProperty(key)}</example>
     </function>
 
     <function>
         <description>获取配置</description>
-        <name>getConfigByProj</name>
+        <name>getPropertyByProj</name>
         <function-class>modules.template.config.TemplateProperties</function-class>
-        <function-signature>java.lang.String getConfig(java.lang.String)</function-signature>
-        <example>${fns:getConfigByProj(key)}</example>
+        <function-signature>java.lang.String getProperty(java.lang.String)</function-signature>
+        <example>${fns:getPropertyByProj(key)}</example>
     </function>
 
     <!-- StringUtils -->

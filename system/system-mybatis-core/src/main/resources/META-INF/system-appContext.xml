@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 加载属性文件 -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:META-INF/global.properties</value>
+                <value>classpath:META-INF/system.properties</value>
+            </list>
+        </property>
+        <!-- ignoreUnresolvablePlaceholders为是否忽略不可解析的 Placeholder，如配置了多个PropertyPlaceholderConfigurer，则需设置为true -->
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+    <!-- 配置数据源druid -->
+    <bean id="defaultDataSource" class="com.alibaba.druid.pool.DruidDataSource"
+          destroy-method="close">
+        <!-- 数据库基本信息配置 -->
+        <property name="url" value="${default.db.url}"/>
+        <property name="username" value="${default.db.username}"/>
+        <property name="password" value="${default.db.password}"/>
+        <property name="driverClassName" value="${default.db.driver}"/>
+        <!-- 最大并发连接数 -->
+        <property name="maxActive" value="${default.db.maxActive}"/>
+        <!-- 初始化连接数量 -->
+        <property name="initialSize" value="${default.db.initialSize}"/>
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${default.db.maxWait}"/>
+        <!-- 最小空闲连接数 -->
+        <property name="minIdle" value="${default.db.minIdle}"/>
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${default.db.timeBetweenEvictionRunsMillis}"/>
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${default.db.minEvictableIdleTimeMillis}"/>
+        <property name="validationQuery" value="${default.db.validationQuery}"/>
+        <property name="testWhileIdle" value="${default.db.testWhileIdle}"/>
+        <property name="testOnBorrow" value="${default.db.testOnBorrow}"/>
+        <property name="testOnReturn" value="${default.db.testOnReturn}"/>
+        <property name="maxOpenPreparedStatements" value="${default.db.maxOpenPreparedStatements}"/>
+        <!-- 打开removeAbandoned功能 -->
+        <property name="removeAbandoned" value="${default.db.removeAbandoned}"/>
+        <!-- 1800秒，也就是30分钟 -->
+        <property name="removeAbandonedTimeout" value="${default.db.removeAbandonedTimeout}"/>
+        <!-- 关闭abanded连接时输出错误日志 -->
+        <property name="logAbandoned" value="${default.db.logAbandoned}"/>
+        <!-- 开启Druid的监控统计功能 -->
+        <property name="filters" value="${default.db.filters}"/>
+        <!--<property name="filters" value="mergeStat" /> -->
+    </bean>
+
+    <!-- 动态数据源 -->
+    <bean id="dynamicDataSource" class="org.yserver.core.datasource.DynamicDataSource">
+        <property name="defaultTargetDataSource" ref="defaultDataSource"/>
+        <!-- 通过key-value关联数据源 -->
+        <property name="targetDataSources">
+            <map>
+                <entry value-ref="defaultDataSource" key="default"></entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- 配置事务 -->
+    <bean id="transactionManager" name="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dynamicDataSource"></property>
+    </bean>
+
+    <!-- 配置事务注解 -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- Mybatis与Spring整合 -->
+    <bean id="sqlSessionFactory" name="sqlSessionFactory"
+          class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:META-INF/mybatis-config.xml"></property>
+        <!-- mapper扫描 -->
+        <property name="mapperLocations" value="classpath:META-INF/mapper/*.xml"></property>
+        <property name="dataSource" ref="dynamicDataSource"/>
+    </bean>
+
+    <!-- 配置自动扫描的包 -->
+    <context:component-scan base-package="modules">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation"
+                                expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+</beans>

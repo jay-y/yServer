@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>god</artifactId>
+        <groupId>org.yserver</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>system</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>system-common</module>
+        <module>system-jpa-core</module>
+        <module>system-mybatis-core</module>
+        <module>system-webapp</module>
+    </modules>
+
+    <dependencies>
+        <!-- common -->
+        <dependency>
+            <groupId>org.yserver</groupId>
+            <artifactId>system-common</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>

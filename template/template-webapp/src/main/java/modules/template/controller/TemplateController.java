@@ -63,7 +63,7 @@ public class TemplateController extends TmpBaseController {
 //        // 登录成功后，验证码计算器清零
 //        SystemAuthorizingRealm.isValidateCodeLogin(principal.getLoginName(), false, true);
 //        // 如果已登录，再次访问主页，则退出原账号。
-//        if (Constant._TRUE.equals(GlobalProperties.getConfig("notAllowRefreshIndex"))) {
+//        if (Constant._TRUE.equals(GlobalProperties.getProperty("notAllowRefreshIndex"))) {
 //            String logined = CookieUtil.getCookie(request, "LOGINED");
 //            if (StringUtils.isBlank(logined) || Constant._FALSE.equals(logined)) {
 //                CookieUtil.setCookie(response, "LOGINED", Constant._TRUE);
@@ -91,7 +91,7 @@ public class TemplateController extends TmpBaseController {
 //        SystemAuthorizingRealm.Principal principal = UserUtil.getPrincipal();
 //
 //        // 如果已登录，再次访问主页，则退出原账号。
-//        if (Constant._TRUE.equals(GlobalProperties.getConfig("notAllowRefreshIndex"))) {
+//        if (Constant._TRUE.equals(GlobalProperties.getProperty("notAllowRefreshIndex"))) {
 //            CookieUtil.setCookie(response, "LOGINED", Constant._FALSE);
 //        }
 //

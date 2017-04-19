@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="modules.system.dao.LogisticsDao">
+    <sql id="columns">
+        o.`CODE` AS 'code',
+        o.IS_DEL AS 'isDel',
+        o.REMARKS AS 'remarks',
+        o.CREATED_TIME AS 'createdTime',
+        o.UPDATED_TIME AS 'updatedTime',
+        o.VERSION AS 'version',
+        o.IC AS 'ic',
+        o.CLIENT_NAME AS 'clientName',
+        o.CONTACT_WAY AS 'contactWay',
+        o.COMPANY AS 'company',
+        o.PRICE AS 'price',
+        o.CATEGORY AS 'category',
+        o.PHOTO_CODE AS 'photo.code',
+        sf.NAME AS 'photo.name',
+        sf.URI AS 'photo.uri'
+    </sql>
+
+    <sql id="tableName">
+        sys_logistics o
+    </sql>
+
+    <sql id="joinTables">
+        LEFT JOIN sys_file sf ON sf.`CODE` = o.PHOTO_CODE
+    </sql>
+
+    <sql id="conditions">
+        1=1
+        <if test="null != code and '' != code">
+            AND o.CODE = #{code}
+        </if>
+        <if test="null != name and '' != name">
+            AND o.NAME = #{name}
+        </if>
+        <if test="null != type and '' != type">
+            AND o.TYPE = #{type}
+        </if>
+        <if test="null != format and '' != format">
+            AND o.FORMAT = #{format}
+        </if>
+        <if test="null != remarks and '' != remarks">
+            AND o.REMARKS = #{remarks}
+        </if>
+    </sql>
+
+    <select id="count" resultType="java.lang.Long">
+        SELECT COUNT(o.CODE)
+        FROM
+        <include refid="tableName"/>
+        WHERE
+        <include refid="conditions"/>
+    </select>
+
+    <select id="findOne" resultType="modules.system.model.Logistics">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE
+        <include refid="conditions"/>
+    </select>
+
+    <select id="findAll" resultType="modules.system.model.Logistics">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE
+        <include refid="conditions"/>
+    </select>
+
+    <select id="findPage" resultType="modules.system.model.Logistics">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        <include refid="tableName"/>
+        <include refid="joinTables"/>
+        WHERE
+        <include refid="conditions"/>
+        <if test="null != index and null != size and 0 != size">
+            LIMIT #{index},#{size}
+        </if>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO sys_logistics(
+        `CODE`,
+        IS_DEL,
+        REMARKS,
+        CREATED_TIME,
+        UPDATED_TIME,
+        VERSION,
+        IC,
+        CLIENT_NAME,
+        CONTACT_WAY,
+        COMPANY,
+        PRICE,
+        CATEGORY,
+        PHOTO_CODE
+        ) VALUES (
+        #{code},
+        #{isDel},
+        #{remarks},
+        #{createdTime},
+        #{updatedTime},
+        #{version},
+        #{ic},
+        #{clientName},
+        #{contactWay},
+        #{company},
+        #{price},
+        #{category},
+        #{photo.code}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE
+        sys_logistics
+        SET
+        IS_DEL = #{isDel},
+        REMARKS = #{remarks},
+        CREATED_TIME = #{createdTime},
+        UPDATED_TIME = #{updatedTime},
+        VERSION = #{version},
+        IC = #{ic},
+        CLIENT_NAME = #{clientName},
+        CONTACT_WAY = #{contactWay},
+        COMPANY = #{company},
+        PRICE = #{price},
+        CATEGORY = #{category},
+        PHOTO_CODE = #{photo.code}
+        WHERE CODE = #{code}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM
+        sys_logistics
+        WHERE CODE = #{code}
+    </delete>
+
+    <!-- 批量删除 -->
+    <delete id="deleteList" parameterType="java.util.List">
+        DELETE FROM
+        sys_logistics
+        WHERE CODE in
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item.code}
+        </foreach>
+    </delete>
+
+    <delete id="deleteAll">
+        DELETE FROM
+        sys_logistics
+    </delete>
+</mapper>
