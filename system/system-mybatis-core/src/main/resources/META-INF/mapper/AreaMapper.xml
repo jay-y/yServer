@@ -23,7 +23,12 @@
     </sql>
 
     <sql id="tableName">
-        sys_area o
+        sys_area
+    </sql>
+
+    <sql id="tableAlias">
+        <include refid="tableName"/>
+        o
     </sql>
 
     <sql id="joinTables">
@@ -31,7 +36,7 @@
     </sql>
 
     <sql id="conditions">
-        1=1
+        1=1 AND o.IS_DEL = 'n'
         <if test="null != code and '' != code">
             AND o.CODE = #{code}
         </if>
@@ -48,7 +53,7 @@
         <include refid="columns"/>
         <include refid="joinColumns"/>
         FROM
-        <include refid="tableName"/>
+        <include refid="tableAlias"/>
         <include refid="joinTables"/>
         WHERE 1 = 1 AND o.TYPE >= #{type} AND o.PCODE = #{parent.code}
     </select>
@@ -56,7 +61,7 @@
     <select id="count" resultType="java.lang.Long">
         SELECT COUNT(o.CODE)
         FROM
-        <include refid="tableName"/>
+        <include refid="tableAlias"/>
         WHERE
         <include refid="conditions"/>
     </select>
@@ -66,7 +71,7 @@
         <include refid="columns"/>
         <include refid="joinColumns"/>
         FROM
-        <include refid="tableName"/>
+        <include refid="tableAlias"/>
         <include refid="joinTables"/>
         WHERE
         <include refid="conditions"/>
@@ -77,7 +82,7 @@
         <include refid="columns"/>
         <include refid="joinColumns"/>
         FROM
-        <include refid="tableName"/>
+        <include refid="tableAlias"/>
         <include refid="joinTables"/>
         WHERE
         <include refid="conditions"/>
@@ -88,7 +93,7 @@
         <include refid="columns"/>
         <include refid="joinColumns"/>
         FROM
-        <include refid="tableName"/>
+        <include refid="tableAlias"/>
         <include refid="joinTables"/>
         WHERE
         <include refid="conditions"/>
@@ -98,7 +103,8 @@
     </select>
 
     <insert id="insert">
-        INSERT INTO sys_area(
+        INSERT INTO
+        <include refid="tableName"/>(
         `CODE`,
         IS_DEL,
         REMARKS,
@@ -131,7 +137,7 @@
 
     <update id="update">
         UPDATE
-        sys_area
+        <include refid="tableName"/>
         SET
         IS_DEL = #{isDel},
         REMARKS = #{remarks},
@@ -150,14 +156,14 @@
 
     <delete id="delete">
         DELETE FROM
-        sys_area
+        <include refid="tableName"/>
         WHERE CODE = #{code}
     </delete>
 
     <!-- 批量删除 -->
     <delete id="deleteList" parameterType="java.util.List">
         DELETE FROM
-        sys_area
+        <include refid="tableName"/>
         WHERE CODE in
         <foreach collection="list" item="item" open="(" separator="," close=")">
             #{item.code}
@@ -166,6 +172,6 @@
 
     <delete id="deleteAll">
         DELETE FROM
-        sys_area
+        <include refid="tableName"/>
     </delete>
 </mapper>

@@ -43,7 +43,7 @@
         <!--<spring-data-jpa.version>1.9.6.RELEASE</spring-data-jpa.version>-->
         <!--<hibernate.version>4.3.2.Final</hibernate.version>-->
 
-        <hibernate-validator.version>4.3.2.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.1.1.Final</hibernate-validator.version>
         <mybatis.version>3.2.8</mybatis.version>
         <mybatis-spring.version>1.2.2</mybatis-spring.version>
         <mysql-driver.version>5.1.38</mysql-driver.version>
@@ -65,7 +65,6 @@
         <google-guava.version>17.0</google-guava.version>
         <google-zxing.version>3.2.1</google-zxing.version>
         <google-gson.version>2.3.1</google-gson.version>
-        <validator.version>5.1.1.Final</validator.version>
         <log4j.version>1.2.17</log4j.version>
         <slf4j.version>1.7.10</slf4j.version>
         <xstream.version>1.4.7</xstream.version>
@@ -89,7 +88,7 @@
         <javax-mail.version>1.4.7</javax-mail.version>
         <javax-jstl.version>1.2</javax-jstl.version>
         <javax-activation.version>1.1.1</javax-activation.version>
-        <javax-validator.version>1.0.0.GA</javax-validator.version>
+        <javax-validator.version>1.1.0.Final</javax-validator.version>
 
         <!--<javaee-api.version>7.0</javaee-api.version>-->
 

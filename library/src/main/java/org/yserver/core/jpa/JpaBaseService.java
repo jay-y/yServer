@@ -52,15 +52,6 @@ public interface JpaBaseService<T, ID extends Serializable, DAO extends JpaBaseD
     void delete(List<T> list);
 
     /**
-     * deleteList
-     *
-     * @param list
-     */
-    @Deprecated
-    @CacheEvict(value = "baseCache", allEntries = true)
-    void deleteList(List<T> list);
-
-    /**
      * deleteAll
      */
     @CacheEvict(value = "baseCache", allEntries = true)

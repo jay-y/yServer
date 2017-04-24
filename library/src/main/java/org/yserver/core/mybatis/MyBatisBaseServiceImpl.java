@@ -17,14 +17,19 @@ import java.util.*;
  * @version 1.0
  * @since JDK 1.7
  */
-public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends MyBatisBaseDao> implements MyBatisBaseService<T, DAO> {
+public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends MyBatisBaseDao> implements MyBatisBaseService<T, DAO>
+{
     private final static Log logger = Log.getLogger(MyBatisBaseServiceImpl.class);
 
-    public T save(T entity) {
-        if (StringUtils.isNotBlank(entity.getCode())) {
+    public T save(T entity)
+    {
+        if (StringUtils.isNotBlank(entity.getCode()))
+        {
             entity.setUpdatedTime(new Date());
             getDao().update(entity);
-        } else {
+        }
+        else
+        {
             //生成主键
             entity.setCode(RandomUtil.uuid());
             entity.setCreatedTime(new Date());
@@ -33,24 +38,29 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
         return entity;
     }
 
-    public List<T> save(List<T> entities) {
+    public List<T> save(List<T> entities)
+    {
         Iterator<T> iterator = entities.iterator();
-        while (iterator.hasNext()) {
+        while (iterator.hasNext())
+        {
             T entity = iterator.next();
             this.save(entity);
         }
         return entities;
     }
 
-    public void delete(T entity) {
+    public void delete(T entity)
+    {
         getDao().delete(entity);
     }
 
-    public void delete(List<T> list) {
-        getDao().delete(list);
+    public void delete(List<T> list)
+    {
+        getDao().deleteList(list);
     }
 
-    public void deleteAll() {
+    public void deleteAll()
+    {
         getDao().deleteAll();
     }
 
@@ -63,7 +73,8 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
      * @since JDK 1.7
      * date: 2016年8月12日 下午5:50:41 <br>
      */
-    public T find(T entity) {
+    public T find(T entity)
+    {
         return (T) getDao().findOne(entity);
     }
 
@@ -76,7 +87,8 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
      * @since JDK 1.7
      * date: 2016年8月12日 下午5:50:14 <br>
      */
-    public List<T> findAll(T entity) {
+    public List<T> findAll(T entity)
+    {
         return (List<T>) getDao().findAll(entity);
     }
 
@@ -89,19 +101,22 @@ public abstract class MyBatisBaseServiceImpl<T extends BaseEntity, DAO extends M
      * @since JDK 1.7
      * date: 2016年8月12日 下午5:50:27 <br>
      */
-    public List<T> findAll() {
+    public List<T> findAll()
+    {
         return (List<T>) getDao().findAll();
     }
 
     @Override
-    public Map<String, Object> findPage(Pagination<T> pagination) {
+    public Map<String, Object> findPage(Pagination<T> pagination)
+    {
         Map<String, Object> map = null != pagination.getParams() ? pagination.getParams() : new HashMap<>();
         map.put("page", pagination.getPage());
         map.put("size", pagination.getSize());
         map.put("index", pagination.getIndex());
         List<T> list = getDao().findPage(map);
         map = new HashMap<>();
-        if (null != list && list.size() > 0) {
+        if (null != list && list.size() > 0)
+        {
             pagination.setContent(list);
             map.put("content", list);
         }
