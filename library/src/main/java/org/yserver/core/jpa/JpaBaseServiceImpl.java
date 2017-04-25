@@ -12,7 +12,6 @@ import java.util.List;
 @Transactional
 public abstract class JpaBaseServiceImpl<T extends BaseEntity, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> implements JpaBaseService<T, ID, DAO>
 {
-
     public T save(T entity)
     {
         return getDao().save(entity);
