@@ -75,7 +75,7 @@
     </select>
 
     <select id="count" resultType="java.lang.Long">
-        SELECT COUNT(o.CODE)
+        SELECT COUNT(1)
         FROM
         <include refid="tableAlias"/>
         WHERE
