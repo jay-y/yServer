@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletRequest;
  * 表单验证过滤类
  */
 @Component
-public class FormAuthenticationFilter extends
-        org.apache.shiro.web.filter.authc.FormAuthenticationFilter {
+public class FormAuthenticationFilter extends org.apache.shiro.web.filter.authc.FormAuthenticationFilter
+{
 
     public static final String DEFAULT_CAPTCHA_PARAM = "validateCode";
     public static final String DEFAULT_MOBILE_PARAM = "mobileLogin";
@@ -27,11 +27,12 @@ public class FormAuthenticationFilter extends
     private String mobileLoginParam = DEFAULT_MOBILE_PARAM;
     private String messageParam = DEFAULT_MESSAGE_PARAM;
 
-    protected AuthenticationToken createToken(ServletRequest request,
-                                              ServletResponse response) {
+    protected AuthenticationToken createToken(ServletRequest request, ServletResponse response)
+    {
         String username = getUsername(request);
         String password = getPassword(request);
-        if (password == null) {
+        if (password == null)
+        {
             password = "";
         }
         boolean rememberMe = isRememberMe(request);
@@ -48,40 +49,45 @@ public class FormAuthenticationFilter extends
         String host = StringUtils.getRemoteAddr((HttpServletRequest) request);
         String captcha = getCaptcha(request);
         boolean mobile = isMobileLogin(request);
-        return new UsernamePasswordToken(username, password.toCharArray(),
-                rememberMe, host, captcha, mobile);
+        return new UsernamePasswordToken(username, password.toCharArray(), rememberMe, host, captcha, mobile);
     }
 
-    public String getCaptchaParam() {
+    public String getCaptchaParam()
+    {
         return captchaParam;
     }
 
-    protected String getCaptcha(ServletRequest request) {
+    protected String getCaptcha(ServletRequest request)
+    {
         return WebUtils.getCleanParam(request, getCaptchaParam());
     }
 
-    public String getMobileLoginParam() {
+    public String getMobileLoginParam()
+    {
         return mobileLoginParam;
     }
 
-    protected boolean isMobileLogin(ServletRequest request) {
+    protected boolean isMobileLogin(ServletRequest request)
+    {
         return WebUtils.isTrue(request, getMobileLoginParam());
     }
 
-    public String getMessageParam() {
+    public String getMessageParam()
+    {
         return messageParam;
     }
 
     /**
      * 登录成功之后跳转URL
      */
-    public String getSuccessUrl() {
+    public String getSuccessUrl()
+    {
         return super.getSuccessUrl();
     }
 
     @Override
-    protected void issueSuccessRedirect(ServletRequest request,
-                                        ServletResponse response) throws Exception {
+    protected void issueSuccessRedirect(ServletRequest request, ServletResponse response) throws Exception
+    {
         // Principal p = UserUtils.getPrincipal();
         // if (p != null && !p.isMobileLogin()){
         WebUtils.issueRedirect(request, response, getSuccessUrl(), null, true);
@@ -94,18 +100,20 @@ public class FormAuthenticationFilter extends
      * 登录失败调用事件
      */
     @Override
-    protected boolean onLoginFailure(AuthenticationToken token,
-                                     AuthenticationException e, ServletRequest request,
-                                     ServletResponse response) {
+    protected boolean onLoginFailure(AuthenticationToken token, AuthenticationException e, ServletRequest request, ServletResponse response)
+    {
         System.out.println(e.getMessage());
         String className = e.getClass().getName(), message = "";
-        if (IncorrectCredentialsException.class.getName().equals(className)
-                || UnknownAccountException.class.getName().equals(className)) {
+        if (IncorrectCredentialsException.class.getName().equals(className) || UnknownAccountException.class.getName().equals(className))
+        {
             message = "用户或密码错误, 请重试.";
-        } else if (e.getMessage() != null
-                && StringUtils.startsWith(e.getMessage(), "msg:")) {
+        }
+        else if (e.getMessage() != null && StringUtils.startsWith(e.getMessage(), "msg:"))
+        {
             message = StringUtils.replace(e.getMessage(), "msg:", "");
-        } else {
+        }
+        else
+        {
             message = "系统出现点问题，请稍后再试！";
             e.printStackTrace(); // 输出到控制台
         }

@@ -10,5 +10,6 @@ import org.yserver.core.mybatis.annotation.MyBatisMapper;
  * Author: ysj
  */
 @MyBatisMapper
-public interface PaymentDao extends SysBaseDao<Payment> {
+public interface PaymentDao extends SysBaseDao<Payment>
+{
 }

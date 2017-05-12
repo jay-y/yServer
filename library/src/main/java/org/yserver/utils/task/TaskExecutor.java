@@ -12,28 +12,36 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author ysj
  * @since JDK 1.7
  */
-public class TaskExecutor implements Executor {
+public class TaskExecutor implements Executor
+{
     private static final int CORE_POOL_SIZE = Runtime.getRuntime().availableProcessors() * 2; // 核心线程数
     private static final int MAXIMUM_POOL_SIZE = 256; // 最大线程数
     private static final int KEEP_ALIVE = 1; // 线程池维护线程所允许的空闲时间
 
-    private static final ThreadFactory sThreadFactory = new ThreadFactory() {
+    private static final ThreadFactory sThreadFactory = new ThreadFactory()
+    {
         private final AtomicInteger mCount = new AtomicInteger(1); // 安全计数
 
         @Override
-        public Thread newThread(Runnable runnable) {
+        public Thread newThread(Runnable runnable)
+        {
             return new Thread(runnable, "TaskExecutor #" + mCount.getAndIncrement());
         }
     };
 
-    private static final Comparator<Runnable> sRunnableComparator = new Comparator<Runnable>() {
+    private static final Comparator<Runnable> sRunnableComparator = new Comparator<Runnable>()
+    {
 
         @Override
-        public int compare(Runnable lhs, Runnable rhs) {
+        public int compare(Runnable lhs, Runnable rhs)
+        {
             // 根据优先级排序
-            if (lhs instanceof TaskRunnable && rhs instanceof TaskRunnable) {
+            if (lhs instanceof TaskRunnable && rhs instanceof TaskRunnable)
+            {
                 return ((TaskRunnable) lhs).priority.ordinal() - ((TaskRunnable) rhs).priority.ordinal();
-            } else {
+            }
+            else
+            {
                 return 0;
             }
         }
@@ -41,42 +49,45 @@ public class TaskExecutor implements Executor {
 
     private final ThreadPoolExecutor mThreadPoolExecutor;
 
-    public TaskExecutor() {
+    public TaskExecutor()
+    {
         this(CORE_POOL_SIZE);
     }
 
-    public TaskExecutor(int poolSize) {
-        BlockingQueue<Runnable> mPoolWorkQueue =
-                new PriorityBlockingQueue<Runnable>(MAXIMUM_POOL_SIZE, sRunnableComparator);
-        mThreadPoolExecutor = new ThreadPoolExecutor(
-                poolSize,
-                MAXIMUM_POOL_SIZE,
-                KEEP_ALIVE,
-                TimeUnit.SECONDS, // 线程池维护线程所允许的空闲时间的单位
-                mPoolWorkQueue, // 线程池所使用的缓冲队列
-                sThreadFactory);
+    public TaskExecutor(int poolSize)
+    {
+        BlockingQueue<Runnable> mPoolWorkQueue = new PriorityBlockingQueue<Runnable>(MAXIMUM_POOL_SIZE, sRunnableComparator);
+        mThreadPoolExecutor = new ThreadPoolExecutor(poolSize, MAXIMUM_POOL_SIZE, KEEP_ALIVE, TimeUnit.SECONDS, // 线程池维护线程所允许的空闲时间的单位
+            mPoolWorkQueue, // 线程池所使用的缓冲队列
+            sThreadFactory);
     }
 
-    public int getPoolSize() {
+    public int getPoolSize()
+    {
         return mThreadPoolExecutor.getCorePoolSize();
     }
 
-    public void setPoolSize(int poolSize) {
-        if (poolSize > 0) {
+    public void setPoolSize(int poolSize)
+    {
+        if (poolSize > 0)
+        {
             mThreadPoolExecutor.setCorePoolSize(poolSize);
         }
     }
 
-    public ThreadPoolExecutor getThreadPoolExecutor() {
+    public ThreadPoolExecutor getThreadPoolExecutor()
+    {
         return mThreadPoolExecutor;
     }
 
-    public boolean isBusy() {
+    public boolean isBusy()
+    {
         return mThreadPoolExecutor.getActiveCount() >= mThreadPoolExecutor.getCorePoolSize();
     }
 
     @Override
-    public void execute(final Runnable runnable) {
+    public void execute(final Runnable runnable)
+    {
         mThreadPoolExecutor.execute(runnable);
     }
 }

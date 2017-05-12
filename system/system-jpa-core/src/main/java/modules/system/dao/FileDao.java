@@ -10,7 +10,8 @@ import org.springframework.data.repository.query.Param;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface FileDao extends SysBaseDao<File> {
+public interface FileDao extends SysBaseDao<File>
+{
 
     @Query("select o from File o where o.name = :name")
     File findByName(@Param(value = "name") String name);

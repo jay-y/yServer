@@ -12,7 +12,8 @@ import java.util.Date;
  * Author: ysj
  */
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable
+{
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -38,58 +39,72 @@ public abstract class BaseEntity implements Serializable {
     @Column(name = "IS_DEL")
     protected char isDel = 'n';
 
-    public BaseEntity() {
+    public BaseEntity()
+    {
     }
 
-    public BaseEntity(String code) {
+    public BaseEntity(String code)
+    {
         this.code = code;
     }
 
-    public Integer getVersion() {
+    public Integer getVersion()
+    {
         return this.version;
     }
 
-    public void setVersion(Integer version) {
+    public void setVersion(Integer version)
+    {
         this.version = version;
     }
 
-    public String getCode() {
+    public String getCode()
+    {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(String code)
+    {
         this.code = code;
     }
 
-    public char getIsDel() {
+    public char getIsDel()
+    {
         return isDel;
     }
 
-    public void setIsDel(char isDel) {
+    public void setIsDel(char isDel)
+    {
         this.isDel = isDel;
     }
 
-    public String getRemarks() {
+    public String getRemarks()
+    {
         return remarks;
     }
 
-    public void setRemarks(String remarks) {
+    public void setRemarks(String remarks)
+    {
         this.remarks = remarks;
     }
 
-    public Date getCreatedTime() {
+    public Date getCreatedTime()
+    {
         return createdTime;
     }
 
-    public void setCreatedTime(Date createdTime) {
+    public void setCreatedTime(Date createdTime)
+    {
         this.createdTime = createdTime;
     }
 
-    public Date getUpdatedTime() {
+    public Date getUpdatedTime()
+    {
         return updatedTime;
     }
 
-    public void setUpdatedTime(Date updatedTime) {
+    public void setUpdatedTime(Date updatedTime)
+    {
         this.updatedTime = updatedTime;
     }
 }

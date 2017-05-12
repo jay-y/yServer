@@ -19,28 +19,32 @@ import java.util.List;
 @Service
 @DataSource("default")
 @Transactional
-public class AreaServiceImpl
-        extends SysBaseServiceImpl<Area, AreaDao> implements AreaService {
+public class AreaServiceImpl extends SysBaseServiceImpl<Area, AreaDao> implements AreaService
+{
     @Autowired
     private AreaDao dao;
 
     @Override
-    public AreaDao getDao() {
+    public AreaDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public List<Area> findAllParent() {
+    public List<Area> findAllParent()
+    {
         return getDao().findAllParent();
     }
 
     @Override
-    public List<Area> findAllChild(String type, String pcode) {
+    public List<Area> findAllChild(String type, String pcode)
+    {
         return getDao().findAllChild(type, pcode);
     }
 
     @Override
-    public List<Area> findAllChildByTypeAndPcode(String type, String pcode) {
+    public List<Area> findAllChildByTypeAndPcode(String type, String pcode)
+    {
         return getDao().findAllChildByTypeAndPcode(type, pcode);
     }
 }

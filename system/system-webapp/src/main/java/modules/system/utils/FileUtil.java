@@ -14,7 +14,8 @@ import java.security.NoSuchAlgorithmException;
  * Date: 2016/11/21 11:06<br>
  * Author: ysj
  */
-public class FileUtil {
+public class FileUtil
+{
 
     /**
      * 获取文件MD5值
@@ -23,12 +24,14 @@ public class FileUtil {
      * @return
      * @throws IOException
      */
-    public static String getFileMD5(File inputFile) throws IOException {
+    public static String getFileMD5(File inputFile) throws IOException
+    {
         // 缓冲区大小（这个可以抽出一个参数）
         int bufferSize = 256 * 1024;
         FileInputStream fileInputStream = null;
         DigestInputStream digestInputStream = null;
-        try {
+        try
+        {
             // 拿到一个MD5转换器（同样，这里可以换成SHA1）
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             // 使用DigestInputStream
@@ -43,16 +46,26 @@ public class FileUtil {
             byte[] resultByteArray = messageDigest.digest();
             // 同样，把字节数组转换成字符串
             return CiphertextUtil.byteArrayToHex(resultByteArray);
-        } catch (NoSuchAlgorithmException e) {
+        }
+        catch (NoSuchAlgorithmException e)
+        {
             return null;
-        } finally {
-            try {
+        }
+        finally
+        {
+            try
+            {
                 digestInputStream.close();
-            } catch (Exception e) {
             }
-            try {
+            catch (Exception e)
+            {
+            }
+            try
+            {
                 fileInputStream.close();
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
             }
         }
     }

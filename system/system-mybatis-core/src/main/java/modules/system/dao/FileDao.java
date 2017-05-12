@@ -10,5 +10,6 @@ import org.yserver.core.mybatis.annotation.MyBatisMapper;
  * Author: ysj
  */
 @MyBatisMapper
-public interface FileDao extends SysBaseDao<File> {
+public interface FileDao extends SysBaseDao<File>
+{
 }

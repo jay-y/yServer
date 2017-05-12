@@ -21,55 +21,65 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "${adminPath}/logistics")
-public class LogisticsController extends SysBaseController<Logistics, LogisticsService> {
+public class LogisticsController extends SysBaseController<Logistics, LogisticsService>
+{
     private static final String INDEX_PATH = "system/logistics";
 
     @Autowired
     private LogisticsService service;
 
     @Override
-    protected LogisticsService getService() {
+    protected LogisticsService getService()
+    {
         return service;
     }
 
     @Override
-    protected String indexMain() {
+    protected String indexMain()
+    {
         return INDEX_PATH + "/index";
     }
 
     @Override
-    protected String indexForm() {
+    protected String indexForm()
+    {
         return INDEX_PATH + "/form";
     }
 
     @ModelAttribute
-    public Logistics get(@RequestParam(required = false) String id) {
+    public Logistics get(@RequestParam(required = false) String id)
+    {
         Logistics entity = StringUtils.isNotBlank(id) ? getService().find(id) : new Logistics();
         return entity;
     }
 
     @RequestMapping(value = "")
-    public String index() {
+    public String index()
+    {
         return super.index();
     }
 
     @RequestMapping(value = "data")
-    public String data(Pagination<Logistics> request, HttpServletResponse response) {
+    public String data(Pagination<Logistics> request, HttpServletResponse response)
+    {
         return super.data(request, response);
     }
 
     @RequestMapping(value = "form")
-    public String form(HttpServletResponse response, Model model) {
+    public String form(HttpServletResponse response, Model model)
+    {
         return super.form(response, model);
     }
 
     @RequestMapping(value = "save")
-    public String save(Logistics entity, HttpServletResponse response, Model model) {
+    public String save(Logistics entity, HttpServletResponse response, Model model)
+    {
         return super.save(entity, response, model);
     }
 
     @RequestMapping(value = "delete")
-    public String delete(Logistics entity, HttpServletResponse response, Model model) {
+    public String delete(Logistics entity, HttpServletResponse response, Model model)
+    {
         return super.delete(entity, response, model);
     }
 }

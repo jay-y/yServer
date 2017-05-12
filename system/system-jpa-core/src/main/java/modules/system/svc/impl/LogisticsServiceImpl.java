@@ -17,13 +17,14 @@ import org.yserver.core.datasource.DataSource;
 @Service
 @DataSource("default")
 @Transactional
-public class LogisticsServiceImpl
-        extends SysBaseServiceImpl<Logistics, LogisticsDao> implements LogisticsService {
+public class LogisticsServiceImpl extends SysBaseServiceImpl<Logistics, LogisticsDao> implements LogisticsService
+{
     @Autowired
     private LogisticsDao dao;
 
     @Override
-    public LogisticsDao getDao() {
+    public LogisticsDao getDao()
+    {
         return dao;
     }
 }

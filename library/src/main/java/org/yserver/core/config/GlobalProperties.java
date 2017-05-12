@@ -11,7 +11,8 @@ import java.util.Map;
  * Description: 全局配置类.<br>
  * Author: ysj
  */
-public class GlobalProperties {
+public class GlobalProperties
+{
 
     /**
      * 当前对象实例
@@ -31,7 +32,8 @@ public class GlobalProperties {
     /**
      * 获取当前对象实例
      */
-    public static GlobalProperties getInstance() {
+    public static GlobalProperties getInstance()
+    {
         return global;
     }
 
@@ -41,9 +43,11 @@ public class GlobalProperties {
      * @param key
      * @return
      */
-    public static String getProperty(String key) {
+    public static String getProperty(String key)
+    {
         String value = map.get(key);
-        if (value == null) {
+        if (value == null)
+        {
             value = loader.getProperty(key);
             map.put(key, value != null ? value : StringUtils.EMPTY);
         }
@@ -53,35 +57,40 @@ public class GlobalProperties {
     /**
      * 获取管理端请求根路径
      */
-    public static String getAdminPath() {
+    public static String getAdminPath()
+    {
         return getProperty("adminPath");
     }
 
     /**
      * 获取客户端请求根路径
      */
-    public static String getClientPath() {
+    public static String getClientPath()
+    {
         return getProperty("clientPath");
     }
 
     /**
      * 获取接口根路径
      */
-    public static String getApiPath() {
+    public static String getApiPath()
+    {
         return getProperty("apiPath");
     }
 
     /**
      * 获取View路径
      */
-    public static String getViewPrefix() {
+    public static String getViewPrefix()
+    {
         return getProperty("viewPrefix");
     }
 
     /**
      * 获取View后缀
      */
-    public static String getViewSuffix() {
+    public static String getViewSuffix()
+    {
         return getProperty("viewSuffix");
     }
 
@@ -90,14 +99,19 @@ public class GlobalProperties {
      *
      * @return
      */
-    public static String getWebAppDir() {
+    public static String getWebAppDir()
+    {
         String dir;
-        try {
+        try
+        {
             dir = WebContextListener.getCurrentWebApplicationContext().getServletContext().getRealPath("/");
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return "";
         }
-        if (!dir.endsWith("/")) {
+        if (!dir.endsWith("/"))
+        {
             dir += "/";
         }
         return dir;

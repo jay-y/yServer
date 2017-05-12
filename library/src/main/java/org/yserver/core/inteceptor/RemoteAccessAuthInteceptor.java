@@ -14,7 +14,8 @@ import java.util.Properties;
  * Date: 2016/4/7 18:05 <br>
  * Author: ysj
  */
-public class RemoteAccessAuthInteceptor implements HandlerInterceptor {
+public class RemoteAccessAuthInteceptor implements HandlerInterceptor
+{
     /**
      * <p>
      * 属性文件加载
@@ -24,20 +25,20 @@ public class RemoteAccessAuthInteceptor implements HandlerInterceptor {
     private Properties globalConfigurer;
 
     @Override
-    public void afterCompletion(HttpServletRequest request,
-                                HttpServletResponse response, Object o, Exception e) {
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception e)
+    {
         y.log().debug("[GOD]拦截器结束");
     }
 
     @Override
-    public void postHandle(HttpServletRequest request,
-                           HttpServletResponse response, Object o, ModelAndView mv) {
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView mv)
+    {
         y.log().debug("[GOD]拦截器工作");
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response, Object o) {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o)
+    {
         y.log().debug("[GOD]拦截器开启");
         String sysToken = (String) globalConfigurer.get("global.remote.access.hessian.token");
         return sysToken.equals(request.getParameter("TOKEN"));

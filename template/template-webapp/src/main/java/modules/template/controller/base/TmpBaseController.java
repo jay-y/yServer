@@ -8,7 +8,8 @@ import org.yserver.core.controller.BaseController;
  * Date: 2016/9/20 21:11<br>
  * Author: ysj
  */
-public class TmpBaseController extends BaseController {
+public class TmpBaseController extends BaseController
+{
     @Value("${adminPath}")
     protected String adminPath;
 }

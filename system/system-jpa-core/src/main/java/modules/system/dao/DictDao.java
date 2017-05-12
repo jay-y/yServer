@@ -12,7 +12,8 @@ import java.util.List;
  * Date: 2016/9/23 16:57<br>
  * Author: ysj
  */
-public interface DictDao extends SysBaseDao<Dict> {
+public interface DictDao extends SysBaseDao<Dict>
+{
 
     @Query("select o from Dict o where o.type = :type order by o.sort")
     List<Dict> findListByType(@Param("type") String type);

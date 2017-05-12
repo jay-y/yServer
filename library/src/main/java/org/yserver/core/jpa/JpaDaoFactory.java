@@ -17,40 +17,47 @@ import java.io.Serializable;
  * Date: 2016/9/7 23:53<br>
  * Author: ysj
  */
-public class JpaDaoFactory<T extends BaseEntity, ID extends Serializable> extends JpaRepositoryFactory {
+public class JpaDaoFactory<T extends BaseEntity, ID extends Serializable> extends JpaRepositoryFactory
+{
 
     private EntityManager entityManager;
 
-    public JpaDaoFactory(EntityManager entityManager) {
+    public JpaDaoFactory(EntityManager entityManager)
+    {
         super(entityManager);
         Assert.notNull(entityManager);
         this.entityManager = entityManager;
 
     }
 
-    protected Object getTargetRepository(RepositoryInformation information) {
+    protected Object getTargetRepository(RepositoryInformation information)
+    {
         Class<?> repositoryInterface = information.getRepositoryInterface();
-        if (isBaseRepository(repositoryInterface)) {
-            JpaEntityInformation<T, ID> entityInformation = getEntityInformation((Class<T>) information
-                    .getDomainType());
+        if (isBaseRepository(repositoryInterface))
+        {
+            JpaEntityInformation<T, ID> entityInformation = getEntityInformation((Class<T>) information.getDomainType());
             return new JpaBaseDaoImpl<>(entityInformation, entityManager);
         }
         return super.getTargetRepository(information);
     }
 
-    protected Class<?> getRepositoryBaseClass(RepositoryMetadata information) {
-        if (isBaseRepository(information.getRepositoryInterface())) {
+    protected Class<?> getRepositoryBaseClass(RepositoryMetadata information)
+    {
+        if (isBaseRepository(information.getRepositoryInterface()))
+        {
             return JpaBaseDaoImpl.class;
         }
         return super.getRepositoryBaseClass(information);
     }
 
-    private boolean isBaseRepository(Class<?> repositoryInterface) {
+    private boolean isBaseRepository(Class<?> repositoryInterface)
+    {
         return JpaBaseDao.class.isAssignableFrom(repositoryInterface);
     }
 
     @Override
-    protected QueryLookupStrategy getQueryLookupStrategy(QueryLookupStrategy.Key key, EvaluationContextProvider evaluationContextProvider) {
+    protected QueryLookupStrategy getQueryLookupStrategy(QueryLookupStrategy.Key key, EvaluationContextProvider evaluationContextProvider)
+    {
         return super.getQueryLookupStrategy(key, evaluationContextProvider);
     }
 }

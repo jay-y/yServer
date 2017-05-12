@@ -33,7 +33,10 @@ import java.util.Map;
  * Author: ysj
  */
 @Controller
-public class BaseController implements ControllerApi {
+public class BaseController implements ControllerApi
+{
+    protected static final Log baseLogger = Log.getLogger(BaseController.class);
+
     protected Log logger = Log.getLogger(this.getClass());
 
     @Value("${adminPath}")
@@ -51,7 +54,8 @@ public class BaseController implements ControllerApi {
      * @param response
      * @return
      */
-    public ResponseBuilder getRespBuilder(HttpServletResponse response) {
+    public ResponseBuilder getRespBuilder(HttpServletResponse response)
+    {
         return new ResponseBuilder().with(response);
     }
 
@@ -62,24 +66,30 @@ public class BaseController implements ControllerApi {
      * @param binder
      */
     @InitBinder
-    protected void initBinder(WebDataBinder binder) {
+    protected void initBinder(WebDataBinder binder)
+    {
         // String类型转换，将所有传递进来的String进行HTML编码，防止XSS攻击
-        binder.registerCustomEditor(String.class, new PropertyEditorSupport() {
+        binder.registerCustomEditor(String.class, new PropertyEditorSupport()
+        {
             @Override
-            public void setAsText(String text) {
+            public void setAsText(String text)
+            {
                 setValue(text == null ? null : StringEscapeUtils.escapeHtml4(text.trim()));
             }
 
             @Override
-            public String getAsText() {
+            public String getAsText()
+            {
                 Object value = getValue();
                 return value != null ? value.toString() : "";
             }
         });
         // Date 类型转换
-        binder.registerCustomEditor(Date.class, new PropertyEditorSupport() {
+        binder.registerCustomEditor(Date.class, new PropertyEditorSupport()
+        {
             @Override
-            public void setAsText(String text) {
+            public void setAsText(String text)
+            {
                 setValue(DateUtil.parseDate(text));
             }
         });
@@ -93,78 +103,71 @@ public class BaseController implements ControllerApi {
      */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
-    public ModelAndView handleException(HttpServletResponse response, Model model, Exception ex) {
+    public ModelAndView handleException(HttpServletResponse response, Model model, Exception ex)
+    {
         // 业务异常
         logger.error(ex.getMessage(), ex);
-        if (ex instanceof SystemException) {
-            return getRespBuilder(response)
-                    .setModel(model)
-                    .setMsg("请求错误")
-                    .fail();
-        } else {
-            return getRespBuilder(response)
-                    .setModel(model)
-                    .setMsg("系统异常")
-                    .error();
+        if (ex instanceof SystemException)
+        {
+            return getRespBuilder(response).setModel(model).setMsg("请求错误").fail();
+        }
+        else
+        {
+            return getRespBuilder(response).setModel(model).setMsg("系统异常").error();
         }
     }
 
     /**
      * 响应枚举
      */
-    public enum ResponseEnum {
-        SUCCESS(Constant.ServerConfig.RESPONSE_STATUS_SUCCESS,
-                Constant.ServerConfig.RESPONSE_SUCCESS_CODE_200,
-                "请求成功"),
-        FAIL(Constant.ServerConfig.RESPONSE_STATUS_FAIL,
-                Constant.ServerConfig.RESPONSE_ERROR_CODE_400,
-                "请求失败"),
-        ERROR(Constant.ServerConfig.RESPONSE_STATUS_ERROR,
-                Constant.ServerConfig.RESPONSE_ERROR_CODE_500,
-                "系统错误"),
-        REDIRECT(Constant.ServerConfig.RESPONSE_STATUS_REDIRECT,
-                Constant.ServerConfig.RESPONSE_ERROR_CODE_300,
-                "请求重定向"),
-        TIMEOUT(Constant.ServerConfig.RESPONSE_STATUS_TIMEOUT,
-                Constant.ServerConfig.RESPONSE_ERROR_CODE_500,
-                "请求超时");
+    public enum ResponseEnum
+    {
+        SUCCESS(Constant.ServerConfig.RESPONSE_STATUS_SUCCESS, Constant.ServerConfig.RESPONSE_SUCCESS_CODE_200, "请求成功"), FAIL(Constant.ServerConfig.RESPONSE_STATUS_FAIL, Constant.ServerConfig.RESPONSE_ERROR_CODE_400, "请求失败"), ERROR(Constant.ServerConfig.RESPONSE_STATUS_ERROR, Constant.ServerConfig.RESPONSE_ERROR_CODE_500, "系统错误"), REDIRECT(Constant.ServerConfig.RESPONSE_STATUS_REDIRECT, Constant.ServerConfig.RESPONSE_ERROR_CODE_300, "请求重定向"), TIMEOUT(Constant.ServerConfig.RESPONSE_STATUS_TIMEOUT, Constant.ServerConfig.RESPONSE_ERROR_CODE_500, "请求超时");
 
         private Object status;
         private Object code;
         private String msg;
 
-        ResponseEnum(Object status, Object code, String msg) {
+        ResponseEnum(Object status, Object code, String msg)
+        {
             this.status = status;
             this.code = code;
             this.msg = msg;
         }
 
-        public Object getStatus() {
+        public Object getStatus()
+        {
             return status;
         }
 
-        public void setStatus(Object status) {
+        public void setStatus(Object status)
+        {
             this.status = status;
         }
 
-        public Object getCode() {
+        public Object getCode()
+        {
             return code;
         }
 
-        public void setCode(Object code) {
+        public void setCode(Object code)
+        {
             this.code = code;
         }
 
-        public String getMsg() {
+        public String getMsg()
+        {
             return msg;
         }
 
-        public void setMsg(String msg) {
+        public void setMsg(String msg)
+        {
             this.msg = msg;
         }
     }
 
-    public static class ResponseBuilder {
+    public static class ResponseBuilder
+    {
         private HttpServletResponse response;
         private Model model;
         private Object data;
@@ -172,62 +175,80 @@ public class BaseController implements ControllerApi {
         private String index;
         private boolean isRedirect = false;
 
-        public ResponseBuilder with(HttpServletResponse response) {
+        private ResponseBuilder()
+        {
+        }
+
+        public ResponseBuilder with(HttpServletResponse response)
+        {
             this.response = response;
             return this;
         }
 
-        public ResponseBuilder setLoad(String index) {
+        public ResponseBuilder setLoad(String index)
+        {
             this.index = index;
             return this;
         }
 
-        public ResponseBuilder setModel(Model model) {
+        public ResponseBuilder setModel(Model model)
+        {
             this.model = model;
             return this;
         }
 
-        public ResponseBuilder setRedirect(boolean isRedirect) {
+        public ResponseBuilder setRedirect(boolean isRedirect)
+        {
             this.isRedirect = isRedirect;
             return this;
         }
 
-        public ResponseBuilder setData(Object data) {
+        public ResponseBuilder setData(Object data)
+        {
             this.data = data;
             return this;
         }
 
-        public ResponseBuilder setMsg(String... messages) {
+        public ResponseBuilder setMsg(String... messages)
+        {
             StringBuilder sb = new StringBuilder();
-            for (String message : messages) {
+            for (String message : messages)
+            {
                 sb.append(message).append(messages.length > 1 ? "<br/>" : "");
             }
             this.msg = sb.toString();
             return this;
         }
 
-        public <T extends Object> T success() {
+        public <T extends Object> T success()
+        {
             return response(ResponseEnum.SUCCESS);
         }
 
-        public <T extends Object> T error() {
+        public <T extends Object> T error()
+        {
             return response(ResponseEnum.ERROR);
         }
 
-        public <T extends Object> T fail() {
+        public <T extends Object> T fail()
+        {
             return response(ResponseEnum.FAIL);
         }
 
-        public <T extends Object> T timeout() {
+        public <T extends Object> T timeout()
+        {
             return response(ResponseEnum.TIMEOUT);
         }
 
-        public <T extends Object> T redirect() {
+        public <T extends Object> T redirect()
+        {
             return response(ResponseEnum.REDIRECT);
         }
 
-        public <T extends Object> T response(ResponseEnum responseEnum) {
-            if (StringUtils.isEmpty(msg)) {
+        public <T extends Object> T response(ResponseEnum responseEnum)
+        {
+            if (StringUtils.isEmpty(msg))
+            {
                 this.msg = responseEnum.getMsg();
             }
             return doResponse(responseEnum, response, model, data, msg);
@@ -244,19 +265,21 @@ public class BaseController implements ControllerApi {
          * @param <T>
          * @return
          */
-        private <T extends Object> T doResponse(ResponseEnum responseEnum, HttpServletResponse response, Model model, Object data, String msg) {
-            if (null == responseEnum) {
+        private <T extends Object> T doResponse(ResponseEnum responseEnum, HttpServletResponse response, Model model, Object data, String msg)
+        {
+            if (null == responseEnum)
+            {
                 throw new SystemException("ResponseEnum can not be empty.");
             }
-            if (null == response) {
+            if (null == response)
+            {
                 throw new SystemException("HttpServletResponse can not be empty.");
             }
-            if (isRedirect) {
-                return renderString(response,
-                        wrapRedirectAttributes((RedirectAttributes) model, responseEnum.getStatus(), responseEnum.getCode(), msg, data));
+            if (isRedirect)
+            {
+                return renderString(response, wrapRedirectAttributes((RedirectAttributes) model, responseEnum.getStatus(), responseEnum.getCode(), msg, data));
             }
-            return renderString(response,
-                    wrapModel(model, responseEnum.getStatus(), responseEnum.getCode(), msg, data));
+            return renderString(response, wrapModel(model, responseEnum.getStatus(), responseEnum.getCode(), msg, data));
         }
 
         /**
@@ -269,12 +292,17 @@ public class BaseController implements ControllerApi {
          * @param data
          * @return
          */
-        private Model wrapModel(Model model, Object status, Object code, Object msg, Object data) {
-            if (null == model) model = new BindingAwareModelMap();
+        private Model wrapModel(Model model, Object status, Object code, Object msg, Object data)
+        {
+            if (null == model)
+            {
+                model = new BindingAwareModelMap();
+            }
             model.addAttribute(Constant.ServerConfig.RESPONSE_STATUS, status);
             model.addAttribute(Constant.ServerConfig.RESPONSE_CODE, code);
             model.addAttribute(Constant.ServerConfig.RESPONSE_MSG, msg);
-            if (null != data) {
+            if (null != data)
+            {
                 model.addAttribute(Constant.ServerConfig.RESPONSE_DATA, data);
             }
             return model;
@@ -290,12 +318,17 @@ public class BaseController implements ControllerApi {
          * @param data
          * @return
          */
-        protected RedirectAttributes wrapRedirectAttributes(RedirectAttributes redirectAttributes, Object status, Object code, Object msg, Object data) {
-            if (null == redirectAttributes) redirectAttributes = new RedirectAttributesModelMap();
+        protected RedirectAttributes wrapRedirectAttributes(RedirectAttributes redirectAttributes, Object status, Object code, Object msg, Object data)
+        {
+            if (null == redirectAttributes)
+            {
+                redirectAttributes = new RedirectAttributesModelMap();
+            }
             redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_STATUS, status);
             redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_CODE, code);
             redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_MSG, msg);
-            if (null != data) {
+            if (null != data)
+            {
                 redirectAttributes.addFlashAttribute(Constant.ServerConfig.RESPONSE_DATA, data);
             }
             return redirectAttributes;
@@ -308,8 +341,10 @@ public class BaseController implements ControllerApi {
          * @param object
          * @return
          */
-        private <T extends Object> T renderString(HttpServletResponse response, Object object) {
+        private <T extends Object> T renderString(HttpServletResponse response, Object object)
+        {
             preToJsonString(object);
+            baseLogger.info("Response :: " + y.json().toPrettyJson(object));
             return renderString(response, y.json().toJson(object), "application/json");
         }
 
@@ -320,20 +355,26 @@ public class BaseController implements ControllerApi {
          * @param string
          * @return
          */
-        private <T extends Object> T renderString(HttpServletResponse response, String string, String type) {
+        private <T extends Object> T renderString(HttpServletResponse response, String string, String type)
+        {
             //注释掉，否则cookie等信息都不能保存
 //        response.reset();
             response.setContentType(type);
             response.setCharacterEncoding(Constant._UTF_8);
-            try {
+            try
+            {
                 response.getWriter().print(string);
-            } catch (IOException e) {
+            }
+            catch (IOException e)
+            {
                 e.printStackTrace();
             }
-            if (StringUtils.isEmpty(index)) {
+            if (StringUtils.isEmpty(index))
+            {
                 return null;
             }
-            if (isRedirect) {
+            if (isRedirect)
+            {
                 index = "redirect:" + index;
             }
             return (T) index;
@@ -346,19 +387,20 @@ public class BaseController implements ControllerApi {
          *
          * @param model
          */
-        private void preToJsonString(Object model) {
-            if (model instanceof BindingAwareModelMap) {
-                for (Map.Entry<String, Object> entry : ((BindingAwareModelMap) model).entrySet()) {
+        private void preToJsonString(Object model)
+        {
+            if (model instanceof BindingAwareModelMap)
+            {
+                for (Map.Entry<String, Object> entry : ((BindingAwareModelMap) model).entrySet())
+                {
                     String attributeName = entry.getKey();
-                    if (attributeName.startsWith(BindingResult.MODEL_KEY_PREFIX)) {
+                    if (attributeName.startsWith(BindingResult.MODEL_KEY_PREFIX))
+                    {
                         ((BindingAwareModelMap) model).remove(attributeName);
                         return;
                     }
                 }
             }
-        }
-
-        private ResponseBuilder() {
         }
     }
 }

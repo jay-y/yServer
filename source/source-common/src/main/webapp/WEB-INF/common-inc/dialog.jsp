@@ -72,8 +72,8 @@
             msg = msg != null && msg != undefined && msg != "" ? msg : "";
             title = title != null && title != undefined && title != "" ? title : "";
             dialog.init("<p><h3>" + msg + "</h3></p>"
-                    , "<div class='widget-header'><h4><i class='fa fa-info txt-color-green'></i> " + title + "</h4></div>"
-                    , confirmCall, cancelCall);
+                , "<div class='widget-header'><h4><i class='fa fa-info txt-color-green'></i> " + title + "</h4></div>"
+                , confirmCall, cancelCall);
             $('#dialog_simple').dialog('open');
         };
 
@@ -81,8 +81,8 @@
             msg = msg != null && msg != undefined && msg != "" ? msg : "";
             title = title != null && title != undefined && title != "" ? title : "";
             dialog.init("<p><h3>" + msg + "</h3></p>"
-                    , "<div class='widget-header'><h4><i class='fa fa-warning txt-color-orangeDark'></i> " + title + "</h4></div>"
-                    , confirmCall, cancelCall);
+                , "<div class='widget-header'><h4><i class='fa fa-warning txt-color-orangeDark'></i> " + title + "</h4></div>"
+                , confirmCall, cancelCall);
             $('#dialog_simple').dialog('open');
         };
 
@@ -90,8 +90,8 @@
             msg = msg != null && msg != undefined && msg != "" ? msg : "";
             title = title != null && title != undefined && title != "" ? title : "";
             dialog.init("<p><h3>" + msg + "</h3></p>"
-                    , "<div class='widget-header'><h4><i class='fa fa-warning txt-color-red'></i> " + title + "</h4></div>"
-                    , confirmCall, cancelCall);
+                , "<div class='widget-header'><h4><i class='fa fa-warning txt-color-red'></i> " + title + "</h4></div>"
+                , confirmCall, cancelCall);
             $('#dialog_simple').dialog('open');
         };
 

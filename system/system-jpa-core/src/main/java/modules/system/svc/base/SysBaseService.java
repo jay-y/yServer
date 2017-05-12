@@ -6,6 +6,7 @@ import org.yserver.core.model.BaseEntity;
 
 import java.io.Serializable;
 
-public interface SysBaseService<T extends BaseEntity, DAO extends JpaBaseDao<T, Serializable>> extends JpaBaseService<T, Serializable, DAO> {
+public interface SysBaseService<T extends BaseEntity, DAO extends JpaBaseDao<T, Serializable>> extends JpaBaseService<T, Serializable, DAO>
+{
 
 }

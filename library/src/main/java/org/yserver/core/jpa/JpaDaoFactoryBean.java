@@ -12,11 +12,11 @@ import java.io.Serializable;
  * Date: 2016/9/8 0:03<br>
  * Author: ysj
  */
-public class JpaDaoFactoryBean<R extends JpaRepository<T, ID>, T, ID extends Serializable>
-        extends JpaRepositoryFactoryBean<R, T, ID> {
+public class JpaDaoFactoryBean<R extends JpaRepository<T, ID>, T, ID extends Serializable> extends JpaRepositoryFactoryBean<R, T, ID>
+{
 
-    protected RepositoryFactorySupport createRepositoryFactory(
-            EntityManager entityManager) {
+    protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager)
+    {
         return new JpaDaoFactory(entityManager);
     }
 }

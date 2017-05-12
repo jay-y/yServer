@@ -7,25 +7,29 @@
         CREATED_TIME,
         UPDATED_TIME,
         VERSION
-	</sql>
+    </sql>
 
     <sql id="tableName">
-		template
-	</sql>
+        template
+    </sql>
 
     <select id="find" resultType="modules.template.Template">
-        SELECT <include refid="columns"/>
-        FROM <include refid="tableName"/>
+        SELECT
+        <include refid="columns"/>
+        FROM
+        <include refid="tableName"/>
         WHERE CODE = #{code}
     </select>
 
     <select id="findAll" resultType="modules.template.Template">
-        SELECT <include refid="columns"/>
-        FROM <include refid="tableName"/>
+        SELECT
+        <include refid="columns"/>
+        FROM
+        <include refid="tableName"/>
     </select>
 
     <insert id="insert">
-        INSERT INTO <include refid="tableName"/>(
+        INSERT INTO<include refid="tableName"/>(
         <include refid="columns"/>
         ) VALUES (
 
@@ -33,13 +37,16 @@
     </insert>
 
     <update id="update">
-		UPDATE <include refid="tableName"/> SET
+        UPDATE
+        <include refid="tableName"/>
+        SET
 
-		WHERE CODE = #{CODE}
-	</update>
+        WHERE CODE = #{CODE}
+    </update>
 
     <delete id="delete">
-        DELETE FROM <include refid="tableName"/>
+        DELETE FROM
+        <include refid="tableName"/>
         WHERE CODE = #{CODE}
     </delete>
 </mapper>

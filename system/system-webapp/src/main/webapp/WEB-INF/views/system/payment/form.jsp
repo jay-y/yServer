@@ -14,7 +14,8 @@
             <section>
                 <div class="row">
                     <c:set var="paymentCategorys" value="${sys:getDictList('category_payment')}"></c:set>
-                    <label class="label col col-2">${not empty paymentCategorys and not empty paymentCategorys[0]?paymentCategorys[0].description : "Category"}</label>
+                    <label
+                        class="label col col-2">${not empty paymentCategorys and not empty paymentCategorys[0]?paymentCategorys[0].description : "Category"}</label>
                     <div class="col col-10">
                         <select id="category" name="category" class="select2">
                             <c:forEach items="${paymentCategorys}" var="category" varStatus="idxStatus">

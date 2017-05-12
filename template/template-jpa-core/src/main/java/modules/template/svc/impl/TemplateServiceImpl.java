@@ -14,17 +14,20 @@ import java.util.List;
 @Service("templateService")
 @DataSource(value = "default")
 @Transactional
-public class TemplateServiceImpl extends TmpBaseServiceImpl<Template, TemplateDao> implements TemplateService {
+public class TemplateServiceImpl extends TmpBaseServiceImpl<Template, TemplateDao> implements TemplateService
+{
     @Autowired
     private TemplateDao dao;
 
     @Override
-    public TemplateDao getDao() {
+    public TemplateDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public List<Template> findAllCreated() {
+    public List<Template> findAllCreated()
+    {
         return getDao().findAllCreated();
     }
 }

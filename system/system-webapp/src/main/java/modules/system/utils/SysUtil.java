@@ -9,7 +9,8 @@ import java.util.List;
 /**
  * 用户工具类
  */
-public class SysUtil {
+public class SysUtil
+{
     private static DictDao dictDao = SpringContextHolder.getBean(DictDao.class);
 
     /**
@@ -17,7 +18,8 @@ public class SysUtil {
      *
      * @return
      */
-    public static List<Dict> getDictList(String type) {
+    public static List<Dict> getDictList(String type)
+    {
         return dictDao.findListByType(type);
     }
 
@@ -28,7 +30,8 @@ public class SysUtil {
      * @param value
      * @return
      */
-    public static Dict getDict(String type, String value) {
+    public static Dict getDict(String type, String value)
+    {
         return dictDao.findByTypeAndValue(type, value);
     }
 }

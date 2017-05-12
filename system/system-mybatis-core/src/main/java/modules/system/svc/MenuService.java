@@ -11,7 +11,8 @@ import java.util.List;
  * Date: 2016/9/18 15:28<br>
  * Author: ysj
  */
-public interface MenuService extends SysBaseService<Menu, MenuDao> {
+public interface MenuService extends SysBaseService<Menu, MenuDao>
+{
     Menu find(String id);
 
     List<Menu> findAllParent();

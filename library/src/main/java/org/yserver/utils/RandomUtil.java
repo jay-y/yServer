@@ -12,36 +12,42 @@ import java.util.UUID;
  * @version 1.0
  * @since JDK 1.7
  */
-public class RandomUtil {
+public class RandomUtil
+{
     private static SecureRandom random = new SecureRandom();
 
     /**
      * 封装JDK自带的UUID, 通过Random数字生成, 中间无-分割.
      */
-    public static String uuid() {
+    public static String uuid()
+    {
         return UUID.randomUUID().toString().replaceAll("-", "");
     }
 
     /**
      * 使用SecureRandom随机生成Long.
      */
-    public static long randomLong() {
+    public static long randomLong()
+    {
         return Math.abs(random.nextLong());
     }
 
     /**
      * 基于Base62编码的SecureRandom随机生成bytes.
      */
-    public static String randomBase62(int length) {
+    public static String randomBase62(int length)
+    {
         byte[] randomBytes = new byte[length];
         random.nextBytes(randomBytes);
         return EncodeUtil.encodeBase62(randomBytes);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println(RandomUtil.uuid());
         System.out.println(RandomUtil.uuid().length());
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1000; i++)
+        {
             System.out.println(RandomUtil.randomLong() + "  " + RandomUtil.randomBase62(5));
         }
     }

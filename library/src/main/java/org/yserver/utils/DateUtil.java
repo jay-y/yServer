@@ -12,36 +12,42 @@ import java.util.Date;
 /**
  * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
  */
-public class DateUtil extends DateUtils {
+public class DateUtil extends DateUtils
+{
     private static final String DATE_FORMAT = "yyyyMMdd";
 
-    private static String[] parsePatterns = {"yyyyMMdd", "yyyy-MM-dd",
-            "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM", "yyyy/MM/dd",
-            "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd",
-            "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM"};
+    private static String[] parsePatterns = {
+        "yyyyMMdd", "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM", "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM"
+    };
 
     /**
      * 得到当前日期字符串 格式（yyyy-MM-dd）
      */
-    public static String getDate() {
+    public static String getDate()
+    {
         return getDate("yyyy-MM-dd");
     }
 
     /**
      * 得到当前日期字符串 格式（yyyy-MM-dd） pattern可以为："yyyy-MM-dd" "HH:mm:ss" "E"
      */
-    public static String getDate(String pattern) {
+    public static String getDate(String pattern)
+    {
         return DateFormatUtils.format(new Date(), pattern);
     }
 
     /**
      * 得到日期字符串 默认格式（yyyy-MM-dd） pattern可以为："yyyy-MM-dd" "HH:mm:ss" "E"
      */
-    public static String formatDate(Date date, Object... pattern) {
+    public static String formatDate(Date date, Object... pattern)
+    {
         String formatDate = null;
-        if (pattern != null && pattern.length > 0) {
+        if (pattern != null && pattern.length > 0)
+        {
             formatDate = DateFormatUtils.format(date, pattern[0].toString());
-        } else {
+        }
+        else
+        {
             formatDate = DateFormatUtils.format(date, "yyyy-MM-dd");
         }
         return formatDate;
@@ -51,10 +57,14 @@ public class DateUtil extends DateUtils {
      * 得到日期字符串 默认格式（yyyy-MM-dd） pattern可以为："yyyy-MM-dd" "HH:mm:ss" "E"
      * fns调用
      */
-    public static String formatDate(Date date, String pattern) {
-        if (date == null) {
+    public static String formatDate(Date date, String pattern)
+    {
+        if (date == null)
+        {
             return null;
-        } else {
+        }
+        else
+        {
             return DateFormatUtils.format(date, pattern);
         }
     }
@@ -62,49 +72,56 @@ public class DateUtil extends DateUtils {
     /**
      * 得到日期时间字符串，转换格式（yyyy-MM-dd HH:mm:ss）
      */
-    public static String formatDateTime(Date date) {
+    public static String formatDateTime(Date date)
+    {
         return formatDate(date, "yyyy-MM-dd HH:mm:ss");
     }
 
     /**
      * 得到当前时间字符串 格式（HH:mm:ss）
      */
-    public static String getTime() {
+    public static String getTime()
+    {
         return formatDate(new Date(), "HH:mm:ss");
     }
 
     /**
      * 得到当前日期和时间字符串 格式（yyyy-MM-dd HH:mm:ss）
      */
-    public static String getDateTime() {
+    public static String getDateTime()
+    {
         return formatDate(new Date(), "yyyy-MM-dd HH:mm:ss");
     }
 
     /**
      * 得到当前年份字符串 格式（yyyy）
      */
-    public static String getYear() {
+    public static String getYear()
+    {
         return formatDate(new Date(), "yyyy");
     }
 
     /**
      * 得到当前月份字符串 格式（MM）
      */
-    public static String getMonth() {
+    public static String getMonth()
+    {
         return formatDate(new Date(), "MM");
     }
 
     /**
      * 得到当天字符串 格式（dd）
      */
-    public static String getDay() {
+    public static String getDay()
+    {
         return formatDate(new Date(), "dd");
     }
 
     /**
      * 得到当前星期字符串 格式（E）星期几
      */
-    public static String getWeek() {
+    public static String getWeek()
+    {
         return formatDate(new Date(), "E");
     }
 
@@ -113,13 +130,18 @@ public class DateUtil extends DateUtils {
      * "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy.MM.dd",
      * "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm" }
      */
-    public static Date parseDate(Object str) {
-        if (str == null) {
+    public static Date parseDate(Object str)
+    {
+        if (str == null)
+        {
             return null;
         }
-        try {
+        try
+        {
             return parseDate(str.toString(), parsePatterns);
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
             return null;
         }
     }
@@ -130,7 +152,8 @@ public class DateUtil extends DateUtils {
      * @param date
      * @return
      */
-    public static long pastDays(Date date) {
+    public static long pastDays(Date date)
+    {
         long t = new Date().getTime() - date.getTime();
         return t / (24 * 60 * 60 * 1000);
     }
@@ -141,7 +164,8 @@ public class DateUtil extends DateUtils {
      * @param date
      * @return
      */
-    public static long pastHour(Date date) {
+    public static long pastHour(Date date)
+    {
         long t = new Date().getTime() - date.getTime();
         return t / (60 * 60 * 1000);
     }
@@ -152,7 +176,8 @@ public class DateUtil extends DateUtils {
      * @param date
      * @return
      */
-    public static long pastMinutes(Date date) {
+    public static long pastMinutes(Date date)
+    {
         long t = new Date().getTime() - date.getTime();
         return t / (60 * 1000);
     }
@@ -163,15 +188,14 @@ public class DateUtil extends DateUtils {
      * @param timeMillis
      * @return
      */
-    public static String formatDateTime(long timeMillis) {
+    public static String formatDateTime(long timeMillis)
+    {
         long day = timeMillis / (24 * 60 * 60 * 1000);
         long hour = (timeMillis / (60 * 60 * 1000) - day * 24);
         long min = ((timeMillis / (60 * 1000)) - day * 24 * 60 - hour * 60);
         long s = (timeMillis / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
-        long sss = (timeMillis - day * 24 * 60 * 60 * 1000 - hour * 60 * 60
-                * 1000 - min * 60 * 1000 - s * 1000);
-        return (day > 0 ? day + "," : "") + hour + ":" + min + ":" + s + "."
-                + sss;
+        long sss = (timeMillis - day * 24 * 60 * 60 * 1000 - hour * 60 * 60 * 1000 - min * 60 * 1000 - s * 1000);
+        return (day > 0 ? day + "," : "") + hour + ":" + min + ":" + s + "." + sss;
     }
 
     /**
@@ -181,7 +205,8 @@ public class DateUtil extends DateUtils {
      * @param after
      * @return
      */
-    public static double getDistanceOfTwoDate(Date before, Date after) {
+    public static double getDistanceOfTwoDate(Date before, Date after)
+    {
         long beforeTime = before.getTime();
         long afterTime = after.getTime();
         return (afterTime - beforeTime) / (1000 * 60 * 60 * 24);
@@ -194,7 +219,8 @@ public class DateUtil extends DateUtils {
      * @param after
      * @return
      */
-    public static int getDistanceMonthsOfTwoDate(Date before, Date after) {
+    public static int getDistanceMonthsOfTwoDate(Date before, Date after)
+    {
         Calendar c = Calendar.getInstance();
         c.setTime(before);
         int beforeYear = c.get(Calendar.YEAR);
@@ -205,9 +231,12 @@ public class DateUtil extends DateUtils {
         int afterMonth = c.get(Calendar.MONTH);
 
         int months;
-        if (beforeYear == afterYear) {
+        if (beforeYear == afterYear)
+        {
             months = afterMonth - beforeMonth;
-        } else {
+        }
+        else
+        {
             months = 12 * (afterYear - beforeYear) + afterMonth - beforeMonth;
         }
 
@@ -223,7 +252,8 @@ public class DateUtil extends DateUtils {
      * @param mDay
      * @return
      */
-    public static String dateCalOperate(String date, int mYear, int mMonth, int mDay) {
+    public static String dateCalOperate(String date, int mYear, int mMonth, int mDay)
+    {
         return dateCalOperate(date, DATE_FORMAT, mYear, mMonth, mDay);
     }
 
@@ -237,9 +267,11 @@ public class DateUtil extends DateUtils {
      * @param isMonthEnd
      * @return
      */
-    public static String dateCalOperate(String date, int mYear, int mMonth, int mDay, boolean isMonthEnd) {
+    public static String dateCalOperate(String date, int mYear, int mMonth, int mDay, boolean isMonthEnd)
+    {
         String res = dateCalOperate(date, DATE_FORMAT, mYear, mMonth, mDay);
-        if (isMonthEnd) {
+        if (isMonthEnd)
+        {
             res = getDayOfMonthEnd(res, DATE_FORMAT);
         }
         return res;
@@ -255,10 +287,12 @@ public class DateUtil extends DateUtils {
      * @param mDay
      * @return
      */
-    public static String dateCalOperate(String date, String format, int mYear, int mMonth, int mDay) {
+    public static String dateCalOperate(String date, String format, int mYear, int mMonth, int mDay)
+    {
         String retDate = "";
         Date sDate = new Date();
-        try {
+        try
+        {
             DateFormat fo = new SimpleDateFormat(format);
             Calendar tempCal = Calendar.getInstance();
             tempCal.setTime(fo.parse(date));
@@ -267,7 +301,9 @@ public class DateUtil extends DateUtils {
             tempCal.add(Calendar.DATE, mDay);
             sDate = tempCal.getTime();
             retDate = fo.format(sDate);
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
             e.printStackTrace();
         }
         return retDate;
@@ -280,13 +316,17 @@ public class DateUtil extends DateUtils {
      * @param dateFormat
      * @return
      */
-    public static String getDayOfMonthEnd(String date, String dateFormat) {
+    public static String getDayOfMonthEnd(String date, String dateFormat)
+    {
         String years = "";
         String months = "";
-        if (dateFormat.equalsIgnoreCase("yyyyMMdd")) {
+        if (dateFormat.equalsIgnoreCase("yyyyMMdd"))
+        {
             years = date.substring(0, 4);
             months = date.substring(4, 6);
-        } else if (dateFormat.equalsIgnoreCase("yyyy-MM-dd")) {
+        }
+        else if (dateFormat.equalsIgnoreCase("yyyy-MM-dd"))
+        {
             String[] tmp = date.split("-");
             years = tmp[1];
             months = tmp[2];
@@ -297,13 +337,16 @@ public class DateUtil extends DateUtils {
 
         int monthDays[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-        if (year % 4 == 0) {
-            if (year % 100 != 0) {
+        if (year % 4 == 0)
+        {
+            if (year % 100 != 0)
+            {
                 monthDays[1] = 29;
             }
         }
 
-        if (year % 400 == 0) {
+        if (year % 400 == 0)
+        {
             monthDays[1] = 29;
         }
         String sdate = years + months + monthDays[month - 1];

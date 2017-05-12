@@ -11,7 +11,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "sys_logistics")
-public class Logistics extends BaseEntity {
+public class Logistics extends BaseEntity
+{
     @Column(name = "IC")
     private String ic;//识别码
 
@@ -34,67 +35,83 @@ public class Logistics extends BaseEntity {
     @JoinColumn(name = "PHOTO_CODE")
     private File photo;//单图
 
-    public Logistics() {
+    public Logistics()
+    {
         super();
     }
 
-    public Logistics(String code) {
+    public Logistics(String code)
+    {
         super(code);
     }
 
-    public String getIc() {
+    public String getIc()
+    {
         return ic;
     }
 
-    public void setIc(String ic) {
+    public void setIc(String ic)
+    {
         this.ic = ic;
     }
 
-    public String getClientName() {
+    public String getClientName()
+    {
         return clientName;
     }
 
-    public void setClientName(String clientName) {
+    public void setClientName(String clientName)
+    {
         this.clientName = clientName;
     }
 
-    public String getContactWay() {
+    public String getContactWay()
+    {
         return contactWay;
     }
 
-    public void setContactWay(String contactWay) {
+    public void setContactWay(String contactWay)
+    {
         this.contactWay = contactWay;
     }
 
-    public String getCompany() {
+    public String getCompany()
+    {
         return company;
     }
 
-    public void setCompany(String company) {
+    public void setCompany(String company)
+    {
         this.company = company;
     }
 
-    public double getPrice() {
+    public double getPrice()
+    {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price)
+    {
         this.price = price;
     }
 
-    public String getCategory() {
+    public String getCategory()
+    {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(String category)
+    {
         this.category = category;
     }
 
-    public File getPhoto() {
+    public File getPhoto()
+    {
         return photo;
     }
 
-    public void setPhoto(File photo) {
+    public void setPhoto(File photo)
+    {
         this.photo = photo;
     }
 }

@@ -14,7 +14,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "sys_role")
-public class Role extends BaseEntity {
+public class Role extends BaseEntity
+{
 
     @Column(name = "NAME", nullable = false)
     private String name;    //角色名称
@@ -32,60 +33,70 @@ public class Role extends BaseEntity {
 //    private char isSys = 'n';    //是否系统数据
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinTable(name = "sys_role_menu_relational",
-            joinColumns = {@JoinColumn(name = "ROLE_CODE")},
-            inverseJoinColumns = {@JoinColumn(name = "MENU_CODE")})
+    @JoinTable(name = "sys_role_menu_relational", joinColumns = {@JoinColumn(name = "ROLE_CODE")}, inverseJoinColumns = {@JoinColumn(name = "MENU_CODE")})
     @JsonIgnore
     private Set<Menu> menus = new LinkedHashSet<>();
 
     @Column(name = "IS_AVAILABLE", nullable = false)
     private char isAvailable = 'y';   //是否可用
 
-    public Role() {
+    public Role()
+    {
         super();
     }
 
-    public Role(String code) {
+    public Role(String code)
+    {
         super(code);
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getEnname() {
+    public String getEnname()
+    {
         return enname;
     }
 
-    public void setEnname(String enname) {
+    public void setEnname(String enname)
+    {
         this.enname = enname;
     }
 
-    public String getRoeType() {
+    public String getRoeType()
+    {
         return roeType;
     }
 
-    public void setRoeType(String roeType) {
+    public void setRoeType(String roeType)
+    {
         this.roeType = roeType;
     }
 
-    public Set<Menu> getMenus() {
+    public Set<Menu> getMenus()
+    {
         return menus;
     }
 
-    public void setMenus(Set<Menu> menus) {
+    public void setMenus(Set<Menu> menus)
+    {
         this.menus = menus;
     }
 
-    public char getIsAvailable() {
+    public char getIsAvailable()
+    {
         return isAvailable;
     }
 
-    public void setIsAvailable(char isAvailable) {
+    public void setIsAvailable(char isAvailable)
+    {
         this.isAvailable = isAvailable;
     }
 }

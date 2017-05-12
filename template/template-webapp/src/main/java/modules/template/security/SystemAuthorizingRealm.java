@@ -20,17 +20,51 @@ import java.util.Map;
  * 系统安全认证实现类
  */
 @Component
-public class SystemAuthorizingRealm extends AuthorizingRealm {
+public class SystemAuthorizingRealm extends AuthorizingRealm
+{
 //    @Autowired
 //    private UserService userService;
+
+    /**
+     * 是否是验证码登录
+     *
+     * @param useruame 用户名
+     * @param isFail   计数加1
+     * @param clean    计数清零
+     * @return
+     */
+    public static boolean isValidateCodeLogin(String useruame, boolean isFail, boolean clean)
+    {
+        Map<String, Integer> loginFailMap = (Map<String, Integer>) CacheUtil.get("loginFailMap");
+        if (loginFailMap == null)
+        {
+            loginFailMap = Maps.newHashMap();
+            CacheUtil.put("loginFailMap", loginFailMap);
+        }
+        Integer loginFailNum = loginFailMap.get(useruame);
+        if (loginFailNum == null)
+        {
+            loginFailNum = 0;
+        }
+        if (isFail)
+        {
+            loginFailNum++;
+            loginFailMap.put(useruame, loginFailNum);
+        }
+        if (clean)
+        {
+            loginFailMap.remove(useruame);
+        }
+        return loginFailNum >= 3;
+    }
 
     /**
      * 认证回调函数, 登录时调用
      */
     @Override
     @Transactional
-    protected AuthenticationInfo doGetAuthenticationInfo(
-            AuthenticationToken authcToken) {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken)
+    {
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
         String password = new String((char[]) token.getCredentials());    //得到密码
 
@@ -67,8 +101,8 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
      * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用
      */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(
-            PrincipalCollection principals) {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals)
+    {
         y.log().debug("---------------------------------------------");
 //        Principal principal = (Principal) getAvailablePrincipal(principals);
         // 获取当前已登录的用户
@@ -124,16 +158,19 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     }
 
     @Override
-    protected void checkPermission(Permission permission, AuthorizationInfo info) {
+    protected void checkPermission(Permission permission, AuthorizationInfo info)
+    {
         authorizationValidate(permission);
         super.checkPermission(permission, info);
     }
 
     @Override
-    protected boolean[] isPermitted(List<Permission> permissions,
-                                    AuthorizationInfo info) {
-        if (permissions != null && !permissions.isEmpty()) {
-            for (Permission permission : permissions) {
+    protected boolean[] isPermitted(List<Permission> permissions, AuthorizationInfo info)
+    {
+        if (permissions != null && !permissions.isEmpty())
+        {
+            for (Permission permission : permissions)
+            {
                 authorizationValidate(permission);
             }
         }
@@ -141,30 +178,23 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     }
 
     @Override
-    public boolean isPermitted(PrincipalCollection principals,
-                               Permission permission) {
+    public boolean isPermitted(PrincipalCollection principals, Permission permission)
+    {
         authorizationValidate(permission);
         return super.isPermitted(principals, permission);
     }
 
     @Override
-    protected boolean isPermittedAll(Collection<Permission> permissions,
-                                     AuthorizationInfo info) {
-        if (permissions != null && !permissions.isEmpty()) {
-            for (Permission permission : permissions) {
+    protected boolean isPermittedAll(Collection<Permission> permissions, AuthorizationInfo info)
+    {
+        if (permissions != null && !permissions.isEmpty())
+        {
+            for (Permission permission : permissions)
+            {
                 authorizationValidate(permission);
             }
         }
         return super.isPermittedAll(permissions, info);
-    }
-
-    /**
-     * 授权验证方法
-     *
-     * @param permission
-     */
-    private void authorizationValidate(Permission permission) {
-        // 模块授权预留接口
     }
 
 //	/**
@@ -189,31 +219,13 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     // }
 
     /**
-     * 是否是验证码登录
+     * 授权验证方法
      *
-     * @param useruame 用户名
-     * @param isFail   计数加1
-     * @param clean    计数清零
-     * @return
+     * @param permission
      */
-    public static boolean isValidateCodeLogin(String useruame, boolean isFail, boolean clean) {
-        Map<String, Integer> loginFailMap = (Map<String, Integer>) CacheUtil.get("loginFailMap");
-        if (loginFailMap == null) {
-            loginFailMap = Maps.newHashMap();
-            CacheUtil.put("loginFailMap", loginFailMap);
-        }
-        Integer loginFailNum = loginFailMap.get(useruame);
-        if (loginFailNum == null) {
-            loginFailNum = 0;
-        }
-        if (isFail) {
-            loginFailNum++;
-            loginFailMap.put(useruame, loginFailNum);
-        }
-        if (clean) {
-            loginFailMap.remove(useruame);
-        }
-        return loginFailNum >= 3;
+    private void authorizationValidate(Permission permission)
+    {
+        // 模块授权预留接口
     }
 
 //    /**

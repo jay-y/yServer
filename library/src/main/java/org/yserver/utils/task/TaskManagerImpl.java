@@ -4,7 +4,8 @@ import org.yserver.utils.TaskManeger;
 
 import java.util.ArrayList;
 
-public class TaskManagerImpl implements TaskManeger {
+public class TaskManagerImpl implements TaskManeger
+{
     private static TaskManeger instance;
     private static ArrayList<Runnable> mRunables = new ArrayList<Runnable>();
 
@@ -15,10 +16,14 @@ public class TaskManagerImpl implements TaskManeger {
      * @since JDK 1.7
      * date: 2015-12-4 上午11:40:31 <br>
      */
-    public static TaskManeger getInstance() {
-        if (instance == null) {
-            synchronized (TaskManeger.class) {
-                if (instance == null) {
+    public static TaskManeger getInstance()
+    {
+        if (instance == null)
+        {
+            synchronized (TaskManeger.class)
+            {
+                if (instance == null)
+                {
                     instance = new TaskManagerImpl();
                 }
             }
@@ -32,22 +37,28 @@ public class TaskManagerImpl implements TaskManeger {
      * @param runnable
      */
     @Override
-    public void run(Runnable runnable) {
+    public void run(Runnable runnable)
+    {
         mRunables.add(runnable);
-        if (!TaskProxy.defaultExecutor.isBusy()) {
+        if (!TaskProxy.defaultExecutor.isBusy())
+        {
             TaskProxy.defaultExecutor.execute(runnable);
-        } else {
+        }
+        else
+        {
             new Thread(runnable).start();
         }
     }
 
     @Override
-    public void remove(Runnable runnable) {
+    public void remove(Runnable runnable)
+    {
         TaskProxy.defaultExecutor.getThreadPoolExecutor().remove(runnable);
     }
 
     @Override
-    public void shutdown() {
+    public void shutdown()
+    {
         TaskProxy.defaultExecutor.getThreadPoolExecutor().shutdown();
     }
 }

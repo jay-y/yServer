@@ -20,42 +20,52 @@ import java.util.List;
 @Service
 @DataSource("default")
 @Transactional
-public class MenuServiceImpl
-        extends SysBaseServiceImpl<Menu, MenuDao> implements MenuService {
+public class MenuServiceImpl extends SysBaseServiceImpl<Menu, MenuDao> implements MenuService
+{
     @Autowired
     private MenuDao dao;
 
     @Override
-    public MenuDao getDao() {
+    public MenuDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public Menu find(String id) {
+    public Menu find(String id)
+    {
         return getDao().findOne(new Menu(id));
     }
 
     @Override
-    public List<Menu> findAllParent() {
+    public List<Menu> findAllParent()
+    {
         Menu entity = new Menu();
         entity.setType("0");
-        try {
+        try
+        {
             return (List<Menu>) getDao().findAll(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;
     }
 
     @Override
-    public List<Menu> findAllChild(String pcode) {
+    public List<Menu> findAllChild(String pcode)
+    {
         Menu parent = new Menu();
         Menu entity = new Menu();
         parent.setCode(pcode);
         entity.setParent(parent);
-        try {
+        try
+        {
             return (List<Menu>) getDao().findAll(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;

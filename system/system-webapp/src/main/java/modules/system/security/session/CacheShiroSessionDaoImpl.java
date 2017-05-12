@@ -21,33 +21,40 @@ import java.util.Set;
 /**
  * 缓存Session Dao
  */
-public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implements ShiroSessionDao {
+public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implements ShiroSessionDao
+{
     private Log logger = Log.getLogger(getClass());
 
-    public CacheShiroSessionDaoImpl() {
+    public CacheShiroSessionDaoImpl()
+    {
         super();
     }
 
     @Override
-    protected void doUpdate(Session session) {
-        if (session == null || session.getId() == null) {
+    protected void doUpdate(Session session)
+    {
+        if (session == null || session.getId() == null)
+        {
             return;
         }
         HttpServletRequest request = Servlets.getRequest();
-        if (request != null) {
+        if (request != null)
+        {
             String uri = request.getServletPath();
             // 如果是静态文件，则不更新SESSION
-            if (Servlets.isStaticFile(uri)) {
+            if (Servlets.isStaticFile(uri))
+            {
                 return;
             }
             // 如果是视图文件，则不更新SESSION
-            if (StringUtils.startsWith(uri, GlobalProperties.getViewPrefix())
-                    && StringUtils.endsWith(uri, GlobalProperties.getViewSuffix())) {
+            if (StringUtils.startsWith(uri, GlobalProperties.getViewPrefix()) && StringUtils.endsWith(uri, GlobalProperties.getViewSuffix()))
+            {
                 return;
             }
             // 手动控制不更新SESSION
             String updateSession = request.getParameter("updateSession");
-            if (Constant._FALSE.equals(updateSession) || Constant._NO.equals(updateSession) || Constant._0.equals(updateSession)) {
+            if (Constant._FALSE.equals(updateSession) || Constant._NO.equals(updateSession) || Constant._0.equals(updateSession))
+            {
                 return;
             }
         }
@@ -56,8 +63,10 @@ public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implemen
     }
 
     @Override
-    protected void doDelete(Session session) {
-        if (session == null || session.getId() == null) {
+    protected void doDelete(Session session)
+    {
+        if (session == null || session.getId() == null)
+        {
             return;
         }
         super.doDelete(session);
@@ -65,12 +74,15 @@ public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implemen
     }
 
     @Override
-    protected Serializable doCreate(Session session) {
+    protected Serializable doCreate(Session session)
+    {
         HttpServletRequest request = Servlets.getRequest();
-        if (request != null) {
+        if (request != null)
+        {
             String uri = request.getServletPath();
             // 如果是静态文件，则不创建SESSION
-            if (Servlets.isStaticFile(uri)) {
+            if (Servlets.isStaticFile(uri))
+            {
                 return null;
             }
         }
@@ -80,36 +92,45 @@ public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implemen
     }
 
     @Override
-    protected Session doReadSession(Serializable sessionId) {
+    protected Session doReadSession(Serializable sessionId)
+    {
         return super.doReadSession(sessionId);
     }
 
     @Override
-    public Session readSession(Serializable sessionId) throws UnknownSessionException {
-        try {
+    public Session readSession(Serializable sessionId) throws UnknownSessionException
+    {
+        try
+        {
             Session s = null;
             HttpServletRequest request = Servlets.getRequest();
-            if (request != null) {
+            if (request != null)
+            {
                 String uri = request.getServletPath();
                 // 如果是静态文件，则不获取SESSION
-                if (Servlets.isStaticFile(uri)) {
+                if (Servlets.isStaticFile(uri))
+                {
                     return null;
                 }
                 s = (Session) request.getAttribute("session_" + sessionId);
             }
-            if (s != null) {
+            if (s != null)
+            {
                 return s;
             }
 
             Session session = super.readSession(sessionId);
             logger.debug("read session {} {}", sessionId, request != null ? request.getRequestURI() : "");
 
-            if (request != null && session != null) {
+            if (request != null && session != null)
+            {
                 request.setAttribute("session_" + sessionId, session);
             }
 
             return session;
-        } catch (UnknownSessionException e) {
+        }
+        catch (UnknownSessionException e)
+        {
             return null;
         }
     }
@@ -121,7 +142,8 @@ public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implemen
      * @return
      */
     @Override
-    public Collection<Session> getActiveSessions(boolean includeLeave) {
+    public Collection<Session> getActiveSessions(boolean includeLeave)
+    {
         return getActiveSessions(includeLeave, null, null);
     }
 
@@ -134,30 +156,38 @@ public class CacheShiroSessionDaoImpl extends EnterpriseCacheSessionDAO implemen
      * @return
      */
     @Override
-    public Collection<Session> getActiveSessions(boolean includeLeave, Object principal, Session filterSession) {
+    public Collection<Session> getActiveSessions(boolean includeLeave, Object principal, Session filterSession)
+    {
         // 如果包括离线，并无登录者条件。
-        if (includeLeave && principal == null) {
+        if (includeLeave && principal == null)
+        {
             return getActiveSessions();
         }
         Set<Session> sessions = Sets.newHashSet();
-        for (Session session : getActiveSessions()) {
+        for (Session session : getActiveSessions())
+        {
             boolean isActiveSession = false;
             // 不包括离线并符合最后访问时间小于等于3分钟条件。
-            if (includeLeave || DateUtil.pastMinutes(session.getLastAccessTime()) <= 3) {
+            if (includeLeave || DateUtil.pastMinutes(session.getLastAccessTime()) <= 3)
+            {
                 isActiveSession = true;
             }
             // 符合登陆者条件。
-            if (principal != null) {
+            if (principal != null)
+            {
                 PrincipalCollection pc = (PrincipalCollection) session.getAttribute(DefaultSubjectContext.PRINCIPALS_SESSION_KEY);
-                if (principal.toString().equals(pc != null ? pc.getPrimaryPrincipal().toString() : StringUtils.EMPTY)) {
+                if (principal.toString().equals(pc != null ? pc.getPrimaryPrincipal().toString() : StringUtils.EMPTY))
+                {
                     isActiveSession = true;
                 }
             }
             // 过滤掉的SESSION
-            if (filterSession != null && filterSession.getId().equals(session.getId())) {
+            if (filterSession != null && filterSession.getId().equals(session.getId()))
+            {
                 isActiveSession = false;
             }
-            if (isActiveSession) {
+            if (isActiveSession)
+            {
                 sessions.add(session);
             }
         }

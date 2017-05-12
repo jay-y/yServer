@@ -12,17 +12,19 @@ import org.yserver.core.datasource.DataSource;
 @Service
 @DataSource("default")
 @Transactional
-public class RoleServiceImpl
-        extends SysBaseServiceImpl<Role, RoleDao> implements RoleService {
+public class RoleServiceImpl extends SysBaseServiceImpl<Role, RoleDao> implements RoleService
+{
     @Autowired
     private RoleDao dao;
 
     @Override
-    public RoleDao getDao() {
+    public RoleDao getDao()
+    {
         return dao;
     }
 
-    public Role findByNameAndEnname(String name, String enname) {
+    public Role findByNameAndEnname(String name, String enname)
+    {
         return getDao().findByNameAndEnname(name, enname);
     }
 }

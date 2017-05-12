@@ -8,7 +8,8 @@ package org.yserver.utils;
  * @author ysj
  * @since JDK 1.7
  */
-public interface TaskManeger {
+public interface TaskManeger
+{
 
     /**
      * 在后台线程执行runnable

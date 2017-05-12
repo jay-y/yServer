@@ -11,7 +11,8 @@ import java.util.List;
  * Date: 2016/9/18 15:28<br>
  * Author: ysj
  */
-public interface AreaService extends SysBaseService<Area, AreaDao> {
+public interface AreaService extends SysBaseService<Area, AreaDao>
+{
     List<Area> findAllParent();
 
     List<Area> findAllChild(String type, String pcode);

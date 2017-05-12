@@ -3,8 +3,8 @@ package modules.system.svc.base;
 import org.springframework.transaction.annotation.Transactional;
 import org.yserver.core.datasource.DataSource;
 import org.yserver.core.jpa.JpaBaseDao;
-import org.yserver.core.model.BaseEntity;
 import org.yserver.core.jpa.JpaBaseServiceImpl;
+import org.yserver.core.model.BaseEntity;
 
 import java.io.Serializable;
 
@@ -15,6 +15,6 @@ import java.io.Serializable;
  */
 @DataSource("default")
 @Transactional
-public abstract class SysBaseServiceImpl<T extends BaseEntity, DAO extends JpaBaseDao<T, Serializable>>
-        extends JpaBaseServiceImpl<T, Serializable, DAO> implements SysBaseService<T, DAO> {
+public abstract class SysBaseServiceImpl<T extends BaseEntity, DAO extends JpaBaseDao<T, Serializable>> extends JpaBaseServiceImpl<T, Serializable, DAO> implements SysBaseService<T, DAO>
+{
 }

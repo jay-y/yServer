@@ -5,5 +5,6 @@ import modules.system.model.Role;
 import org.yserver.core.mybatis.annotation.MyBatisMapper;
 
 @MyBatisMapper
-public interface RoleDao extends SysBaseDao<Role> {
+public interface RoleDao extends SysBaseDao<Role>
+{
 }

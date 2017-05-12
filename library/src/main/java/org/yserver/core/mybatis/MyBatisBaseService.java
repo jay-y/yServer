@@ -2,7 +2,6 @@ package org.yserver.core.mybatis;
 
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.domain.Pageable;
 import org.yserver.core.model.Pagination;
 
 import java.rmi.Remote;
@@ -14,7 +13,8 @@ import java.util.Map;
  * Date: 2016/9/7 23:43<br>
  * Author: ysj
  */
-public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> extends Remote {
+public interface MyBatisBaseService<T, DAO extends MyBatisBaseDao> extends Remote
+{
 
     DAO getDao();
 

@@ -12,18 +12,20 @@ import org.yserver.core.datasource.DataSource;
 @Service
 @DataSource("default")
 @Transactional
-public class DictServiceImpl
-        extends SysBaseServiceImpl<Dict, DictDao> implements DictService {
+public class DictServiceImpl extends SysBaseServiceImpl<Dict, DictDao> implements DictService
+{
     @Autowired
     private DictDao dao;
 
     @Override
-    public DictDao getDao() {
+    public DictDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public Dict find(String id) {
+    public Dict find(String id)
+    {
         return getDao().findOne(new Dict(id));
     }
 }

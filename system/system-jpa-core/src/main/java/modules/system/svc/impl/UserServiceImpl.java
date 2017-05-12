@@ -17,18 +17,20 @@ import org.yserver.core.datasource.DataSource;
 @Service
 @DataSource("default")
 @Transactional
-public class UserServiceImpl
-        extends SysBaseServiceImpl<User, UserDao> implements UserService {
+public class UserServiceImpl extends SysBaseServiceImpl<User, UserDao> implements UserService
+{
     @Autowired
     private UserDao dao;
 
     @Override
-    public UserDao getDao() {
+    public UserDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public User findByUserName(String username) {
+    public User findByUserName(String username)
+    {
         return getDao().findByUserName(username);
     }
 }

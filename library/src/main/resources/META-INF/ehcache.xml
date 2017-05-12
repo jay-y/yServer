@@ -5,15 +5,15 @@
 
     <!-- 默认缓存配置. -->
     <defaultCache
-            maxElementsInMemory="10000"
-            eternal="false"
-            timeToIdleSeconds="120"
-            timeToLiveSeconds="120"
-            overflowToDisk="true"
-            maxElementsOnDisk="10000000"
-            diskPersistent="false"
-            diskExpiryThreadIntervalSeconds="120"
-            memoryStoreEvictionPolicy="LRU"/>
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        maxElementsOnDisk="10000000"
+        diskPersistent="false"
+        diskExpiryThreadIntervalSeconds="120"
+        memoryStoreEvictionPolicy="LRU"/>
 
     <!-- 基本业务信息缓存 -->
     <cache name="baseCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true"/>
@@ -52,4 +52,4 @@
     diskSpoolBufferSizeMB：这个参数设置DiskStore（磁盘缓存）的缓存区大小。默认是30MB。每个Cache都应该有自己的一个缓冲区
      memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用）
     -->
-</ehcache>  
+</ehcache>

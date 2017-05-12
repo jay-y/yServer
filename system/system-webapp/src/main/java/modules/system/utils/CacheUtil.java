@@ -8,10 +8,10 @@ import org.yserver.core.config.SpringContextHolder;
 /**
  * Cache工具类
  */
-public class CacheUtil {
-    private static CacheManager cacheManager = SpringContextHolder.getBean("ehcacheManagerFactory");
-
+public class CacheUtil
+{
     private static final String SYS_CACHE = "sysCache";
+    private static CacheManager cacheManager = SpringContextHolder.getBean("ehcacheManagerFactory");
 
     /**
      * 获取SYS_CACHE缓存
@@ -19,7 +19,8 @@ public class CacheUtil {
      * @param key
      * @return
      */
-    public static Object get(String key) {
+    public static Object get(String key)
+    {
         return get(SYS_CACHE, key);
     }
 
@@ -29,7 +30,8 @@ public class CacheUtil {
      * @param key
      * @return
      */
-    public static void put(String key, Object value) {
+    public static void put(String key, Object value)
+    {
         put(SYS_CACHE, key, value);
     }
 
@@ -39,7 +41,8 @@ public class CacheUtil {
      * @param key
      * @return
      */
-    public static void remove(String key) {
+    public static void remove(String key)
+    {
         remove(SYS_CACHE, key);
     }
 
@@ -50,7 +53,8 @@ public class CacheUtil {
      * @param key
      * @return
      */
-    public static Object get(String cacheName, String key) {
+    public static Object get(String cacheName, String key)
+    {
         Element element = getCache(cacheName).get(key);
         return element == null ? null : element.getObjectValue();
     }
@@ -62,7 +66,8 @@ public class CacheUtil {
      * @param key
      * @param value
      */
-    public static void put(String cacheName, String key, Object value) {
+    public static void put(String cacheName, String key, Object value)
+    {
         Element element = new Element(key, value);
         getCache(cacheName).put(element);
     }
@@ -73,7 +78,8 @@ public class CacheUtil {
      * @param cacheName
      * @param key
      */
-    public static void remove(String cacheName, String key) {
+    public static void remove(String cacheName, String key)
+    {
         getCache(cacheName).remove(key);
     }
 
@@ -83,9 +89,11 @@ public class CacheUtil {
      * @param cacheName
      * @return
      */
-    private static Cache getCache(String cacheName) {
+    private static Cache getCache(String cacheName)
+    {
         Cache cache = cacheManager.getCache(cacheName);
-        if (cache == null) {
+        if (cache == null)
+        {
             cacheManager.addCache(cacheName);
             cache = cacheManager.getCache(cacheName);
             cache.getCacheConfiguration().setEternal(true);
@@ -93,7 +101,8 @@ public class CacheUtil {
         return cache;
     }
 
-    public static CacheManager getCacheManager() {
+    public static CacheManager getCacheManager()
+    {
         return cacheManager;
     }
 }

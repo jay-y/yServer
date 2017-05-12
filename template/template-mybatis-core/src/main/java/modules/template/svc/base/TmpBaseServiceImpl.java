@@ -13,5 +13,6 @@ import org.yserver.core.mybatis.MyBatisBaseServiceImpl;
  */
 @DataSource(value = "default")
 @Transactional
-public abstract class TmpBaseServiceImpl<T extends BaseEntity, DAO extends TmpBaseDao> extends MyBatisBaseServiceImpl<T, DAO> {
+public abstract class TmpBaseServiceImpl<T extends BaseEntity, DAO extends TmpBaseDao> extends MyBatisBaseServiceImpl<T, DAO>
+{
 }

@@ -14,20 +14,25 @@ import org.yserver.utils.task.TaskManagerImpl;
  * @author ysj
  * @since JDK 1.7
  */
-public final class y {
+public final class y
+{
 
-    public static JsonUtil json(){
+    private y()
+    {
+    }
+
+    public static JsonUtil json()
+    {
         return JacksonImpl.getInstance();
     }
 
-    public static TaskManeger task() {
+    public static TaskManeger task()
+    {
         return TaskManagerImpl.getInstance();
     }
 
-    public static Log log() {
+    public static Log log()
+    {
         return Log.getLogger(y.class);
-    }
-
-    private y() {
     }
 }

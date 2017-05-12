@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd   http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
     <!-- 加载属性文件 -->
@@ -70,7 +70,8 @@
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop> <!-- 控制台打印sql -->
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop> <!-- 格式化sql -->
                 <prop key="connection.useUnicode">${connection.useUnicode}</prop> <!-- 连接数据库时是否使用Unicode编码 -->
-                <prop key="connection.characterEncoding">${connection.characterEncoding}</prop> <!-- 连接数据库时数据的传输字符集编码方式 -->
+                <prop key="connection.characterEncoding">${connection.characterEncoding}
+                </prop> <!-- 连接数据库时数据的传输字符集编码方式 -->
                 <!-- 二级缓存配置 -->
                 <prop key="hibernate.cache.use_second_level_cache">${hibernate.cache.use_second_level_cache}
                 </prop><!--开启二级缓存 -->

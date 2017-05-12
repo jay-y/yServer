@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="${smartSource}/css/font-awesome.min.css">
 
     <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
-    <link rel="stylesheet" type="text/css" media="screen" href="${smartSource}/css/smartadmin-production-plugins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="${smartSource}/css/smartadmin-production-plugins.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="${smartSource}/css/smartadmin-production.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="${smartSource}/css/smartadmin-skins.min.css">
 
@@ -61,7 +62,7 @@
     </div>
 
     <span id="extr-page-header-space"> <span class="hidden-mobile hidden-xs">需要一个账号？</span> <a
-            href="register.jsp" class="btn btn-danger">点击创建</a> </span>
+        href="register.jsp" class="btn btn-danger">点击创建</a> </span>
 
 </header>
 

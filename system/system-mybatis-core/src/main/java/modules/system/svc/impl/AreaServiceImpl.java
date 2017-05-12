@@ -20,58 +20,72 @@ import java.util.List;
 @Service
 @DataSource("default")
 @Transactional
-public class AreaServiceImpl
-        extends SysBaseServiceImpl<Area, AreaDao> implements AreaService {
+public class AreaServiceImpl extends SysBaseServiceImpl<Area, AreaDao> implements AreaService
+{
     @Autowired
     private AreaDao dao;
 
     @Override
-    public AreaDao getDao() {
+    public AreaDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public Area find(String id) {
+    public Area find(String id)
+    {
         return getDao().findOne(new Area(id));
     }
 
     @Override
-    public List<Area> findAllParent() {
+    public List<Area> findAllParent()
+    {
         Area entity = new Area();
         entity.setType("0");
-        try {
+        try
+        {
             return (List<Area>) getDao().findAll(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;
     }
 
     @Override
-    public List<Area> findAllChild(String type, String pcode) {
+    public List<Area> findAllChild(String type, String pcode)
+    {
         Area parent = new Area();
         Area entity = new Area();
         parent.setCode(pcode);
         entity.setParent(parent);
         entity.setType(type);
-        try {
+        try
+        {
             return (List<Area>) getDao().findAllChild(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;
     }
 
     @Override
-    public List<Area> findAllChildByTypeAndPcode(String type, String pcode) {
+    public List<Area> findAllChildByTypeAndPcode(String type, String pcode)
+    {
         Area parent = new Area();
         Area entity = new Area();
         parent.setCode(pcode);
         entity.setParent(parent);
         entity.setType(type);
-        try {
+        try
+        {
             return (List<Area>) getDao().findAll(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;

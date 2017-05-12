@@ -12,7 +12,8 @@ import java.util.List;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface MenuDao extends SysBaseDao<Menu> {
+public interface MenuDao extends SysBaseDao<Menu>
+{
 
     @Query("select o from Menu o where o.type = 0")
     List<Menu> findAllParent();

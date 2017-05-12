@@ -8,5 +8,6 @@ import modules.system.model.Logistics;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface LogisticsDao extends SysBaseDao<Logistics> {
+public interface LogisticsDao extends SysBaseDao<Logistics>
+{
 }

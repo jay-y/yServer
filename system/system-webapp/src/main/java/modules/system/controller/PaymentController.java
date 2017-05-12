@@ -21,55 +21,65 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "${adminPath}/payment")
-public class PaymentController extends SysBaseController<Payment, PaymentService> {
+public class PaymentController extends SysBaseController<Payment, PaymentService>
+{
     private static final String INDEX_PATH = "system/payment";
 
     @Autowired
     private PaymentService service;
 
     @Override
-    protected PaymentService getService() {
+    protected PaymentService getService()
+    {
         return service;
     }
 
     @Override
-    protected String indexMain() {
+    protected String indexMain()
+    {
         return INDEX_PATH + "/index";
     }
 
     @Override
-    protected String indexForm() {
+    protected String indexForm()
+    {
         return INDEX_PATH + "/form";
     }
 
     @ModelAttribute
-    public Payment get(@RequestParam(required = false) String id) {
+    public Payment get(@RequestParam(required = false) String id)
+    {
         Payment entity = StringUtils.isNotBlank(id) ? getService().find(id) : new Payment();
         return entity;
     }
 
     @RequestMapping(value = "")
-    public String index() {
+    public String index()
+    {
         return super.index();
     }
 
     @RequestMapping(value = "data")
-    public String data(Pagination<Payment> request, HttpServletResponse response) {
+    public String data(Pagination<Payment> request, HttpServletResponse response)
+    {
         return super.data(request, response);
     }
 
     @RequestMapping(value = "form")
-    public String form(HttpServletResponse response, Model model) {
+    public String form(HttpServletResponse response, Model model)
+    {
         return super.form(response, model);
     }
 
     @RequestMapping(value = "save")
-    public String save(Payment entity, HttpServletResponse response, Model model) {
+    public String save(Payment entity, HttpServletResponse response, Model model)
+    {
         return super.save(entity, response, model);
     }
 
     @RequestMapping(value = "delete")
-    public String delete(Payment entity, HttpServletResponse response, Model model) {
+    public String delete(Payment entity, HttpServletResponse response, Model model)
+    {
         return super.delete(entity, response, model);
     }
 }

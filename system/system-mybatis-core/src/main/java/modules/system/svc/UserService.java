@@ -9,7 +9,8 @@ import modules.system.svc.base.SysBaseService;
  * Date: 2016/9/18 15:28<br>
  * Author: ysj
  */
-public interface UserService extends SysBaseService<User, UserDao> {
+public interface UserService extends SysBaseService<User, UserDao>
+{
     User find(String id);
 
     User findByUserName(String username);

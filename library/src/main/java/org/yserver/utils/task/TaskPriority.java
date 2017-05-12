@@ -8,12 +8,7 @@ package org.yserver.utils.task;
  * @author user
  * @since JDK 1.7
  */
-public enum TaskPriority {
-    UI_TOP,
-    UI_NORMAL,
-    UI_LOW,
-    DEFAULT,
-    BG_TOP,
-    BG_NORMAL,
-    BG_LOW
+public enum TaskPriority
+{
+    UI_TOP, UI_NORMAL, UI_LOW, DEFAULT, BG_TOP, BG_NORMAL, BG_LOW
 }

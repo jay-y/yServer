@@ -11,5 +11,6 @@ import org.yserver.core.mybatis.MybatisBaseController;
  */
 //public abstract class SysBaseController<T extends BaseEntity, S extends JpaBaseService> extends JpaBaseController<T, S> {
 //}
-public abstract class SysBaseController<T extends BaseEntity, S extends MyBatisBaseService> extends MybatisBaseController<T, S> {
+public abstract class SysBaseController<T extends BaseEntity, S extends MyBatisBaseService> extends MybatisBaseController<T, S>
+{
 }

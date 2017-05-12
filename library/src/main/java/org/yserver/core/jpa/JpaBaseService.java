@@ -15,7 +15,8 @@ import java.util.List;
  * Date: 2016/9/7 23:43<br>
  * Author: ysj
  */
-public interface JpaBaseService<T, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> extends Remote {
+public interface JpaBaseService<T, ID extends Serializable, DAO extends JpaBaseDao<T, ID>> extends Remote
+{
     DAO getDao();
 
     /**

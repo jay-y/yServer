@@ -24,138 +24,9 @@ public class JacksonImpl extends ObjectMapper implements JsonUtil
 {
     private static JsonUtil instance;
 
-    private ObjectMapper objectMapper;
-
-    public static JsonUtil getInstance()
-    {
-        if (instance == null)
-        {
-            synchronized (JacksonImpl.class)
-            {
-                if (instance == null)
-                {
-                    instance = new JacksonImpl();
-                }
-            }
-        }
-        return instance;
-    }
-
-    public String toJson(Object object)
-    {
-        String jsonString;
-        try
-        {
-            jsonString = objectMapper.writeValueAsString(object);
-        }
-        catch (JsonProcessingException e)
-        {
-            throw new RuntimeException(e.getMessage(), e);
-        }
-        return jsonString;
-    }
-
-    public String toPrettyJson(Object object)
-    {
-        String jsonString;
-        try
-        {
-            jsonString = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e.getMessage(), e);
-        }
-        return jsonString;
-
-    }
-
-    public <T> T jsonToObject(String json, Class<T> c)
-    {
-        try
-        {
-            if (StringUtils.isBlank(json))
-            {
-                return c.newInstance();
-            }
-            else
-            {
-                return objectMapper.readValue(json, c);
-            }
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e.getMessage(), e);
-        }
-    }
-
-    @Override
-    public <T> List<T> jsonToList(String json, Class<T> cls)
-    {
-        return jsonToGenericObject(json, new TypeReference<List<T>>()
-        {
-        });
-    }
-
-    public List<Map<String, Object>> jsonToListMap(String json)
-    {
-        return jsonToGenericObject(json, new TypeReference<List<Map<String, Object>>>()
-        {
-        });
-    }
-
-    public Map<String, Object> jsonToMap(String json)
-    {
-        try
-        {
-            Map<String, Object> map = objectMapper.readValue(json, Map.class);
-            return map;
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException(e.getMessage(), e);
-        }
-    }
-
-    private <T> T jsonToGenericObject(String json, TypeReference<T> tr)
-    {
-        if (StringUtils.isBlank(json))
-        {
-            return null;
-        }
-        else
-        {
-            try
-            {
-                return objectMapper.readValue(json, tr);
-            }
-            catch (Exception e)
-            {
-                throw new RuntimeException(e.getMessage(), e);
-            }
-        }
-    }
-
-    /**
-     * 允许单引号
-     * 允许不带引号的字段名称
-     */
-    private JacksonImpl enableSimple()
-    {
-        this.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
-        this.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
-        return this;
-    }
-
     public JacksonImpl()
     {
         this(JsonInclude.Include.NON_EMPTY);
-        objectMapper = new ObjectMapper();
-        //解析器支持解析单引号
-        objectMapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
-        //解析器支持解析结束符
-        objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_CONTROL_CHARS, true);
-        objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
     }
 
     public JacksonImpl(JsonInclude.Include include)
@@ -189,5 +60,127 @@ public class JacksonImpl extends ObjectMapper implements JsonUtil
         }));
         // 设置时区
         this.setTimeZone(TimeZone.getDefault());//getTimeZone("GMT+8:00")
+        this.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
+    }
+
+    public static JsonUtil getInstance()
+    {
+        if (instance == null)
+        {
+            synchronized (JacksonImpl.class)
+            {
+                if (instance == null)
+                {
+                    instance = new JacksonImpl();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public String toJson(Object object)
+    {
+        String jsonString;
+        try
+        {
+            jsonString = this.writeValueAsString(object);
+        }
+        catch (JsonProcessingException e)
+        {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+        return jsonString;
+    }
+
+    public String toPrettyJson(Object object)
+    {
+        String jsonString;
+        try
+        {
+            jsonString = this.writerWithDefaultPrettyPrinter().writeValueAsString(object);
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+        return jsonString;
+
+    }
+
+    public <T> T jsonToObject(String json, Class<T> c)
+    {
+        try
+        {
+            if (StringUtils.isBlank(json))
+            {
+                return c.newInstance();
+            }
+            else
+            {
+                return this.readValue(json, c);
+            }
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public <T> List<T> jsonToList(String json, Class<T> cls)
+    {
+        return jsonToGenericObject(json, new TypeReference<List<T>>()
+        {
+        });
+    }
+
+    public List<Map<String, Object>> jsonToListMap(String json)
+    {
+        return jsonToGenericObject(json, new TypeReference<List<Map<String, Object>>>()
+        {
+        });
+    }
+
+    public Map<String, Object> jsonToMap(String json)
+    {
+        try
+        {
+            Map<String, Object> map = this.readValue(json, Map.class);
+            return map;
+        }
+        catch (Exception e)
+        {
+            throw new RuntimeException(e.getMessage(), e);
+        }
+    }
+
+    private <T> T jsonToGenericObject(String json, TypeReference<T> tr)
+    {
+        if (StringUtils.isBlank(json))
+        {
+            return null;
+        }
+        else
+        {
+            try
+            {
+                return this.readValue(json, tr);
+            }
+            catch (Exception e)
+            {
+                throw new RuntimeException(e.getMessage(), e);
+            }
+        }
+    }
+
+    /**
+     * 允许单引号
+     * 允许不带引号的字段名称
+     */
+    private JacksonImpl enableSimple()
+    {
+        this.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
+        this.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
+        return this;
     }
 }

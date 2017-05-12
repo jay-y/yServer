@@ -17,23 +17,26 @@ import org.yserver.core.datasource.DataSource;
 @Service
 @DataSource("default")
 @Transactional
-public class FileServiceImpl
-        extends SysBaseServiceImpl<File, FileDao> implements FileService {
+public class FileServiceImpl extends SysBaseServiceImpl<File, FileDao> implements FileService
+{
     @Autowired
     private FileDao dao;
 
     @Override
-    public FileDao getDao() {
+    public FileDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public File findByName(String name) {
+    public File findByName(String name)
+    {
         return getDao().findByName(name);
     }
 
     @Override
-    public File findByRemarks(String remarks) {
+    public File findByRemarks(String remarks)
+    {
         return getDao().findByRemarks(remarks);
     }
 }

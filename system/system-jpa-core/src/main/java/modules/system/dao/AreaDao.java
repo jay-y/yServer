@@ -12,7 +12,8 @@ import java.util.List;
  * Date: 2016/9/23 16:57<br>
  * Author: ysj
  */
-public interface AreaDao extends SysBaseDao<Area> {
+public interface AreaDao extends SysBaseDao<Area>
+{
 
     @Query("select o from Area o where o.type = 0")
     List<Area> findAllParent();

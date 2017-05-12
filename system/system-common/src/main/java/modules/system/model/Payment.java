@@ -14,7 +14,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "sys_payment")
-public class Payment extends BaseEntity {
+public class Payment extends BaseEntity
+{
 
     @Column(name = "APP_ID", nullable = false)
     private String appId;
@@ -41,75 +42,93 @@ public class Payment extends BaseEntity {
     @Column(name = "CATEGORY", nullable = false)
     private String category;//支付类别,如:UnionPay、AliPay、WeChat、PayPal等
 
-    public Payment() {
+    public Payment()
+    {
         super();
     }
 
-    public Payment(String code) {
+    public Payment(String code)
+    {
         super(code);
     }
 
-    public String getAppId() {
+    public String getAppId()
+    {
         return appId;
     }
 
-    public void setAppId(String appId) {
+    public void setAppId(String appId)
+    {
         this.appId = appId;
     }
 
-    public String getParams() {
+    public String getParams()
+    {
         return params;
     }
 
-    public void setParams(String params) {
+    public void setParams(String params)
+    {
         this.params = params;
     }
 
-    public String getBusiness() {
+    public String getBusiness()
+    {
         return business;
     }
 
-    public void setBusiness(String business) {
+    public void setBusiness(String business)
+    {
         this.business = business;
     }
 
-    public String getApiUrl() {
+    public String getApiUrl()
+    {
         return apiUrl;
     }
 
-    public void setApiUrl(String apiUrl) {
+    public void setApiUrl(String apiUrl)
+    {
         this.apiUrl = apiUrl;
     }
 
-    public String getNotifyUrl() {
+    public String getNotifyUrl()
+    {
         return notifyUrl;
     }
 
-    public void setNotifyUrl(String notifyUrl) {
+    public void setNotifyUrl(String notifyUrl)
+    {
         this.notifyUrl = notifyUrl;
     }
 
-    public String getCancelUrl() {
+    public String getCancelUrl()
+    {
         return cancelUrl;
     }
 
-    public void setCancelUrl(String cancelUrl) {
+    public void setCancelUrl(String cancelUrl)
+    {
         this.cancelUrl = cancelUrl;
     }
 
-    public String getReturnUrl() {
+    public String getReturnUrl()
+    {
         return returnUrl;
     }
 
-    public void setReturnUrl(String returnUrl) {
+    public void setReturnUrl(String returnUrl)
+    {
         this.returnUrl = returnUrl;
     }
 
-    public String getCategory() {
+    public String getCategory()
+    {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(String category)
+    {
         this.category = category;
     }
 }

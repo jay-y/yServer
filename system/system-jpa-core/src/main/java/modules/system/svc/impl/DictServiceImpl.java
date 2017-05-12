@@ -19,18 +19,20 @@ import java.util.List;
 @Service
 @DataSource("default")
 @Transactional
-public class DictServiceImpl
-        extends SysBaseServiceImpl<Dict, DictDao> implements DictService {
+public class DictServiceImpl extends SysBaseServiceImpl<Dict, DictDao> implements DictService
+{
     @Autowired
     private DictDao dao;
 
     @Override
-    public DictDao getDao() {
+    public DictDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public List<Dict> findListByType(String type) {
+    public List<Dict> findListByType(String type)
+    {
         return dao.findListByType(type);
     }
 }

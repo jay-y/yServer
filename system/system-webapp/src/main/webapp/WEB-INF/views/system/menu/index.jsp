@@ -36,7 +36,7 @@
                                    data-toggle="modal" data-target="#remoteModal"
                                    class="btn btn-labeled btn-info">
                                     <span class="btn-label"><i
-                                            class="fa fa-plus"></i> </span>新增
+                                        class="fa fa-plus"></i> </span>新增
                                 </a>
                             </li>
                         </ul>
@@ -46,21 +46,21 @@
                             <tr>
                                 <th class="hidden">ID</th>
                                 <th style="width: 120px;"><i
-                                        class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> 名称
+                                    class="fa fa-fw fa-user text-muted hidden-md hidden-sm hidden-xs"></i> 名称
                                 </th>
                                 <th style="width: 70px;"><i class="text-muted hidden-md hidden-sm hidden-xs"></i> 图标
                                 </th>
                                 <th style="width: 70px;"> 层级</th>
                                 <th style="width: 120px;"><i
-                                        class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i>
+                                    class="fa fa-fw fa-map-marker txt-color-blue hidden-md hidden-sm hidden-xs"></i>
                                     路径
                                 </th>
                                 <th style="width: 70px;"><i
-                                        class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i>
+                                    class="fa fa-fw fa-calendar txt-color-blue hidden-md hidden-sm hidden-xs"></i>
                                     排序
                                 </th>
                                 <th class="text-align-center" style="width: 120px;"><i
-                                        class="fa fa-fw fa-briefcase txt-color-blue hidden-md hidden-sm hidden-xs"></i>
+                                    class="fa fa-fw fa-briefcase txt-color-blue hidden-md hidden-sm hidden-xs"></i>
                                     操作
                                 </th>
                             </tr>
@@ -87,11 +87,11 @@
                                                                onclick="onForm(this,'${menu.code}');"
                                                                class="btn btn-sm bg-color-blue txt-color-white"
                                                                data-toggle="modal" data-target="#remoteModal"><i
-                                                                class="fa fa-edit fa-lg"></i></a></li>
+                                                            class="fa fa-edit fa-lg"></i></a></li>
                                                         <li>&nbsp;<a href="javascript:void(0);"
                                                                      onclick="onDelete('${menu.code}');"
                                                                      class="btn btn-sm bg-color-red txt-color-white"><i
-                                                                class="fa fa-trash-o fa-lg"></i></a></li>
+                                                            class="fa fa-trash-o fa-lg"></i></a></li>
                                                     </ul>
                                                 </td>
                                             </tr>
@@ -100,7 +100,7 @@
                                                     <tr class="childs_${menu.code}" style="display: none;">
                                                         <td class="hidden">${menu2.code}</td>
                                                         <td style="width: 100px;"><i
-                                                                class="fa fa-fw fa-angle-double-right"></i>${menu2.name}
+                                                            class="fa fa-fw fa-angle-double-right"></i>${menu2.name}
                                                         </td>
                                                         <td style="width: 50px;"><i class="fa fa-fw ${menu2.icon}"></i>
                                                         </td>
@@ -113,11 +113,11 @@
                                                                        onclick="onForm(this,'${menu2.code}');"
                                                                        class="btn btn-sm bg-color-blue txt-color-white"
                                                                        data-toggle="modal" data-target="#remoteModal"><i
-                                                                        class="fa fa-edit fa-lg"></i></a></li>
+                                                                    class="fa fa-edit fa-lg"></i></a></li>
                                                                 <li>&nbsp;<a href="javascript:void(0);"
                                                                              onclick="onDelete('${menu2.code}');"
                                                                              class="btn btn-sm bg-color-red txt-color-white"><i
-                                                                        class="fa fa-trash-o fa-lg"></i></a></li>
+                                                                    class="fa fa-trash-o fa-lg"></i></a></li>
                                                             </ul>
                                                         </td>
                                                     </tr>
@@ -128,7 +128,7 @@
                                             <tr>
                                                 <td class="hidden">${menu.code}</td>
                                                 <td style="width: 100px;"><i
-                                                        class="fa fa-fw fa-folder-open"></i>${menu.name}</td>
+                                                    class="fa fa-fw fa-folder-open"></i>${menu.name}</td>
                                                 <td style="width: 50px;"><i class="fa fa-fw ${menu.icon}"></i></td>
                                                 <td style="width: 50px;">主目录</td>
                                                 <td style="width: 100px;">${menu.url}</td>
@@ -139,11 +139,11 @@
                                                                onclick="onForm(this,'${menu.code}');"
                                                                class="btn btn-sm bg-color-blue txt-color-white"
                                                                data-toggle="modal" data-target="#remoteModal"><i
-                                                                class="fa fa-edit fa-lg"></i></a></li>
+                                                            class="fa fa-edit fa-lg"></i></a></li>
                                                         <li>&nbsp;<a href="javascript:void(0);"
                                                                      onclick="onDelete('${menu.code}');"
                                                                      class="btn btn-sm bg-color-red txt-color-white"><i
-                                                                class="fa fa-trash-o fa-lg"></i></a></li>
+                                                            class="fa fa-trash-o fa-lg"></i></a></li>
                                                     </ul>
                                                 </td>
                                             </tr>

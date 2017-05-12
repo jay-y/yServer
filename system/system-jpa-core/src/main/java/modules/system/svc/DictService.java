@@ -11,7 +11,8 @@ import java.util.List;
  * Date: 2016/9/18 15:28<br>
  * Author: ysj
  */
-public interface DictService extends SysBaseService<Dict, DictDao> {
+public interface DictService extends SysBaseService<Dict, DictDao>
+{
 
     List<Dict> findListByType(String type);
 }

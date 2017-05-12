@@ -11,7 +11,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "sys_dict")
-public class Dict extends BaseEntity {
+public class Dict extends BaseEntity
+{
     @Column(name = "LABEL", nullable = false)
     private String label;
 
@@ -35,68 +36,84 @@ public class Dict extends BaseEntity {
     @JoinColumn(name = "UPDATED_BY")
     private User editor;
 
-    public Dict() {
+    public Dict()
+    {
         super();
     }
 
-    public Dict(String code) {
+    public Dict(String code)
+    {
         super(code);
     }
 
 
-    public String getLabel() {
+    public String getLabel()
+    {
         return label;
     }
 
-    public void setLabel(String label) {
+    public void setLabel(String label)
+    {
         this.label = label;
     }
 
-    public String getValue() {
+    public String getValue()
+    {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(String value)
+    {
         this.value = value;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public String getDescription() {
+    public String getDescription()
+    {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description)
+    {
         this.description = description;
     }
 
-    public int getSort() {
+    public int getSort()
+    {
         return sort;
     }
 
-    public void setSort(int sort) {
+    public void setSort(int sort)
+    {
         this.sort = sort;
     }
 
-    public User getCreator() {
+    public User getCreator()
+    {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(User creator)
+    {
         this.creator = creator;
     }
 
-    public User getEditor() {
+    public User getEditor()
+    {
         return editor;
     }
 
-    public void setEditor(User editor) {
+    public void setEditor(User editor)
+    {
         this.editor = editor;
     }
 }

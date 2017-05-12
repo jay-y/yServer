@@ -22,22 +22,21 @@ import java.util.*;
 /**
  * 用户工具类
  */
-public class UserUtil {
-    private static UserDao userDao = SpringContextHolder.getBean(UserDao.class);
-    private static RoleDao roleDao = SpringContextHolder.getBean(RoleDao.class);
-    private static MenuDao menuDao = SpringContextHolder.getBean(MenuDao.class);
-    private static AreaDao areaDao = SpringContextHolder.getBean(AreaDao.class);
-
+public class UserUtil
+{
     public static final String USER_CACHE = "userCache";
     public static final String USER_CACHE_MOBILE_ = "mobile_";
     public static final String USER_CACHE_ID_ = "id_";
     public static final String USER_CACHE_LOGIN_NAME_ = "ln";
-//    public static final String USER_CACHE_LIST_BY_OFFICE_ID_ = "oid_";
-
     public static final String CACHE_ROLE_LIST = "roleList";
     public static final String CACHE_AREA_LIST = "areaList";
     public static final String CACHE_MENU_LIST = "menuList";
     public static final String CACHE_USER_MENU_LIST = "userMenuList";
+//    public static final String USER_CACHE_LIST_BY_OFFICE_ID_ = "oid_";
+    private static UserDao userDao = SpringContextHolder.getBean(UserDao.class);
+    private static RoleDao roleDao = SpringContextHolder.getBean(RoleDao.class);
+    private static MenuDao menuDao = SpringContextHolder.getBean(MenuDao.class);
+    private static AreaDao areaDao = SpringContextHolder.getBean(AreaDao.class);
 //    public static final String CACHE_OFFICE_LIST = "officeList";
 //    public static final String CACHE_OFFICE_ALL_LIST = "officeAllList";
 
@@ -47,11 +46,14 @@ public class UserUtil {
      * @param id
      * @return 取不到返回null
      */
-    public static User get(String id) {
+    public static User get(String id)
+    {
         User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_ID_ + id);
-        if (user == null) {
+        if (user == null)
+        {
             user = userDao.findOne(new User(id));
-            if (user == null) {
+            if (user == null)
+            {
                 return null;
             }
             CacheUtil.put(USER_CACHE, USER_CACHE_ID_ + user.getCode(), user);
@@ -66,11 +68,14 @@ public class UserUtil {
      * @param username
      * @return 取不到返回null
      */
-    public static User getByLoginName(String username) {
+    public static User getByLoginName(String username)
+    {
         User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + username);
-        if (user == null) {
+        if (user == null)
+        {
             user = userDao.findByUserName(username);
-            if (user == null) {
+            if (user == null)
+            {
                 return null;
             }
             CacheUtil.put(USER_CACHE, USER_CACHE_ID_ + user.getCode(), user);
@@ -92,7 +97,8 @@ public class UserUtil {
     /**
      * 清除当前用户缓存
      */
-    public static void clearCache() {
+    public static void clearCache()
+    {
         removeCache(CACHE_ROLE_LIST);
         removeCache(CACHE_AREA_LIST);
         removeCache(CACHE_MENU_LIST);
@@ -106,7 +112,8 @@ public class UserUtil {
      *
      * @param user
      */
-    public static void clearCache(User user) {
+    public static void clearCache(User user)
+    {
         CacheUtil.remove(USER_CACHE, USER_CACHE_ID_ + user.getCode());
         CacheUtil.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getUsername());
     }
@@ -114,7 +121,8 @@ public class UserUtil {
     /**
      * 清除指定当前用户权限菜单缓存
      */
-    public static void clearUserMenuListCache() {
+    public static void clearUserMenuListCache()
+    {
         removeCache(CACHE_USER_MENU_LIST);
     }
 
@@ -123,11 +131,14 @@ public class UserUtil {
      *
      * @return 取不到返回 new User()
      */
-    public static User getUser() {
+    public static User getUser()
+    {
         Principal principal = getPrincipal();
-        if (principal != null) {
+        if (principal != null)
+        {
             User user = get(principal.getCode());
-            if (user != null) {
+            if (user != null)
+            {
                 return user;
             }
             return new User();
@@ -141,9 +152,11 @@ public class UserUtil {
      *
      * @return
      */
-    public static List<Role> getRoleList() {
+    public static List<Role> getRoleList()
+    {
         List<Role> list = (List<Role>) getCache(CACHE_ROLE_LIST);
-        if (list == null) {
+        if (list == null)
+        {
             list = roleDao.findAll();
             putCache(CACHE_ROLE_LIST, list);
         }
@@ -155,9 +168,11 @@ public class UserUtil {
      *
      * @return
      */
-    public static List<Area> getAreaList() {
+    public static List<Area> getAreaList()
+    {
         List<Area> list = (List<Area>) getCache(CACHE_AREA_LIST);
-        if (list == null) {
+        if (list == null)
+        {
             list = areaDao.findAll();
             putCache(CACHE_AREA_LIST, list);
         }
@@ -169,9 +184,11 @@ public class UserUtil {
      *
      * @return
      */
-    public static List<Menu> getMenuList() {
+    public static List<Menu> getMenuList()
+    {
         List<Menu> menuList = (List<Menu>) getCache(CACHE_MENU_LIST);
-        if (menuList == null) {
+        if (menuList == null)
+        {
             menuList = menuDao.findAll();
             putCache(CACHE_MENU_LIST, menuList);
         }
@@ -185,12 +202,18 @@ public class UserUtil {
      *
      * @return
      */
-    public static Map<String, Object> getMenuMap() {
+    public static Map<String, Object> getMenuMap()
+    {
         List<Menu> menuList = (List<Menu>) getCache(CACHE_MENU_LIST);
         Map<String, Object> map = new HashMap<>();
-        if (null == menuList) menuList = menuDao.findAll();
-        if (menuList != null && menuList.size() > 0) {
-            for (int i = 0; i < menuList.size(); i++) {
+        if (null == menuList)
+        {
+            menuList = menuDao.findAll();
+        }
+        if (menuList != null && menuList.size() > 0)
+        {
+            for (int i = 0; i < menuList.size(); i++)
+            {
                 map.put(menuList.get(i).getCode(), menuList.get(i).getName());
             }
         }
@@ -202,19 +225,25 @@ public class UserUtil {
      *
      * @return
      */
-    public static List<Menu> getUserMenuList() {
+    public static List<Menu> getUserMenuList()
+    {
         List<Menu> menuList = (List<Menu>) getCache(CACHE_USER_MENU_LIST);
-        if (menuList == null) {
+        if (menuList == null)
+        {
             User user = getUser();
             menuList = new LinkedList<>();
-            if (null != user.getRole() && null != user.getRole().getMenus()) {
-                for (Menu menu : user.getRole().getMenus()) {
+            if (null != user.getRole() && null != user.getRole().getMenus())
+            {
+                for (Menu menu : user.getRole().getMenus())
+                {
                     menuList.add(menu);
                 }
             }
-            Collections.sort(menuList, new Comparator<Menu>() {
+            Collections.sort(menuList, new Comparator<Menu>()
+            {
                 @Override
-                public int compare(Menu o1, Menu o2) {
+                public int compare(Menu o1, Menu o2)
+                {
                     return o1.getSort() - o2.getSort();
                 }
             });
@@ -226,39 +255,53 @@ public class UserUtil {
     /**
      * 获取授权主要对象
      */
-    public static Subject getSubject() {
+    public static Subject getSubject()
+    {
         return SecurityUtils.getSubject();
     }
 
     /**
      * 获取当前登录者对象
      */
-    public static Principal getPrincipal() {
-        try {
+    public static Principal getPrincipal()
+    {
+        try
+        {
             Subject subject = SecurityUtils.getSubject();
             Principal principal = (Principal) subject.getPrincipal();
-            if (principal != null) {
+            if (principal != null)
+            {
                 return principal;
             }
-        } catch (UnavailableSecurityManagerException e) {
+        }
+        catch (UnavailableSecurityManagerException e)
+        {
             e.printStackTrace();
-        } catch (InvalidSessionException e) {
+        }
+        catch (InvalidSessionException e)
+        {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static Session getSession() {
-        try {
+    public static Session getSession()
+    {
+        try
+        {
             Subject subject = SecurityUtils.getSubject();
             Session session = subject.getSession(false);
-            if (session == null) {
+            if (session == null)
+            {
                 session = subject.getSession();
             }
-            if (session != null) {
+            if (session != null)
+            {
                 return session;
             }
-        } catch (InvalidSessionException e) {
+        }
+        catch (InvalidSessionException e)
+        {
             e.printStackTrace();
         }
         return null;
@@ -266,20 +309,24 @@ public class UserUtil {
 
     // ============== User Cache ==============
 
-    public static Object getCache(String key) {
+    public static Object getCache(String key)
+    {
         return getCache(key, null);
     }
 
-    public static Object getCache(String key, Object defaultValue) {
+    public static Object getCache(String key, Object defaultValue)
+    {
         Object obj = getSession().getAttribute(key);
         return obj == null ? defaultValue : obj;
     }
 
-    public static void putCache(String key, Object value) {
+    public static void putCache(String key, Object value)
+    {
         getSession().setAttribute(key, value);
     }
 
-    public static void removeCache(String key) {
+    public static void removeCache(String key)
+    {
         getSession().removeAttribute(key);
     }
 
@@ -289,7 +336,8 @@ public class UserUtil {
      * @param enname
      * @return
      */
-    public static boolean isContainRole(String enname) {
+    public static boolean isContainRole(String enname)
+    {
         return true;
 //		List<Role> roleList = getUser().getRoleList();
 //		for (Role role : roleList)
@@ -308,7 +356,8 @@ public class UserUtil {
      * @param mobile
      * @return user
      */
-    public static User getUserByMobile(String mobile) {
+    public static User getUserByMobile(String mobile)
+    {
         User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_MOBILE_ + mobile);
         return user;
     }
@@ -318,14 +367,18 @@ public class UserUtil {
      *
      * @return 取不到返回null
      */
-    public static void setUsersToUserCache() {
+    public static void setUsersToUserCache()
+    {
         List<User> userList = userDao.findAll();
-        if (userList != null) {
-            for (User user : userList) {
+        if (userList != null)
+        {
+            for (User user : userList)
+            {
 //				user.setRoleList(roleDao.findList(new Role(user)));
                 String mobile = user.getPhone();
                 User cacheUser = getUserByMobile(mobile);
-                if (mobile != null && cacheUser == null) {
+                if (mobile != null && cacheUser == null)
+                {
                     CacheUtil.put(USER_CACHE, USER_CACHE_MOBILE_ + mobile, user);
                 }
             }
@@ -337,8 +390,10 @@ public class UserUtil {
      *
      * @param mobile
      */
-    public static void deleteUserCacheMobile(String mobile) {
-        if (StringUtils.isNotBlank(mobile)) {
+    public static void deleteUserCacheMobile(String mobile)
+    {
+        if (StringUtils.isNotBlank(mobile))
+        {
             // 从缓存中移除
             CacheUtil.remove(USER_CACHE, USER_CACHE_MOBILE_ + mobile);
         }
@@ -350,13 +405,15 @@ public class UserUtil {
      * @param username
      * @param mobile
      */
-    public static void insertUserCacheMobile(String username, String mobile) {
-        if (StringUtils.isNotBlank(username)
-                && StringUtils.isNotBlank(mobile)) {
+    public static void insertUserCacheMobile(String username, String mobile)
+    {
+        if (StringUtils.isNotBlank(username) && StringUtils.isNotBlank(mobile))
+        {
             // 新增到缓存
             User user = userDao.findByUserName(username);
 //			user.setRoleList(roleDao.findList(new Role(user)));
-            if (user != null) {
+            if (user != null)
+            {
                 CacheUtil.put(USER_CACHE, USER_CACHE_MOBILE_ + mobile, user);
             }
         }
@@ -368,12 +425,14 @@ public class UserUtil {
      * @param newMobile
      * @param oldMobile
      */
-    public static void updateUserCacheMobile(String newMobile, String oldMobile) {
-        if (StringUtils.isNotBlank(newMobile)
-                && StringUtils.isNotBlank(oldMobile)) {
+    public static void updateUserCacheMobile(String newMobile, String oldMobile)
+    {
+        if (StringUtils.isNotBlank(newMobile) && StringUtils.isNotBlank(oldMobile))
+        {
             // 更新到缓存
             User user = getUserByMobile(oldMobile);
-            if (user != null) {
+            if (user != null)
+            {
                 user = userDao.findOne(user);
 //				user.setRoleList(roleDao.findList(new Role(user)));
                 CacheUtil.remove(USER_CACHE, USER_CACHE_MOBILE_ + oldMobile);

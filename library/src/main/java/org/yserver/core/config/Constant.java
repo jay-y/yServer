@@ -9,7 +9,8 @@ package org.yserver.core.config;
  * @version 1.0
  * @since JDK 1.7
  */
-public class Constant {
+public class Constant
+{
     public static final String _NULL = "";
     public static final String _1 = "1";
     public static final String _0 = "0";
@@ -29,7 +30,8 @@ public class Constant {
     public static final String _TRUE = "true";
     public static final String _FALSE = "false";
 
-    public static class ServerConfig {
+    public static class ServerConfig
+    {
         /**
          * Response Constants
          */

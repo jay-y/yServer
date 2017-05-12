@@ -19,7 +19,8 @@ import java.util.List;
  * Created by ysj on 2016/9/6.
  */
 @Controller
-public class TemplateController extends TmpBaseController {
+public class TemplateController extends TmpBaseController
+{
     //列表页面
     private static final String INDEX_MAIN = "index";
 
@@ -35,19 +36,19 @@ public class TemplateController extends TmpBaseController {
     private TemplateServiceImpl templateSvc;
 
     @RequestMapping(value = "/data")
-    public String data(HttpServletResponse response) {
+    public String data(HttpServletResponse response)
+    {
         ResponseBuilder respBuilder = getRespBuilder(response);
-        try {
+        try
+        {
             List<Template> list = templateSvc.findAll();
             logger.debug(y.json().toJson(list));
-            return respBuilder
-                    .setData(list)
-                    .success();
-        } catch (Exception e) {
+            return respBuilder.setData(list).success();
+        }
+        catch (Exception e)
+        {
             logger.error(e.toString(), e);
-            return respBuilder
-                    .setMsg(e.toString())
-                    .error();
+            return respBuilder.setMsg(e.toString()).error();
         }
     }
 
@@ -58,7 +59,8 @@ public class TemplateController extends TmpBaseController {
      */
     @RequiresPermissions("user")
     @RequestMapping(value = "${adminPath}")
-    public String index(HttpServletRequest request, HttpServletResponse response) {
+    public String index(HttpServletRequest request, HttpServletResponse response)
+    {
 //        SystemAuthorizingRealm.Principal principal = UserUtil.getPrincipal();
 //        // 登录成功后，验证码计算器清零
 //        SystemAuthorizingRealm.isValidateCodeLogin(principal.getLoginName(), false, true);
@@ -77,7 +79,8 @@ public class TemplateController extends TmpBaseController {
 
     @RequiresPermissions("user")
     @RequestMapping(value = "/a/home")
-    public String home() {
+    public String home()
+    {
         return INDEX_HOME;
     }
 
@@ -87,7 +90,8 @@ public class TemplateController extends TmpBaseController {
      * @return
      */
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String login(HttpServletResponse response) {
+    public String login(HttpServletResponse response)
+    {
 //        SystemAuthorizingRealm.Principal principal = UserUtil.getPrincipal();
 //
 //        // 如果已登录，再次访问主页，则退出原账号。
@@ -109,7 +113,8 @@ public class TemplateController extends TmpBaseController {
      * @throws Exception
      */
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+    public String loginFail(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception
+    {
 //        SystemAuthorizingRealm.Principal principal = UserUtil.getPrincipal();
 //
 //        // 如果已经登录，则跳转到管理首页

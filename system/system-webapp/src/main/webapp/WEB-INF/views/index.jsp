@@ -98,17 +98,17 @@
             <li class=""><a href="#"
                             class="dropdown-toggle no-margin userdropdown"
                             data-toggle="dropdown"> <img
-                    src="${smartSource}/img/avatars/sunny.png" alt="John Doe"
-                    class="online"/>
+                src="${smartSource}/img/avatars/sunny.png" alt="John Doe"
+                class="online"/>
             </a>
                 <ul class="dropdown-menu pull-right">
                     <li><a href="javascript:void(0);"
                            class="padding-10 padding-top-0 padding-bottom-0"><i
-                            class="fa fa-cog"></i>设置</a></li>
+                        class="fa fa-cog"></i>设置</a></li>
                     <li class="divider"></li>
                     <li><a href="${smartSource}/ajax/profile.html"
                            class="padding-10 padding-top-0 padding-bottom-0"> <i
-                            class="fa fa-user"></i>个人资料<u>P</u></a></li>
+                        class="fa fa-user"></i>个人资料<u>P</u></a></li>
                     <li class="divider"></li>
                     <li><a href="javascript:void(0);"
                            class="padding-10 padding-top-0 padding-bottom-0"
@@ -132,7 +132,7 @@
         <div id="logout" class="btn-header transparent pull-right">
 				<span> <a href="${ctxRequest}/logout" title="退出"
                           data-action="userLogout" data-logout-msg="确认离开系统？"><i
-                        class="fa fa-sign-out"></i></a>
+                    class="fa fa-sign-out"></i></a>
 				</span>
         </div>
         <!-- end logout button -->
@@ -140,7 +140,7 @@
         <!-- search mobile button (this is hidden till mobile view port) -->
         <div id="search-mobile" class="btn-header transparent pull-right">
 				<span> <a href="javascript:void(0)" title="查找"><i
-                        class="fa fa-search"></i></a>
+                    class="fa fa-search"></i></a>
 				</span>
         </div>
         <!-- end search mobile button -->
@@ -163,7 +163,7 @@
         <div id="fullscreen" class="btn-header transparent pull-right">
 				<span> <a href="javascript:void(0);"
                           data-action="launchFullscreen" title="全屏"><i
-                        class="fa fa-arrows-alt"></i></a>
+                    class="fa fa-arrows-alt"></i></a>
 				</span>
         </div>
         <!-- end fullscreen button -->
@@ -173,12 +173,12 @@
             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="${smartSource}/img/blank.gif" class="flag flag-cn"
                      alt="China(mainland)"> <span> 中文（简体）</span> <i
-                    class="fa fa-angle-down"></i>
+                class="fa fa-angle-down"></i>
             </a>
                 <ul class="dropdown-menu pull-right">
                     <li class="active"><a href="javascript:void(0);"><img
-                            src="${smartSource}/img/blank.gif" class="flag flag-cn"
-                            alt="China"> 中文（简体）</a></li>
+                        src="${smartSource}/img/blank.gif" class="flag flag-cn"
+                        alt="China"> 中文（简体）</a></li>
                     <!--<li>
 						<a href="javascript:void(0);"><img src="${smartSource}/img/blank.gif" class="flag flag-us" alt="United States"> English (US)</a>
 					</li>-->
@@ -204,10 +204,10 @@
                 <c:set var="user" value="${sys:getUser()}"/>
 				<a href="javascript:void(0);" id="show-shortcut"
                    data-action="toggleShortcut"> <img
-                        src="${empty user || empty user.photo ? smartSource.concat("/img/avatars/male.png"):user.photo}"
-                        alt="我" class="online"/>
+                    src="${empty user || empty user.photo ? smartSource.concat("/img/avatars/male.png"):user.photo}"
+                    alt="我" class="online"/>
 					<span>${empty user ? "Admin" : user.username}</span> <i
-                            class="fa fa-angle-down"></i>
+                        class="fa fa-angle-down"></i>
 			</a>
 
 			</span>
@@ -228,7 +228,7 @@
             -->
         <ul>
             <li class=""><a href="${ctxRequest}/home" title="首页"><i
-                    class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">首页</span></a>
+                class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">首页</span></a>
             </li>
             <c:choose>
                 <c:when test="${not empty user && user.code eq '0'}">
@@ -243,8 +243,8 @@
                     <li><c:choose>
                         <c:when test="${empty menu.parent and menu.url eq '#'}">
                             <a data-id="${menu.code}" href="#"> <i
-                                    class="fa fa-lg fa-fw ${menu.icon}"></i> <span
-                                    class="menu-item-parent">${menu.name}</span>
+                                class="fa fa-lg fa-fw ${menu.icon}"></i> <span
+                                class="menu-item-parent">${menu.name}</span>
                             </a>
                             <ul>
                                 <c:forEach items="${menulList}" var="menu2">
@@ -252,8 +252,8 @@
                                         <li><c:choose>
                                             <c:when test="${empty menu2.url or menu2.url eq '#'}">
                                                 <a data-id="${menu2.code}" href="#"> <i
-                                                        class="fa fa-lg fa-fw ${menu2.icon}"></i> <span
-                                                        class="menu-item-parent">${menu2.name}</span>
+                                                    class="fa fa-lg fa-fw ${menu2.icon}"></i> <span
+                                                    class="menu-item-parent">${menu2.name}</span>
                                                 </a>
                                             </c:when>
                                             <c:otherwise>
@@ -271,7 +271,7 @@
                             <a data-id="${menu.code}"
                                href="${(fn:indexOf(menu.url, '://') eq -1 ? ctx.concat(menu.url) : '')}">
                                 <i class="fa fa-lg fa-fw ${menu.icon}"></i> <span
-                                    class="menu-item-parent">${menu.name}</span>
+                                class="menu-item-parent">${menu.name}</span>
                             </a>
                         </c:otherwise>
                     </c:choose>
@@ -284,7 +284,7 @@
     <%-- <a href="${smartSource}/ajax/difver.html" class="btn btn-primary nav-demo-btn">AngularJS, PHP and .Net Versions</a> --%>
 
     <span class="minifyme" data-action="minifyMenu"> <i
-            class="fa fa-arrow-circle-left hit"></i>
+        class="fa fa-arrow-circle-left hit"></i>
 		</span>
 
 </aside>
@@ -348,7 +348,7 @@
 
 <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
 <script
-        src="${smartSource}/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+    src="${smartSource}/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
 <!-- BOOTSTRAP JS -->
 <script src="${smartSource}/js/bootstrap/bootstrap.min.js"></script>
 <!-- CUSTOM NOTIFICATION -->
@@ -357,25 +357,25 @@
 <script src="${smartSource}/js/smartwidgets/jarvis.widget.min.js"></script>
 <!-- EASY PIE CHARTS -->
 <script
-        src="${smartSource}/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    src="${smartSource}/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
 <!-- SPARKLINES -->
 <script src="${smartSource}/js/plugin/sparkline/jquery.sparkline.min.js"></script>
 <!-- JQUERY VALIDATE -->
 <script
-        src="${smartSource}/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+    src="${smartSource}/js/plugin/jquery-validate/jquery.validate.min.js"></script>
 
 <script
-        src="${smartSource}/js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
+    src="${smartSource}/js/plugin/bootstrapvalidator/bootstrapValidator.min.js"></script>
 <script
-        src="${smartSource}/js/plugin/bootstrapvalidator/language/zh_CN.min.js"></script>
+    src="${smartSource}/js/plugin/bootstrapvalidator/language/zh_CN.min.js"></script>
 <!-- JQUERY MASKED INPUT -->
 <script
-        src="${smartSource}/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+    src="${smartSource}/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
 <!-- JQUERY SELECT2 INPUT -->
 <script src="${smartSource}/js/plugin/select2/select2.min.js"></script>
 <!-- JQUERY UI + Bootstrap Slider -->
 <script
-        src="${smartSource}/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+    src="${smartSource}/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
 <!-- browser msie issue fix -->
 <script src="${smartSource}/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
 
@@ -418,85 +418,85 @@
         }
         debugState &&
         root.root.console.log("Loading URL: %c" + a, debugStyle),
-                $.ajax({
-                    "type": "POST",
-                    "url": a,
-                    "data": data,
-                    "dataType": "html",
-                    "cache": !0,
-                    "beforeSend": function () {
-                        console.log("beforeSend");
-                        if ($.navAsAjax
-                                && $(".google_maps")[0]
-                                && b[0] == $("#content")[0]) {
-                            var a = $(".google_maps"),
-                                    c = 0;
-                            a.each(function () {
-                                c++;
-                                var b = document.getElementById(this.id);
-                                c == a.length + 1 || (b && b.parentNode.removeChild(b), debugState && root.console.log("Destroying maps.........%c" + this.id, debugStyle_warning))
-                            }),
-                            debugState && root.console.log("\u2714 Google map instances nuked!!!")
+            $.ajax({
+                "type": "POST",
+                "url": a,
+                "data": data,
+                "dataType": "html",
+                "cache": !0,
+                "beforeSend": function () {
+                    console.log("beforeSend");
+                    if ($.navAsAjax
+                        && $(".google_maps")[0]
+                        && b[0] == $("#content")[0]) {
+                        var a = $(".google_maps"),
+                            c = 0;
+                        a.each(function () {
+                            c++;
+                            var b = document.getElementById(this.id);
+                            c == a.length + 1 || (b && b.parentNode.removeChild(b), debugState && root.console.log("Destroying maps.........%c" + this.id, debugStyle_warning))
+                        }),
+                        debugState && root.console.log("\u2714 Google map instances nuked!!!")
+                    }
+                    if ($.navAsAjax
+                        && $(".dataTables_wrapper")[0]
+                        && b[0] == $("#content")[0]) {
+                        var d = $.fn.dataTable.fnTables(!0);
+                        $(d).each(function () {
+                            0 != $(this).find(".details-control").length ? ($(this).find("*").addBack().off().remove(), $(this).dataTable().fnDestroy()) : $(this).dataTable().fnDestroy()
+                        }),
+                        debugState && root.console.log("\u2714 Datatable instances nuked!!!")
+                    }
+                    if ($.navAsAjax
+                        && $.intervalArr.length > 0
+                        && b[0] == $("#content")[0]
+                        && enableJarvisWidgets) {
+                        for (; $.intervalArr.length > 0;) clearInterval($.intervalArr.pop());
+                        debugState && root.console.log("\u2714 All JarvisWidget intervals cleared")
+                    }
+                    if ($.navAsAjax
+                        && b[0] == $("#content")[0]
+                        && enableJarvisWidgets
+                        && $("#widget-grid")[0]
+                        && ($("#widget-grid").jarvisWidgets("destroy"), debugState && root.console.log("\u2714 JarvisWidgets destroyed")), $.navAsAjax && b[0] == $("#content")[0]) {
+                        if ("function" == typeof pagedestroy) try {
+                            pagedestroy(),
+                            debugState && root.console.log("\u2714 Pagedestroy()")
                         }
-                        if ($.navAsAjax
-                                && $(".dataTables_wrapper")[0]
-                                && b[0] == $("#content")[0]) {
-                            var d = $.fn.dataTable.fnTables(!0);
-                            $(d).each(function () {
-                                0 != $(this).find(".details-control").length ? ($(this).find("*").addBack().off().remove(), $(this).dataTable().fnDestroy()) : $(this).dataTable().fnDestroy()
-                            }),
-                            debugState && root.console.log("\u2714 Datatable instances nuked!!!")
+                        catch (e) {
+                            pagedestroy = void 0,
+                            debugState && root.console.log("! Pagedestroy() Catch Error")
                         }
-                        if ($.navAsAjax
-                                && $.intervalArr.length > 0
-                                && b[0] == $("#content")[0]
-                                && enableJarvisWidgets) {
-                            for (; $.intervalArr.length > 0;) clearInterval($.intervalArr.pop());
-                            debugState && root.console.log("\u2714 All JarvisWidget intervals cleared")
-                        }
-                        if ($.navAsAjax
-                                && b[0] == $("#content")[0]
-                                && enableJarvisWidgets
-                                && $("#widget-grid")[0]
-                                && ($("#widget-grid").jarvisWidgets("destroy"), debugState && root.console.log("\u2714 JarvisWidgets destroyed")), $.navAsAjax && b[0] == $("#content")[0]) {
-                            if ("function" == typeof pagedestroy) try {
-                                pagedestroy(),
-                                debugState && root.console.log("\u2714 Pagedestroy()")
-                            }
-                            catch (e) {
-                                pagedestroy = void 0,
-                                debugState && root.console.log("! Pagedestroy() Catch Error")
-                            }
-                            $.fn.sparkline && $("#content .sparkline")[0] && ($("#content .sparkline").sparkline("destroy"), debugState && root.console.log("\u2714 Sparkline Charts destroyed!")),
-                            $.fn.easyPieChart && $("#content .easy-pie-chart")[0] && ($("#content .easy-pie-chart").easyPieChart("destroy"), debugState && root.console.log("\u2714 EasyPieChart Charts destroyed!")),
-                            $.fn.select2 && $("#content select.select2")[0] && ($("#content select.select2").select2("destroy"), debugState && root.console.log("\u2714 Select2 destroyed!")),
-                            $.fn.mask && $("#content [data-mask]")[0] && ($("#content [data-mask]").unmask(), debugState && root.console.log("\u2714 Input Mask destroyed!")),
-                            $.fn.datepicker && $("#content .datepicker")[0] && ($("#content .datepicker").off(), $("#content .datepicker").remove(), debugState && root.console.log("\u2714 Datepicker destroyed!")),
-                            $.fn.slider && $("#content .slider")[0] && ($("#content .slider").off(), $("#content .slider").remove(), debugState && root.console.log("\u2714 Bootstrap Slider destroyed!"))
-                        }
-                        pagefunction = null,
-                                b.removeData().html(""),
-                                b.html('<h1 class="ajax-loading-animation"><i class="fa fa-cog fa-spin"></i> Loading...</h1>'),
-                        b[0] == $("#content")[0] && ($("body").find("> *").filter(":not(" + ignore_key_elms + ")").empty().remove(), drawBreadCrumb(), $("html").animate({
-                            "scrollTop": 0
-                        }, "fast"))
-                    },
-                    "success": function (a) {
-                        console.log("success");
-                        b.css({
-                            "opacity": "0.0"
-                        }).html(a).delay(50).animate({
-                                    "opacity": "1.0"
-                                },
-                                300),
-                                a = null,
-                                b = null
-                    },
-                    "error": function (c, d, e) {
-                        b.html('<h4 class="ajax-loading-error"><i class="fa fa-warning txt-color-orangeDark"></i> Error requesting <span class="txt-color-red">' + a + "</span>: " + c.status + ' <span style="text-transform: capitalize;">' + e + "</span></h4>")
-                    },
-                    "async": !0
-                });
+                        $.fn.sparkline && $("#content .sparkline")[0] && ($("#content .sparkline").sparkline("destroy"), debugState && root.console.log("\u2714 Sparkline Charts destroyed!")),
+                        $.fn.easyPieChart && $("#content .easy-pie-chart")[0] && ($("#content .easy-pie-chart").easyPieChart("destroy"), debugState && root.console.log("\u2714 EasyPieChart Charts destroyed!")),
+                        $.fn.select2 && $("#content select.select2")[0] && ($("#content select.select2").select2("destroy"), debugState && root.console.log("\u2714 Select2 destroyed!")),
+                        $.fn.mask && $("#content [data-mask]")[0] && ($("#content [data-mask]").unmask(), debugState && root.console.log("\u2714 Input Mask destroyed!")),
+                        $.fn.datepicker && $("#content .datepicker")[0] && ($("#content .datepicker").off(), $("#content .datepicker").remove(), debugState && root.console.log("\u2714 Datepicker destroyed!")),
+                        $.fn.slider && $("#content .slider")[0] && ($("#content .slider").off(), $("#content .slider").remove(), debugState && root.console.log("\u2714 Bootstrap Slider destroyed!"))
+                    }
+                    pagefunction = null,
+                        b.removeData().html(""),
+                        b.html('<h1 class="ajax-loading-animation"><i class="fa fa-cog fa-spin"></i> Loading...</h1>'),
+                    b[0] == $("#content")[0] && ($("body").find("> *").filter(":not(" + ignore_key_elms + ")").empty().remove(), drawBreadCrumb(), $("html").animate({
+                        "scrollTop": 0
+                    }, "fast"))
+                },
+                "success": function (a) {
+                    console.log("success");
+                    b.css({
+                        "opacity": "0.0"
+                    }).html(a).delay(50).animate({
+                            "opacity": "1.0"
+                        },
+                        300),
+                        a = null,
+                        b = null
+                },
+                "error": function (c, d, e) {
+                    b.html('<h4 class="ajax-loading-error"><i class="fa fa-warning txt-color-orangeDark"></i> Error requesting <span class="txt-color-red">' + a + "</span>: " + c.status + ' <span style="text-transform: capitalize;">' + e + "</span></h4>")
+                },
+                "async": !0
+            });
     }
 </script>
 </body>

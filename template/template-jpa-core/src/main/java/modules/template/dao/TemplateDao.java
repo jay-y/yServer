@@ -11,7 +11,8 @@ import java.util.List;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface TemplateDao extends TmpBaseDao<Template> {
+public interface TemplateDao extends TmpBaseDao<Template>
+{
 
     @Query("select o from Template o where o.updatedTime is null")
     List<Template> findAllCreated();

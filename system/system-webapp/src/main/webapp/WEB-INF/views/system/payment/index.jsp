@@ -36,7 +36,7 @@
                                    data-toggle="modal" data-target="#remoteModal"
                                    class="btn btn-labeled btn-info">
                                     <span class="btn-label"><i
-                                            class="fa fa-plus"></i> </span>新增
+                                        class="fa fa-plus"></i> </span>新增
                                 </a>
                             </li>
                         </ul>
@@ -176,11 +176,11 @@
         var dataTable = yjs.dataTables.onInit(dataUrl, table, columns);
         // Apply the filter
         $("#table .custom-condition")
-                .on('change', function () {
-                    dataTable.column($(this).parent().index() + ':visible')
-                            .search(this.value)
-                            .draw();
-                });
+            .on('change', function () {
+                dataTable.column($(this).parent().index() + ':visible')
+                    .search(this.value)
+                    .draw();
+            });
     };
 
     function onDelete(id) {

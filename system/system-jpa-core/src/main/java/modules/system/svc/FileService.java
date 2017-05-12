@@ -9,7 +9,8 @@ import modules.system.svc.base.SysBaseService;
  * Date: 2016/9/18 15:28<br>
  * Author: ysj
  */
-public interface FileService extends SysBaseService<File, FileDao> {
+public interface FileService extends SysBaseService<File, FileDao>
+{
     File findByName(String name);
 
     File findByRemarks(String remarks);

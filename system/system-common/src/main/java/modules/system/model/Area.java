@@ -12,7 +12,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "sys_area")
-public class Area extends BaseEntity {
+public class Area extends BaseEntity
+{
     @Column(name = "NAME", nullable = false)
     private String name;
 
@@ -38,75 +39,93 @@ public class Area extends BaseEntity {
     @Transient
     private List<Area> children;
 
-    public Area() {
+    public Area()
+    {
         super();
     }
 
-    public Area(String code) {
+    public Area(String code)
+    {
         super(code);
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getNumber() {
+    public String getNumber()
+    {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(String number)
+    {
         this.number = number;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public Area getParent() {
+    public Area getParent()
+    {
         return parent;
     }
 
-    public void setParent(Area parent) {
+    public void setParent(Area parent)
+    {
         this.parent = parent;
     }
 
-    public String getCreatedBy() {
+    public String getCreatedBy()
+    {
         return createdBy;
     }
 
-    public void setCreatedBy(String createdBy) {
+    public void setCreatedBy(String createdBy)
+    {
         this.createdBy = createdBy;
     }
 
-    public String getUpdatedBy() {
+    public String getUpdatedBy()
+    {
         return updatedBy;
     }
 
-    public void setUpdatedBy(String updatedBy) {
+    public void setUpdatedBy(String updatedBy)
+    {
         this.updatedBy = updatedBy;
     }
 
-    public String getPcodes() {
+    public String getPcodes()
+    {
         return pcodes;
     }
 
-    public void setPcodes(String pcodes) {
+    public void setPcodes(String pcodes)
+    {
         this.pcodes = pcodes;
     }
 
-    public List<Area> getChildren() {
+    public List<Area> getChildren()
+    {
         return children;
     }
 
-    public void setChildren(List<Area> children) {
+    public void setChildren(List<Area> children)
+    {
         this.children = children;
     }
 }

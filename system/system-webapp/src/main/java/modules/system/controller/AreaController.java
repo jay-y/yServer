@@ -23,62 +23,68 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "${adminPath}/area")
-public class AreaController extends SysBaseController<Area, AreaService> {
+public class AreaController extends SysBaseController<Area, AreaService>
+{
     private static final String INDEX_PATH = "system/area";
 
     @Autowired
     private AreaService service;
 
     @Override
-    protected AreaService getService() {
+    protected AreaService getService()
+    {
         return service;
     }
 
     @Override
-    protected String indexMain() {
+    protected String indexMain()
+    {
         return INDEX_PATH + "/index";
     }
 
     @Override
-    protected String indexForm() {
+    protected String indexForm()
+    {
         return INDEX_PATH + "/form";
     }
 
     @ModelAttribute
-    public Area get(@RequestParam(required = false) String id) {
+    public Area get(@RequestParam(required = false) String id)
+    {
         Area entity = StringUtils.isNotBlank(id) ? getService().find(id) : new Area();
         wrapEntity(entity);
         return entity;
     }
 
     @RequestMapping(value = "")
-    public String index() {
+    public String index()
+    {
         return super.index();
     }
 
     @RequestMapping(value = "getParentArea")
-    public String getParentArea(HttpServletResponse response) {
+    public String getParentArea(HttpServletResponse response)
+    {
         List<Area> list = getService().findAllParent();
-        return getRespBuilder(response)
-                .setData(list)
-                .success();
+        return getRespBuilder(response).setData(list).success();
     }
 
     @RequestMapping(value = "getChildsArea")
-    public String getChildsArea(Area entity, HttpServletResponse response) {
+    public String getChildsArea(Area entity, HttpServletResponse response)
+    {
         List<Area> list = getService().findAllChild(entity.getType(), entity.getCode());
-        return getRespBuilder(response)
-                .setData(list)
-                .success();
+        return getRespBuilder(response).setData(list).success();
     }
 
     @RequestMapping(value = "form")
-    public String form(HttpServletResponse response, Model model) {
+    public String form(HttpServletResponse response, Model model)
+    {
         return super.form(response, model);
     }
 
     @RequestMapping(value = "save")
-    public String save(Area entity, HttpServletResponse response, Model model) {
+    public String save(Area entity, HttpServletResponse response, Model model)
+    {
         wrapEntity(entity);
         // 清理缓存
         UserUtil.removeCache(UserUtil.CACHE_AREA_LIST);
@@ -86,7 +92,8 @@ public class AreaController extends SysBaseController<Area, AreaService> {
     }
 
     @RequestMapping(value = "delete")
-    public String delete(Area entity, HttpServletResponse response, Model model) {
+    public String delete(Area entity, HttpServletResponse response, Model model)
+    {
         // 清理缓存
         UserUtil.removeCache(UserUtil.CACHE_AREA_LIST);
         return super.delete(entity, response, model);
@@ -98,21 +105,26 @@ public class AreaController extends SysBaseController<Area, AreaService> {
      * @param entity
      * @return
      */
-    private Area wrapEntity(Area entity) {
+    private Area wrapEntity(Area entity)
+    {
         User user = UserUtil.getUser();
-        if (null == entity.getParent() || null != entity.getParent()
-                && StringUtils.isBlank(entity.getParent().getCode())) {
+        if (null == entity.getParent() || null != entity.getParent() && StringUtils.isBlank(entity.getParent().getCode()))
+        {
             entity.setType("0");
             entity.setParent(null);
-        } else if (null != entity.getParent()
-                && StringUtils.isNotBlank(entity.getParent().getCode())) {
+        }
+        else if (null != entity.getParent() && StringUtils.isNotBlank(entity.getParent().getCode()))
+        {
             Area parent = getService().find(entity.getParent().getCode());
             entity.setType(String.valueOf(Integer.parseInt(parent.getType()) + 1));
             entity.setParent(parent);
         }
-        if (StringUtils.isEmpty(entity.getCode())) {
+        if (StringUtils.isEmpty(entity.getCode()))
+        {
             entity.setCreatedBy(user.getCode());
-        } else {
+        }
+        else
+        {
             entity.setUpdatedBy(user.getCode());
         }
         return entity;

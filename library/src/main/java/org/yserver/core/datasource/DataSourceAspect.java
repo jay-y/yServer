@@ -17,35 +17,46 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @since JDK 1.7
  */
-public class DataSourceAspect implements MethodBeforeAdvice,
-        AfterReturningAdvice {
+public class DataSourceAspect implements MethodBeforeAdvice, AfterReturningAdvice
+{
     @Override
-    public void afterReturning(Object returnValue, Method method,
-                               Object[] args, Object target) throws Throwable {
+    public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable
+    {
         DataSourceHolder.clearDataSource();
     }
 
     @Override
-    public void before(Method method, Object[] args, Object target)
-            throws Throwable {
+    public void before(Method method, Object[] args, Object target) throws Throwable
+    {
         DataSource datasource = null;
         String source = null;
         Class<?> cls;
         // 这里DataSource是自定义的注解，不是java里的DataSource接口
-        if (method.isAnnotationPresent(DataSource.class)) {
+        if (method.isAnnotationPresent(DataSource.class))
+        {
             datasource = method.getAnnotation(DataSource.class);
-        } else if (target.getClass().isAnnotationPresent(DataSource.class)) {
+        }
+        else if (target.getClass().isAnnotationPresent(DataSource.class))
+        {
             cls = target.getClass();
             datasource = cls.getAnnotation(DataSource.class);
-        } else {
+        }
+        else
+        {
             cls = ReflectionUtil.getUserClass(target.getClass());
-            if (cls.isAnnotationPresent(DataSource.class)) {
+            if (cls.isAnnotationPresent(DataSource.class))
+            {
                 datasource = cls.getAnnotation(DataSource.class);
-            } else {
+            }
+            else
+            {
                 y.log().warn("{} could not be loaded.", target.getClass().getName());
             }
         }
-        if (null != datasource) source = datasource.value();
+        if (null != datasource)
+        {
+            source = datasource.value();
+        }
         DataSourceHolder.setDataSource(source);
     }
 }

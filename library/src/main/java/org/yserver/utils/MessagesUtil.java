@@ -8,7 +8,12 @@ import java.util.ResourceBundle;
  * Date: 2016/4/7 18:05 <br>
  * Author: ysj
  */
-public final class MessagesUtil {
+public final class MessagesUtil
+{
+
+    private MessagesUtil()
+    {
+    }
 
     /**
      * getValue:根据系统当前语言环境，从公共ResourceBundle中获得属性值. <br/>
@@ -17,13 +22,10 @@ public final class MessagesUtil {
      * @return
      * @date: 2014年6月15日 下午3:43:38 <br/>
      */
-    public static String getValue(String key) {
+    public static String getValue(String key)
+    {
         Locale currentLocale = Locale.getDefault();
-        ResourceBundle resb = ResourceBundle.getBundle(
-                "META-INF/messages", currentLocale);
+        ResourceBundle resb = ResourceBundle.getBundle("META-INF/messages", currentLocale);
         return resb.getString(key);
-    }
-
-    private MessagesUtil() {
     }
 }

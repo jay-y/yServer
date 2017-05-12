@@ -63,7 +63,7 @@
 
     <!-- Default viewClass: JSTL view (JSP with html output) -->
     <bean
-            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!-- Example: a logical view name of 'vets' is mapped to '/WEB-INF/jsp/vets.jsp' -->
         <property name="prefix" value="${viewPrefix}"/>
         <property name="suffix" value="${viewSuffix}"/>

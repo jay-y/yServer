@@ -10,5 +10,6 @@ import org.yserver.core.mybatis.annotation.MyBatisMapper;
  * Author: ysj
  */
 @MyBatisMapper
-public interface MenuDao extends SysBaseDao<Menu> {
+public interface MenuDao extends SysBaseDao<Menu>
+{
 }

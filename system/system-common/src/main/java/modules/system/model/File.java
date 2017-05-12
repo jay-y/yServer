@@ -13,7 +13,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "sys_file")
-public class File extends BaseEntity {
+public class File extends BaseEntity
+{
 
     @Column(name = "NAME")
     private String name;//文件名
@@ -30,51 +31,63 @@ public class File extends BaseEntity {
     @Column(name = "SIZE")
     private double size = 0;
 
-    public File() {
+    public File()
+    {
         super();
     }
 
-    public File(String code) {
+    public File(String code)
+    {
         super(code);
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getUri() {
+    public String getUri()
+    {
         return uri;
     }
 
-    public void setUri(String uri) {
+    public void setUri(String uri)
+    {
         this.uri = uri;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public double getSize() {
+    public double getSize()
+    {
         return size;
     }
 
-    public void setSize(double size) {
+    public void setSize(double size)
+    {
         this.size = size;
     }
 
-    public String getFormat() {
+    public String getFormat()
+    {
         return format;
     }
 
-    public void setFormat(String format) {
+    public void setFormat(String format)
+    {
         this.format = format;
     }
 }

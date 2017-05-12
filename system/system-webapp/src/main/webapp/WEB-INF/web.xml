@@ -61,18 +61,18 @@
 
     <!-- 配置session防止session失效(用于JPA Lazy) -->
     <!--<filter>-->
-        <!--<filter-name>springOpenEntityManagerInViewFilter</filter-name>-->
-        <!--<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>-->
-        <!--<init-param>-->
-            <!--&lt;!&ndash; 指定org.springframework.orm.jpa.LocalEntityManagerFactoryBean在spring配置文件中的名称,默认值为entityManagerFactory-->
-            <!--如果LocalEntityManagerFactoryBean在spring中的名称不是entityManagerFactory,该参数一定要指定,否则会出现找不到entityManagerFactory的例外 &ndash;&gt;-->
-            <!--<param-name>entityManagerFactoryBeanName</param-name>-->
-            <!--<param-value>entityManagerFactory</param-value>-->
-        <!--</init-param>-->
+    <!--<filter-name>springOpenEntityManagerInViewFilter</filter-name>-->
+    <!--<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>-->
+    <!--<init-param>-->
+    <!--&lt;!&ndash; 指定org.springframework.orm.jpa.LocalEntityManagerFactoryBean在spring配置文件中的名称,默认值为entityManagerFactory-->
+    <!--如果LocalEntityManagerFactoryBean在spring中的名称不是entityManagerFactory,该参数一定要指定,否则会出现找不到entityManagerFactory的例外 &ndash;&gt;-->
+    <!--<param-name>entityManagerFactoryBeanName</param-name>-->
+    <!--<param-value>entityManagerFactory</param-value>-->
+    <!--</init-param>-->
     <!--</filter>-->
     <!--<filter-mapping>-->
-        <!--<filter-name>springOpenEntityManagerInViewFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
+    <!--<filter-name>springOpenEntityManagerInViewFilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
     <!--</filter-mapping>-->
 
     <!-- Druid,监控数据库,以及WEB访问连接信息 -->

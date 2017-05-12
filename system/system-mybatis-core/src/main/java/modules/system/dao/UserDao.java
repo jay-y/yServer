@@ -11,6 +11,7 @@ import org.yserver.core.mybatis.annotation.MyBatisMapper;
  * Author: ysj
  */
 @MyBatisMapper
-public interface UserDao extends SysBaseDao<User> {
+public interface UserDao extends SysBaseDao<User>
+{
     User findByUserName(@Param(value = "username") String username);
 }

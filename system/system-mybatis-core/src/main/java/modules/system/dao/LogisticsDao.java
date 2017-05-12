@@ -10,5 +10,6 @@ import org.yserver.core.mybatis.annotation.MyBatisMapper;
  * Author: ysj
  */
 @MyBatisMapper
-public interface LogisticsDao extends SysBaseDao<Logistics> {
+public interface LogisticsDao extends SysBaseDao<Logistics>
+{
 }

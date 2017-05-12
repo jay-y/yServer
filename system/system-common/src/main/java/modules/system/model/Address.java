@@ -10,7 +10,8 @@ import javax.persistence.*;
  * Author: ysj
  */
 @MappedSuperclass
-public class Address extends BaseEntity {
+public class Address extends BaseEntity
+{
 
     @Column(name = "CLIENT_NAME")
     private String clientName;//客户端名称,如:张三,XXX公司,XXX店铺,XXX客服...
@@ -46,91 +47,113 @@ public class Address extends BaseEntity {
     @Column(name = "LATITUDE", nullable = false)
     private double latitude = 0;//纬度
 
-    public Address() {
+    public Address()
+    {
         super();
     }
 
-    public Address(String code) {
+    public Address(String code)
+    {
         super(code);
     }
 
-    public String getClientName() {
+    public String getClientName()
+    {
         return clientName;
     }
 
-    public void setClientName(String clientName) {
+    public void setClientName(String clientName)
+    {
         this.clientName = clientName;
     }
 
-    public String getContactWay() {
+    public String getContactWay()
+    {
         return contactWay;
     }
 
-    public void setContactWay(String contactWay) {
+    public void setContactWay(String contactWay)
+    {
         this.contactWay = contactWay;
     }
 
-    public Area getNation() {
+    public Area getNation()
+    {
         return nation;
     }
 
-    public void setNation(Area nation) {
+    public void setNation(Area nation)
+    {
         this.nation = nation;
     }
 
-    public Area getProvince() {
+    public Area getProvince()
+    {
         return province;
     }
 
-    public void setProvince(Area province) {
+    public void setProvince(Area province)
+    {
         this.province = province;
     }
 
-    public Area getCity() {
+    public Area getCity()
+    {
         return city;
     }
 
-    public void setCity(Area city) {
+    public void setCity(Area city)
+    {
         this.city = city;
     }
 
-    public Area getArea() {
+    public Area getArea()
+    {
         return area;
     }
 
-    public void setArea(Area area) {
+    public void setArea(Area area)
+    {
         this.area = area;
     }
 
-    public String getDetails() {
+    public String getDetails()
+    {
         return details;
     }
 
-    public void setDetails(String details) {
+    public void setDetails(String details)
+    {
         this.details = details;
     }
 
-    public String getZipcode() {
+    public String getZipcode()
+    {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(String zipcode)
+    {
         this.zipcode = zipcode;
     }
 
-    public double getLongitude() {
+    public double getLongitude()
+    {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(double longitude)
+    {
         this.longitude = longitude;
     }
 
-    public double getLatitude() {
+    public double getLatitude()
+    {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(double latitude)
+    {
         this.latitude = latitude;
     }
 }

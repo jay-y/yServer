@@ -11,25 +11,30 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.*;
 
-public final class ReflectionUtil {
+public final class ReflectionUtil
+{
 
     /**
      * 对于被cglib AOP过的对象包含此符号
      */
     public static final String CGLIB_CLASS_SEPARATOR = "$$";
 
-    private ReflectionUtil() {
+    private ReflectionUtil()
+    {
     }
 
     /**
      * 调用Getter方法.
      */
-    public static Object invokeGetter(Object obj, String propertyName) {
+    public static Object invokeGetter(Object obj, String propertyName)
+    {
         String getterMethodName = "get" + StringUtils.capitalize(propertyName);
-        try {
-            return invokeMethod(obj, getterMethodName, new Class[]{},
-                    new Object[]{});
-        } catch (Exception ignore) {
+        try
+        {
+            return invokeMethod(obj, getterMethodName, new Class[]{}, new Object[]{});
+        }
+        catch (Exception ignore)
+        {
             return null;
         }
     }
@@ -37,8 +42,8 @@ public final class ReflectionUtil {
     /**
      * 调用Setter方法.使用value的Class来查找Setter方法.
      */
-    public static void invokeSetter(Object obj, String propertyName,
-                                    Object value) {
+    public static void invokeSetter(Object obj, String propertyName, Object value)
+    {
         invokeSetter(obj, propertyName, value, null);
     }
 
@@ -47,28 +52,31 @@ public final class ReflectionUtil {
      *
      * @param propertyType 用于查找Setter方法,为空时使用value的Class替代.
      */
-    public static void invokeSetter(Object obj, String propertyName,
-                                    Object value, Class<?> propertyType) {
+    public static void invokeSetter(Object obj, String propertyName, Object value, Class<?> propertyType)
+    {
         Class<?> type = propertyType != null ? propertyType : value.getClass();
         String setterMethodName = "set" + StringUtils.capitalize(propertyName);
-        invokeMethod(obj, setterMethodName, new Class[]{type},
-                new Object[]{value});
+        invokeMethod(obj, setterMethodName, new Class[]{type}, new Object[]{value});
     }
 
     /**
      * 直接读取对象属性值, 无视private/protected修饰符, 不经过getter函数.
      */
-    public static Object getFieldValue(final Object obj, final String fieldName) {
+    public static Object getFieldValue(final Object obj, final String fieldName)
+    {
         Field field = getAccessibleField(obj, fieldName);
 
-        if (field == null) {
-            throw new IllegalArgumentException("Could not find field ["
-                    + fieldName + "] on target [" + obj + "]");
+        if (field == null)
+        {
+            throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + obj + "]");
         }
         Object result = null;
-        try {
+        try
+        {
             result = field.get(obj);
-        } catch (IllegalAccessException e) {
+        }
+        catch (IllegalAccessException e)
+        {
             y.log().error(e.getMessage());
         }
         return result;
@@ -77,18 +85,21 @@ public final class ReflectionUtil {
     /**
      * 直接设置对象属性值, 无视private/protected修饰符, 不经过setter函数.
      */
-    public static void setFieldValue(final Object obj, final String fieldName,
-                                     final Object value) {
+    public static void setFieldValue(final Object obj, final String fieldName, final Object value)
+    {
         Field field = getAccessibleField(obj, fieldName);
 
-        if (field == null) {
-            throw new IllegalArgumentException("Could not find field ["
-                    + fieldName + "] on target [" + obj + "]");
+        if (field == null)
+        {
+            throw new IllegalArgumentException("Could not find field [" + fieldName + "] on target [" + obj + "]");
         }
 
-        try {
+        try
+        {
             field.set(obj, value);
-        } catch (IllegalAccessException e) {
+        }
+        catch (IllegalAccessException e)
+        {
             y.log().error(e.getMessage());
         }
     }
@@ -96,10 +107,13 @@ public final class ReflectionUtil {
     /**
      * 对于被cglib AOP过的对象, 取得真实的Class类型.
      */
-    public static Class<?> getUserClass(Class<?> clazz) {
-        if (clazz != null && clazz.getName().contains(CGLIB_CLASS_SEPARATOR)) {
+    public static Class<?> getUserClass(Class<?> clazz)
+    {
+        if (clazz != null && clazz.getName().contains(CGLIB_CLASS_SEPARATOR))
+        {
             Class<?> superClass = clazz.getSuperclass();
-            if (superClass != null && !Object.class.equals(superClass)) {
+            if (superClass != null && !Object.class.equals(superClass))
+            {
                 return superClass;
             }
         }
@@ -109,17 +123,19 @@ public final class ReflectionUtil {
     /**
      * 直接调用对象方法, 无视private/protected修饰符. 用于一次性调用的情况.
      */
-    public static Object invokeMethod(final Object obj,
-                                      final String methodName, final Class<?>[] parameterTypes,
-                                      final Object[] args) {
+    public static Object invokeMethod(final Object obj, final String methodName, final Class<?>[] parameterTypes, final Object[] args)
+    {
         Method method = getAccessibleMethod(obj, methodName, parameterTypes);
-        if (method == null) {
-            throw new IllegalArgumentException("Could not find method ["
-                    + methodName + "] on target [" + obj + "]");
+        if (method == null)
+        {
+            throw new IllegalArgumentException("Could not find method [" + methodName + "] on target [" + obj + "]");
         }
-        try {
+        try
+        {
             return method.invoke(obj, args);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             throw new SystemException(e.getMessage(), e);
         }
     }
@@ -127,16 +143,19 @@ public final class ReflectionUtil {
     /**
      * 循环向上转型, 获取对象的DeclaredField, 并强制设置为可访问. 如向上转型到Object仍无法找到, 返回null.
      */
-    public static Field getAccessibleField(final Object obj,
-                                           final String fieldName) {
+    public static Field getAccessibleField(final Object obj, final String fieldName)
+    {
         Validate.notNull(obj, "object can't be null");
-        for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass
-                .getSuperclass()) {
-            try {
+        for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass.getSuperclass())
+        {
+            try
+            {
                 Field field = superClass.getDeclaredField(fieldName);
                 field.setAccessible(true);
                 return field;
-            } catch (NoSuchFieldException e) {
+            }
+            catch (NoSuchFieldException e)
+            {
                 y.log().error(e.getMessage());
             }
         }
@@ -148,21 +167,23 @@ public final class ReflectionUtil {
      * 用于方法需要被多次调用的情况. 先使用本函数先取得Method,然后调用Method.invoke(Object obj, Object...
      * args)
      */
-    public static Method getAccessibleMethod(final Object obj,
-                                             final String methodName, final Class<?>... parameterTypes) {
+    public static Method getAccessibleMethod(final Object obj, final String methodName, final Class<?>... parameterTypes)
+    {
         Validate.notNull(obj, "object can't be null");
 
-        for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass
-                .getSuperclass()) {
-            try {
-                Method method = superClass.getDeclaredMethod(methodName,
-                        parameterTypes);
+        for (Class<?> superClass = obj.getClass(); superClass != Object.class; superClass = superClass.getSuperclass())
+        {
+            try
+            {
+                Method method = superClass.getDeclaredMethod(methodName, parameterTypes);
 
                 method.setAccessible(true);
 
                 return method;
 
-            } catch (NoSuchMethodException e) {
+            }
+            catch (NoSuchMethodException e)
+            {
                 y.log().error(e.getMessage());
             }
         }
@@ -178,8 +199,8 @@ public final class ReflectionUtil {
      * determined
      */
     @SuppressWarnings("unchecked")
-    public static <T> Class<T> getSuperClassGenricType(
-            @SuppressWarnings("rawtypes") final Class clazz) {
+    public static <T> Class<T> getSuperClassGenricType(@SuppressWarnings("rawtypes") final Class clazz)
+    {
         return getSuperClassGenricType(clazz, 0);
     }
 
@@ -192,21 +213,24 @@ public final class ReflectionUtil {
      * determined
      */
     @SuppressWarnings("rawtypes")
-    public static Class getSuperClassGenricType(final Class clazz,
-                                                final int index) {
+    public static Class getSuperClassGenricType(final Class clazz, final int index)
+    {
 
         Type genType = clazz.getGenericSuperclass();
 
-        if (!(genType instanceof ParameterizedType)) {
+        if (!(genType instanceof ParameterizedType))
+        {
             return Object.class;
         }
 
         Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
 
-        if (index >= params.length || index < 0) {
+        if (index >= params.length || index < 0)
+        {
             return Object.class;
         }
-        if (!(params[index] instanceof Class)) {
+        if (!(params[index] instanceof Class))
+        {
             return Object.class;
         }
 
@@ -218,25 +242,32 @@ public final class ReflectionUtil {
      *
      * @return
      */
-    public static boolean isFieldNullSimple(Object object,
-                                            String... excludeField) {
+    public static boolean isFieldNullSimple(Object object, String... excludeField)
+    {
         List<String> excludefieldName = new ArrayList<String>();
-        if (null != excludeField) {
+        if (null != excludeField)
+        {
             excludefieldName = Arrays.asList(excludeField);
         }
         Field[] fields = object.getClass().getDeclaredFields();
         Object result = null;
-        try {
-            for (Field field : fields) {
-                if (excludefieldName.contains(field.getName())) {
+        try
+        {
+            for (Field field : fields)
+            {
+                if (excludefieldName.contains(field.getName()))
+                {
                     continue;
                 }
                 result = field.get(object);
-                if (null != result) {
+                if (null != result)
+                {
                     return false;
                 }
             }
-        } catch (IllegalAccessException e) {
+        }
+        catch (IllegalAccessException e)
+        {
             y.log().error(e.getMessage());
         }
         return true;
@@ -248,29 +279,34 @@ public final class ReflectionUtil {
      * @param object
      * @return
      */
-    public static Map<String, Object> getFieldMapForClass(Object object) {
+    public static Map<String, Object> getFieldMapForClass(Object object)
+    {
         Map<String, Object> parameterMap = null;
-        try {
+        try
+        {
             parameterMap = new HashMap<String, Object>();
             Field[] fields = object.getClass().getDeclaredFields();
             // set self property
-            for (Field field : fields) {
+            for (Field field : fields)
+            {
                 populateFieldMap(field, object, parameterMap);
             }
             // set parent property
-            Field[] parentFields = object.getClass().getSuperclass()
-                    .getDeclaredFields();
-            for (Field parentField : parentFields) {
+            Field[] parentFields = object.getClass().getSuperclass().getDeclaredFields();
+            for (Field parentField : parentFields)
+            {
                 populateFieldMap(parentField, object, parameterMap);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             throw new SystemException(e.getMessage(), e);
         }
         return parameterMap;
     }
 
-    private static void populateFieldMap(Field field, Object object,
-                                         Map<String, Object> fieldMap) throws IllegalAccessException {
+    private static void populateFieldMap(Field field, Object object, Map<String, Object> fieldMap) throws IllegalAccessException
+    {
         boolean isAccessible = field.isAccessible();
         field.setAccessible(true);
         fieldMap.put(field.getName(), field.get(object));

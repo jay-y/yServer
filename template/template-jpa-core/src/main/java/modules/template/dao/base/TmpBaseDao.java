@@ -11,5 +11,6 @@ import java.io.Serializable;
  * Author: ysj
  */
 @NoRepositoryBean
-public interface TmpBaseDao<T> extends JpaBaseDao<T, Serializable> {
+public interface TmpBaseDao<T> extends JpaBaseDao<T, Serializable>
+{
 }

@@ -9,5 +9,6 @@ import java.io.Serializable;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface SysBaseDao<T> extends MyBatisBaseDao<T, Serializable> {
+public interface SysBaseDao<T> extends MyBatisBaseDao<T, Serializable>
+{
 }

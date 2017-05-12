@@ -13,7 +13,8 @@ import java.util.List;
  * Author: ysj
  */
 @MyBatisMapper
-public interface DictDao extends SysBaseDao<Dict> {
+public interface DictDao extends SysBaseDao<Dict>
+{
     List<Dict> findListByType(String type);
 
     Dict findByTypeAndValue(@Param(value = "type") String type, @Param(value = "val") String val);

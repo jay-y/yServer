@@ -12,5 +12,6 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "template")
-public class Template extends BaseEntity {
+public class Template extends BaseEntity
+{
 }

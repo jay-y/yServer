@@ -13,28 +13,34 @@ import org.yserver.y;
 @Service
 @DataSource("default")
 @Transactional
-public class RoleServiceImpl
-        extends SysBaseServiceImpl<Role, RoleDao> implements RoleService {
+public class RoleServiceImpl extends SysBaseServiceImpl<Role, RoleDao> implements RoleService
+{
     @Autowired
     private RoleDao dao;
 
     @Override
-    public RoleDao getDao() {
+    public RoleDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public Role find(String id) {
+    public Role find(String id)
+    {
         return getDao().findOne(new Role(id));
     }
 
-    public Role findByNameAndEnname(String name, String enname) {
+    public Role findByNameAndEnname(String name, String enname)
+    {
         Role entity = new Role();
         entity.setName(name);
         entity.setEnname(enname);
-        try {
+        try
+        {
             return getDao().findOne(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;

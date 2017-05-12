@@ -18,7 +18,7 @@
   ~ under the License.
   -->
 <!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
-        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+    "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
 
 <taglib>
 
@@ -43,17 +43,17 @@
     </tag>
 
     <!--<tag>-->
-        <!--<name>hasAnyPermissions</name>-->
-        <!--<tag-class>com.common.security.shiro.HasAnyPermissionsTag</tag-class>-->
-        <!--<body-content>JSP</body-content>-->
-        <!--<description>Displays body content only if the current user has one of the specified permissions from a-->
-            <!--comma-separated list of permission names.-->
-        <!--</description>-->
-        <!--<attribute>-->
-            <!--<name>name</name>-->
-            <!--<required>true</required>-->
-            <!--<rtexprvalue>true</rtexprvalue>-->
-        <!--</attribute>-->
+    <!--<name>hasAnyPermissions</name>-->
+    <!--<tag-class>com.common.security.shiro.HasAnyPermissionsTag</tag-class>-->
+    <!--<body-content>JSP</body-content>-->
+    <!--<description>Displays body content only if the current user has one of the specified permissions from a-->
+    <!--comma-separated list of permission names.-->
+    <!--</description>-->
+    <!--<attribute>-->
+    <!--<name>name</name>-->
+    <!--<required>true</required>-->
+    <!--<rtexprvalue>true</rtexprvalue>-->
+    <!--</attribute>-->
     <!--</tag>-->
 
     <tag>

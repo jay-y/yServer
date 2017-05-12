@@ -10,9 +10,10 @@ import java.lang.annotation.*;
  * @version 1.0
  * @since JDK 1.7
  */
-@Target({ElementType.TYPE,ElementType.METHOD})
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface DataSource {
+public @interface DataSource
+{
     String value() default "";
-}  
+}

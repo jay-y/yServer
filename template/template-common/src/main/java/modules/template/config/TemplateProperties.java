@@ -12,7 +12,8 @@ import java.util.Map;
  * Date: 2016年7月27日 下午2:10:46 <br>
  * Author: ysj
  */
-public class TemplateProperties {
+public class TemplateProperties
+{
     /**
      * 属性文件加载对象
      */
@@ -25,12 +26,15 @@ public class TemplateProperties {
 
     /**
      * 获取配置
+     *
      * @param key
      * @return
      */
-    public static String getConfig(String key) {
+    public static String getConfig(String key)
+    {
         String value = map.get(key);
-        if (value == null) {
+        if (value == null)
+        {
             value = loader.getProperty(key);
             map.put(key, value != null ? value : StringUtils.EMPTY);
         }

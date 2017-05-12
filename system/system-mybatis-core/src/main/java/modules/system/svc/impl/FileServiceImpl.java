@@ -18,40 +18,50 @@ import org.yserver.y;
 @Service
 @DataSource("default")
 @Transactional
-public class FileServiceImpl
-        extends SysBaseServiceImpl<File, FileDao> implements FileService {
+public class FileServiceImpl extends SysBaseServiceImpl<File, FileDao> implements FileService
+{
     @Autowired
     private FileDao dao;
 
     @Override
-    public FileDao getDao() {
+    public FileDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public File find(String id) {
+    public File find(String id)
+    {
         return getDao().findOne(new File(id));
     }
 
     @Override
-    public File findByName(String name) {
+    public File findByName(String name)
+    {
         File entity = new File();
         entity.setName(name);
-        try {
+        try
+        {
             return getDao().findOne(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;
     }
 
     @Override
-    public File findByRemarks(String remarks) {
+    public File findByRemarks(String remarks)
+    {
         File entity = new File();
         entity.setRemarks(remarks);
-        try {
+        try
+        {
             return getDao().findOne(entity);
-        } catch (Throwable e) {
+        }
+        catch (Throwable e)
+        {
             y.log().error(e.getMessage());
         }
         return null;

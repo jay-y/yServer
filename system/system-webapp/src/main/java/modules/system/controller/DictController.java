@@ -23,56 +23,66 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "${adminPath}/dict")
-public class DictController extends SysBaseController<Dict, DictService> {
+public class DictController extends SysBaseController<Dict, DictService>
+{
     private static final String INDEX_PATH = "system/dict";
 
     @Autowired
     private DictService service;
 
     @Override
-    protected DictService getService() {
+    protected DictService getService()
+    {
         return service;
     }
 
     @Override
-    protected String indexMain() {
+    protected String indexMain()
+    {
         return INDEX_PATH + "/index";
     }
 
     @Override
-    protected String indexForm() {
+    protected String indexForm()
+    {
         return INDEX_PATH + "/form";
     }
 
     @ModelAttribute
-    public Dict get(@RequestParam(required = false) String id) {
+    public Dict get(@RequestParam(required = false) String id)
+    {
         Dict entity = StringUtils.isNotBlank(id) ? getService().find(id) : new Dict();
         wrapEntity(entity);
         return entity;
     }
 
     @RequestMapping(value = "")
-    public String index() {
+    public String index()
+    {
         return super.index();
     }
 
     @RequestMapping(value = "data")
-    public String data(Pagination<Dict> request, HttpServletResponse response) {
+    public String data(Pagination<Dict> request, HttpServletResponse response)
+    {
         return super.data(request, response);
     }
 
     @RequestMapping(value = "form")
-    public String form(HttpServletResponse response, Model model) {
+    public String form(HttpServletResponse response, Model model)
+    {
         return super.form(response, model);
     }
 
     @RequestMapping(value = "save")
-    public String save(Dict entity, HttpServletResponse response, Model model) {
+    public String save(Dict entity, HttpServletResponse response, Model model)
+    {
         return super.save(entity, response, model);
     }
 
     @RequestMapping(value = "delete")
-    public String delete(Dict entity, HttpServletResponse response, Model model) {
+    public String delete(Dict entity, HttpServletResponse response, Model model)
+    {
         return super.delete(entity, response, model);
     }
 
@@ -82,11 +92,15 @@ public class DictController extends SysBaseController<Dict, DictService> {
      * @param entity
      * @return
      */
-    private Dict wrapEntity(Dict entity) {
+    private Dict wrapEntity(Dict entity)
+    {
         User user = UserUtil.getUser();
-        if (StringUtils.isEmpty(entity.getCode())) {
+        if (StringUtils.isEmpty(entity.getCode()))
+        {
             entity.setCreator(user);
-        } else {
+        }
+        else
+        {
             entity.setEditor(user);
         }
         return entity;

@@ -12,18 +12,20 @@ import org.yserver.core.datasource.DataSource;
 @Service
 @DataSource("default")
 @Transactional
-public class PaymentServiceImpl
-        extends SysBaseServiceImpl<Payment, PaymentDao> implements PaymentService {
+public class PaymentServiceImpl extends SysBaseServiceImpl<Payment, PaymentDao> implements PaymentService
+{
     @Autowired
     private PaymentDao dao;
 
     @Override
-    public PaymentDao getDao() {
+    public PaymentDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public Payment find(String id) {
+    public Payment find(String id)
+    {
         return getDao().findOne(new Payment(id));
     }
 }

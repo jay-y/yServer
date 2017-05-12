@@ -9,79 +9,98 @@ public class RequestEntity
 {
     private Map params;
 
-    public Map getParams() {
+    public Map getParams()
+    {
         return params;
     }
 
-    public void setParams(Map params) {
+    public void setParams(Map params)
+    {
         this.params = params;
     }
 
-    public Object get(Object key) {
+    public Object get(Object key)
+    {
         return params.get(key);
     }
 
-    public Object put(Object key, Object value) {
+    public Object put(Object key, Object value)
+    {
         return params.put(key, value);
     }
 
-    public Object remove(Object key) {
+    public Object remove(Object key)
+    {
         return params.remove(key);
     }
 
-    public void clear() {
+    public void clear()
+    {
         params.clear();
     }
 
-    public boolean containsKey(Object key) {
+    public boolean containsKey(Object key)
+    {
         return params.containsKey(key);
     }
 
-    public boolean containsValue(Object value) {
+    public boolean containsValue(Object value)
+    {
         return params.containsValue(value);
     }
 
-    public Set entrySet() {
+    public Set entrySet()
+    {
         return params.entrySet();
     }
 
-    public boolean isEmpty() {
+    public boolean isEmpty()
+    {
         return params.isEmpty();
     }
 
-    public Set keySet() {
+    public Set keySet()
+    {
         return params.keySet();
     }
 
-    public void putAll(Map t) {
+    public void putAll(Map t)
+    {
         params.putAll(t);
     }
 
-    public int size() {
+    public int size()
+    {
         return params.size();
     }
 
-    public Collection values() {
+    public Collection values()
+    {
         return params.values();
     }
 
-    public String getString(Object key) {
+    public String getString(Object key)
+    {
         return (String) get(key);
     }
 
-    public double getDouble(Object key) {
+    public double getDouble(Object key)
+    {
         return Double.parseDouble(get(key).toString());
     }
 
-    public int getInt(Object key) {
+    public int getInt(Object key)
+    {
         return Integer.parseInt(get(key).toString());
     }
 
-    public long getLong(Object key) {
+    public long getLong(Object key)
+    {
         return Long.parseLong(get(key).toString());
     }
 
-    public BigDecimal getBigDecimal(Object key) {
+    public BigDecimal getBigDecimal(Object key)
+    {
         return (BigDecimal) get(key);
     }
 }

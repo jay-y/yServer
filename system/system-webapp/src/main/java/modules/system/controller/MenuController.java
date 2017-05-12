@@ -22,51 +22,60 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "${adminPath}/menu")
-public class MenuController extends SysBaseController<Menu, MenuService> {
+public class MenuController extends SysBaseController<Menu, MenuService>
+{
     private static final String INDEX_PATH = "system/menu";
 
     @Autowired
     private MenuService service;
 
     @Override
-    protected MenuService getService() {
+    protected MenuService getService()
+    {
         return service;
     }
 
     @Override
-    protected String indexMain() {
+    protected String indexMain()
+    {
         return INDEX_PATH + "/index";
     }
 
     @Override
-    protected String indexForm() {
+    protected String indexForm()
+    {
         return INDEX_PATH + "/form";
     }
 
     @ModelAttribute
-    public Menu get(@RequestParam(required = false) String id) {
+    public Menu get(@RequestParam(required = false) String id)
+    {
         Menu entity = StringUtils.isNotBlank(id) ? service.find(id) : new Menu();
         wrapEntity(entity);
         return entity;
     }
 
     @RequestMapping(value = "")
-    public String index() {
+    public String index()
+    {
         return super.index();
     }
 
     @RequestMapping(value = "data")
-    public String data(Pagination<Menu> request, HttpServletResponse response) {
+    public String data(Pagination<Menu> request, HttpServletResponse response)
+    {
         return super.data(request, response);
     }
 
     @RequestMapping(value = "form")
-    public String form(HttpServletResponse response, Model model) {
+    public String form(HttpServletResponse response, Model model)
+    {
         return super.form(response, model);
     }
 
     @RequestMapping(value = "save")
-    public String save(Menu entity, HttpServletResponse response, Model model) {
+    public String save(Menu entity, HttpServletResponse response, Model model)
+    {
         /** TEST begin **/
 //        Menu parent = new Menu();
 //        parent.setType("0");
@@ -104,7 +113,8 @@ public class MenuController extends SysBaseController<Menu, MenuService> {
     }
 
     @RequestMapping(value = "delete")
-    public String delete(Menu entity, HttpServletResponse response, Model model) {
+    public String delete(Menu entity, HttpServletResponse response, Model model)
+    {
         // 清理缓存
         UserUtil.removeCache(UserUtil.CACHE_MENU_LIST);
         return super.delete(entity, response, model);
@@ -116,15 +126,18 @@ public class MenuController extends SysBaseController<Menu, MenuService> {
      * @param entity
      * @return
      */
-    private Menu wrapEntity(Menu entity) {
-        if (null == entity.getParent()
-                || (null != entity.getParent() && StringUtils.isBlank(entity.getParent().getCode()))) {
+    private Menu wrapEntity(Menu entity)
+    {
+        if (null == entity.getParent() || (null != entity.getParent() && StringUtils.isBlank(entity.getParent().getCode())))
+        {
             entity.setType("0");
             entity.setParent(null);
-        } else {
+        }
+        else
+        {
             entity.setType("1");
-            if (null != entity.getParent()
-                    && StringUtils.isNotBlank(entity.getParent().getCode())) {
+            if (null != entity.getParent() && StringUtils.isNotBlank(entity.getParent().getCode()))
+            {
                 entity.setPcode(entity.getParent().getCode());
             }
         }

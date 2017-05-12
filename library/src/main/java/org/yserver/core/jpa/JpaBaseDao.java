@@ -17,9 +17,8 @@ import java.util.List;
  * Author: ysj
  */
 @NoRepositoryBean
-public interface JpaBaseDao<T, ID extends Serializable> extends
-        JpaSpecificationExecutor<T>, JpaRepository<T, ID>,
-        PagingAndSortingRepository<T, ID> {
+public interface JpaBaseDao<T, ID extends Serializable> extends JpaSpecificationExecutor<T>, JpaRepository<T, ID>, PagingAndSortingRepository<T, ID>
+{
 
     List<T> findAll(String jsonParams);
 

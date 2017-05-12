@@ -19,23 +19,26 @@ import java.util.List;
 @Service
 @DataSource("default")
 @Transactional
-public class MenuServiceImpl
-        extends SysBaseServiceImpl<Menu, MenuDao> implements MenuService {
+public class MenuServiceImpl extends SysBaseServiceImpl<Menu, MenuDao> implements MenuService
+{
     @Autowired
     private MenuDao dao;
 
     @Override
-    public MenuDao getDao() {
+    public MenuDao getDao()
+    {
         return dao;
     }
 
     @Override
-    public List<Menu> findAllParent() {
+    public List<Menu> findAllParent()
+    {
         return getDao().findAllParent();
     }
 
     @Override
-    public List<Menu> findAllChild(String pcode) {
+    public List<Menu> findAllChild(String pcode)
+    {
         return getDao().findAllChild(pcode);
     }
 }

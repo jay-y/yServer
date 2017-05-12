@@ -11,7 +11,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "sys_menu")
-public class Menu extends BaseEntity {
+public class Menu extends BaseEntity
+{
     @Column(name = "NAME", nullable = false)
     private String name;
 
@@ -37,67 +38,83 @@ public class Menu extends BaseEntity {
     @Transient
     private String pcode;
 
-    public Menu() {
+    public Menu()
+    {
         super();
     }
 
-    public Menu(String code) {
+    public Menu(String code)
+    {
         super(code);
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getUrl() {
+    public String getUrl()
+    {
         return url;
     }
 
-    public void setUrl(String url) {
+    public void setUrl(String url)
+    {
         this.url = url;
     }
 
-    public Menu getParent() {
+    public Menu getParent()
+    {
         return parent;
     }
 
-    public void setParent(Menu parent) {
+    public void setParent(Menu parent)
+    {
         this.parent = parent;
     }
 
-    public int getSort() {
+    public int getSort()
+    {
         return sort;
     }
 
-    public void setSort(int sort) {
+    public void setSort(int sort)
+    {
         this.sort = sort;
     }
 
-    public String getIcon() {
+    public String getIcon()
+    {
         return icon;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(String icon)
+    {
         this.icon = icon;
     }
 
-    public String getType() {
+    public String getType()
+    {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(String type)
+    {
         this.type = type;
     }
 
-    public String getPcode() {
+    public String getPcode()
+    {
         return pcode;
     }
 
-    public void setPcode(String pcode) {
+    public void setPcode(String pcode)
+    {
         this.pcode = pcode;
     }
 }

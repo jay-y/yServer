@@ -12,6 +12,7 @@ import java.util.List;
  * Author: ysj
  */
 @MyBatisMapper
-public interface AreaDao extends SysBaseDao<Area> {
+public interface AreaDao extends SysBaseDao<Area>
+{
     List<Area> findAllChild(Area entity);
 }

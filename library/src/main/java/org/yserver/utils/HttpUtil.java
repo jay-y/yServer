@@ -33,29 +33,27 @@ import java.util.Map;
  * @author ysj
  * @Date: 2015-1-30 下午2:07:55
  */
-public class HttpUtil {
+public class HttpUtil
+{
     private static CloseableHttpClient httpClient;
     private static PoolingHttpClientConnectionManager connMgr;
     private static RequestConfig requestConfig;
 
-    public static CloseableHttpClient getHttpClient() {
-        if (null == httpClient) {
-            synchronized (HttpUtil.class) {
-                if (null == httpClient) {
-                    requestConfig = RequestConfig.custom()
-                            .setSocketTimeout(5000)
-                            .setConnectTimeout(5000)
-                            .setConnectionRequestTimeout(5000)
-                            .build();
+    public static CloseableHttpClient getHttpClient()
+    {
+        if (null == httpClient)
+        {
+            synchronized (HttpUtil.class)
+            {
+                if (null == httpClient)
+                {
+                    requestConfig = RequestConfig.custom().setSocketTimeout(5000).setConnectTimeout(5000).setConnectionRequestTimeout(5000).build();
                     // 设置连接池
                     connMgr = new PoolingHttpClientConnectionManager();
                     // 设置连接池大小
                     connMgr.setMaxTotal(100);
                     connMgr.setDefaultMaxPerRoute(connMgr.getMaxTotal());
-                    httpClient = HttpClients.custom()
-                            .setConnectionManager(connMgr)
-                            .setDefaultRequestConfig(requestConfig)
-                            .build();
+                    httpClient = HttpClients.custom().setConnectionManager(connMgr).setDefaultRequestConfig(requestConfig).build();
 
                 }
             }
@@ -69,7 +67,8 @@ public class HttpUtil {
      * @param url
      * @return
      */
-    public static String doGet(String url) {
+    public static String doGet(String url)
+    {
         return doGet(url, new HashMap<String, Object>());
     }
 
@@ -80,29 +79,39 @@ public class HttpUtil {
      * @param params
      * @return
      */
-    public static String doGet(String url, Map<String, Object> params) {
+    public static String doGet(String url, Map<String, Object> params)
+    {
         String apiUrl = url;
         StringBuffer param = new StringBuffer();
         int i = 0;
-        for (String key : params.keySet()) {
+        for (String key : params.keySet())
+        {
             if (i == 0)
+            {
                 param.append("?");
+            }
             else
+            {
                 param.append("&");
+            }
             param.append(key).append("=").append(params.get(key));
             i++;
         }
         apiUrl += param;
         String result = null;
-        try {
+        try
+        {
             HttpGet httpPost = new HttpGet(apiUrl);
             HttpResponse response = getHttpClient().execute(httpPost);
             HttpEntity entity = response.getEntity();
-            if (entity != null) {
+            if (entity != null)
+            {
                 InputStream instream = entity.getContent();
                 result = IOUtils.toString(instream, Constant._UTF_8);
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
         return result;
@@ -114,7 +123,8 @@ public class HttpUtil {
      * @param apiUrl
      * @return
      */
-    public static String doPost(String apiUrl) {
+    public static String doPost(String apiUrl)
+    {
         return doPost(apiUrl, new HashMap<>());
     }
 
@@ -125,28 +135,38 @@ public class HttpUtil {
      * @param params 参数map
      * @return
      */
-    public static String doPost(String apiUrl, Map<String, Object> params) {
+    public static String doPost(String apiUrl, Map<String, Object> params)
+    {
         String httpStr = null;
         HttpPost httpPost = new HttpPost(apiUrl);
         CloseableHttpResponse response = null;
-        try {
+        try
+        {
             List<NameValuePair> pairList = new ArrayList<>(params.size());
-            for (Map.Entry<String, Object> entry : params.entrySet()) {
-                NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry
-                        .getValue().toString());
+            for (Map.Entry<String, Object> entry : params.entrySet())
+            {
+                NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry.getValue().toString());
                 pairList.add(pair);
             }
             httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(Constant._UTF_8)));
             response = getHttpClient().execute(httpPost);
             HttpEntity entity = response.getEntity();
             httpStr = EntityUtils.toString(entity, Constant._UTF_8);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
-        } finally {
-            if (response != null) {
-                try {
+        }
+        finally
+        {
+            if (response != null)
+            {
+                try
+                {
                     EntityUtils.consume(response.getEntity());
-                } catch (IOException e) {
+                }
+                catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -161,11 +181,13 @@ public class HttpUtil {
      * @param json   json对象
      * @return
      */
-    public static String doPost(String apiUrl, Object json) {
+    public static String doPost(String apiUrl, Object json)
+    {
         String httpStr = null;
         HttpPost httpPost = new HttpPost(apiUrl);
         CloseableHttpResponse response = null;
-        try {
+        try
+        {
             StringEntity stringEntity = new StringEntity(json.toString(), Constant._UTF_8);//解决中文乱码问题
             stringEntity.setContentEncoding(Constant._UTF_8);
             stringEntity.setContentType("application/json");
@@ -173,13 +195,21 @@ public class HttpUtil {
             response = getHttpClient().execute(httpPost);
             HttpEntity entity = response.getEntity();
             httpStr = EntityUtils.toString(entity, Constant._UTF_8);
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
-        } finally {
-            if (response != null) {
-                try {
+        }
+        finally
+        {
+            if (response != null)
+            {
+                try
+                {
                     EntityUtils.consume(response.getEntity());
-                } catch (IOException e) {
+                }
+                catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -194,40 +224,48 @@ public class HttpUtil {
      * @param params 参数map
      * @return
      */
-    public static String doPostSSL(String apiUrl, Map<String, Object> params) {
-        httpClient = HttpClients.custom()
-                .setSSLSocketFactory(createSSLConnSocketFactory())
-                .setConnectionManager(connMgr)
-                .setDefaultRequestConfig(requestConfig)
-                .build();
+    public static String doPostSSL(String apiUrl, Map<String, Object> params)
+    {
+        httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory()).setConnectionManager(connMgr).setDefaultRequestConfig(requestConfig).build();
         HttpPost httpPost = new HttpPost(apiUrl);
         CloseableHttpResponse response = null;
         String httpStr = null;
-        try {
+        try
+        {
             List<NameValuePair> pairList = new ArrayList<NameValuePair>(params.size());
-            for (Map.Entry<String, Object> entry : params.entrySet()) {
-                NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry
-                        .getValue().toString());
+            for (Map.Entry<String, Object> entry : params.entrySet())
+            {
+                NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry.getValue().toString());
                 pairList.add(pair);
             }
             httpPost.setEntity(new UrlEncodedFormEntity(pairList, Charset.forName(Constant._UTF_8)));
             response = getHttpClient().execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
+            if (statusCode != HttpStatus.SC_OK)
+            {
                 return null;
             }
             HttpEntity entity = response.getEntity();
-            if (entity == null) {
+            if (entity == null)
+            {
                 return null;
             }
             httpStr = EntityUtils.toString(entity, Constant._UTF_8);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            if (response != null) {
-                try {
+        }
+        finally
+        {
+            if (response != null)
+            {
+                try
+                {
                     EntityUtils.consume(response.getEntity());
-                } catch (IOException e) {
+                }
+                catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -242,37 +280,45 @@ public class HttpUtil {
      * @param json   JSON对象
      * @return
      */
-    public static String doPostSSL(String apiUrl, Object json) {
-        httpClient = HttpClients.custom()
-                .setSSLSocketFactory(createSSLConnSocketFactory())
-                .setConnectionManager(connMgr)
-                .setDefaultRequestConfig(requestConfig)
-                .build();
+    public static String doPostSSL(String apiUrl, Object json)
+    {
+        httpClient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory()).setConnectionManager(connMgr).setDefaultRequestConfig(requestConfig).build();
         HttpPost httpPost = new HttpPost(apiUrl);
         CloseableHttpResponse response = null;
         String httpStr = null;
-        try {
+        try
+        {
             StringEntity stringEntity = new StringEntity(json.toString(), Constant._UTF_8);//解决中文乱码问题
             stringEntity.setContentEncoding(Constant._UTF_8);
             stringEntity.setContentType("application/json");
             httpPost.setEntity(stringEntity);
             response = getHttpClient().execute(httpPost);
             int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
+            if (statusCode != HttpStatus.SC_OK)
+            {
                 return null;
             }
             HttpEntity entity = response.getEntity();
-            if (entity == null) {
+            if (entity == null)
+            {
                 return null;
             }
             httpStr = EntityUtils.toString(entity, Constant._UTF_8);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
-        } finally {
-            if (response != null) {
-                try {
+        }
+        finally
+        {
+            if (response != null)
+            {
+                try
+                {
                     EntityUtils.consume(response.getEntity());
-                } catch (IOException e) {
+                }
+                catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -285,7 +331,8 @@ public class HttpUtil {
      *
      * @return
      */
-    private static SSLConnectionSocketFactory createSSLConnSocketFactory() {
+    private static SSLConnectionSocketFactory createSSLConnSocketFactory()
+    {
         SSLConnectionSocketFactory sslsf = SSLConnectionSocketFactory.getSocketFactory();
         return sslsf;
     }

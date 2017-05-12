@@ -36,7 +36,7 @@
                                    data-toggle="modal" data-target="#remoteModal"
                                    class="btn btn-labeled btn-info">
                                     <span class="btn-label"><i
-                                            class="fa fa-plus"></i> </span>新增
+                                        class="fa fa-plus"></i> </span>新增
                                 </a>
                             </li>
                         </ul>
@@ -139,11 +139,11 @@
         var dataTable = yjs.dataTables.getDataTable(table, config);
         // Apply the filter
         $("#table .custom-condition")
-                .on('change', function () {
-                    dataTable.column($(this).parent().index() + ':visible')
-                            .search(this.value)
-                            .draw();
-                });
+            .on('change', function () {
+                dataTable.column($(this).parent().index() + ':visible')
+                    .search(this.value)
+                    .draw();
+            });
     };
 
     function onDetails(obj, id, type) {
@@ -165,7 +165,7 @@
                     child.className = "childs_" + suffix + " childs_" + type;
                     child.innerHTML += '<td class="hidden">' + data.code + '</td>';
                     child.innerHTML += '<td id="' + suffix + '" onclick="onDetails(this,\'' + data.code + '\', \'' + data.type + '\');">'
-                            + deep + '<i id="i_' + data.code + '_' + data.type + '" class="fa fa-fw fa-folder-o"></i>' + data.name + '</td>';
+                        + deep + '<i id="i_' + data.code + '_' + data.type + '" class="fa fa-fw fa-folder-o"></i>' + data.name + '</td>';
                     child.innerHTML += '<td>' + data.number + '</td>';
                     child.innerHTML += '<td>' + data.createdTime + '</td>';
                     child.innerHTML += '<td>' + data.updatedTime + '</td>';

@@ -4,7 +4,8 @@ import org.apache.shiro.session.Session;
 
 import java.util.Collection;
 
-public interface ShiroSessionDao extends org.apache.shiro.session.mgt.eis.SessionDAO {
+public interface ShiroSessionDao extends org.apache.shiro.session.mgt.eis.SessionDAO
+{
 
     /**
      * 获取活动会话

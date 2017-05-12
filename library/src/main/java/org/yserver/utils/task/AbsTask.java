@@ -9,13 +9,16 @@ import java.util.concurrent.Executor;
  *
  * @param <ResultType>
  */
-public abstract class AbsTask<ResultType> implements Callback.Cancelable {
+public abstract class AbsTask<ResultType> implements Callback.Cancelable
+{
 
-    public TaskPriority getPriority() {
+    public TaskPriority getPriority()
+    {
         return null;
     }
 
-    public Executor getExecutor() {
+    public Executor getExecutor()
+    {
         return null;
     }
 }

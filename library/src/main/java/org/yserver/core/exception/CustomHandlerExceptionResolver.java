@@ -29,7 +29,8 @@ import java.util.List;
  * Date: 2016/09/04<br>
  * Author: ysj
  */
-public class CustomHandlerExceptionResolver extends ExceptionHandlerExceptionResolver {
+public class CustomHandlerExceptionResolver extends ExceptionHandlerExceptionResolver
+{
     /**
      * 缺省的错误页面
      */
@@ -38,37 +39,42 @@ public class CustomHandlerExceptionResolver extends ExceptionHandlerExceptionRes
     /**
      * 设置执行顺序为最先执行
      */
-    public CustomHandlerExceptionResolver() {
+    public CustomHandlerExceptionResolver()
+    {
         super.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 
     /**
      * 获取缺省的错误页面
+     *
      * @return 返回异常视图
      */
-    public String getDefaultErrorView() {
+    public String getDefaultErrorView()
+    {
         return defaultErrorView;
     }
 
     /**
      * 设置缺省的错误页面
+     *
      * @param defaultErrorView 错误页面
      */
-    public void setDefaultErrorView(String defaultErrorView) {
+    public void setDefaultErrorView(String defaultErrorView)
+    {
         this.defaultErrorView = defaultErrorView;
     }
 
     /**
      * 处理拦截到的方法异常
+     *
      * @param request       请求
      * @param response      响应
      * @param handlerMethod 被拦截方法
      * @param exception     针对不同类型的异常进行处理
      * @return 返回异常视图
      */
-    protected ModelAndView doResolveHandlerMethodException(
-            HttpServletRequest request, HttpServletResponse response,
-            HandlerMethod handlerMethod, Exception exception) {
+    protected ModelAndView doResolveHandlerMethodException(HttpServletRequest request, HttpServletResponse response, HandlerMethod handlerMethod, Exception exception)
+    {
 
         y.log().error(exception.getMessage());
 
@@ -76,32 +82,33 @@ public class CustomHandlerExceptionResolver extends ExceptionHandlerExceptionRes
         response.reset();
 
         // 没有指定异常处理方法，直接返回
-        if (handlerMethod == null) {
+        if (handlerMethod == null)
+        {
             return null;
         }
 
         // 获取异常处理方法
         Method method = handlerMethod.getMethod();
 
-        if (method == null) {
+        if (method == null)
+        {
             return null;
         }
 
         // 调用异常处理方法，返回ModelAndView
-        ModelAndView returnValue = super.doResolveHandlerMethodException(
-                request, response, handlerMethod, exception);
+        ModelAndView returnValue = super.doResolveHandlerMethodException(request, response, handlerMethod, exception);
 
         // 获取异步调用注解
-        ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(method,
-                ResponseBody.class);
+        ResponseBody responseBodyAnn = AnnotationUtils.findAnnotation(method, ResponseBody.class);
 
         // 使用了异步调用的注解
-        if (responseBodyAnn != null) {
-            return handlerExceptionModelAndView(request, response, method,
-                    returnValue);
+        if (responseBodyAnn != null)
+        {
+            return handlerExceptionModelAndView(request, response, method, returnValue);
         }
 
-        if (returnValue.getViewName() == null) {
+        if (returnValue.getViewName() == null)
+        {
             returnValue.setViewName(defaultErrorView);
         }
 
@@ -111,79 +118,89 @@ public class CustomHandlerExceptionResolver extends ExceptionHandlerExceptionRes
 
     /**
      * 异常视图处理
+     *
      * @param returnValue 异常视图
      * @param request     请求
      * @param response    响应
      * @param method      模型
      * @return 返回异常视图
      */
-    private ModelAndView handlerExceptionModelAndView(
-            HttpServletRequest request, HttpServletResponse response,
-            Method method, ModelAndView returnValue) {
-        try {
-            ResponseStatus responseStatusAnn = AnnotationUtils.findAnnotation(
-                    method, ResponseStatus.class);
-            if (responseStatusAnn != null) {
+    private ModelAndView handlerExceptionModelAndView(HttpServletRequest request, HttpServletResponse response, Method method, ModelAndView returnValue)
+    {
+        try
+        {
+            ResponseStatus responseStatusAnn = AnnotationUtils.findAnnotation(method, ResponseStatus.class);
+            if (responseStatusAnn != null)
+            {
                 HttpStatus responseStatus = responseStatusAnn.value();
                 String reason = responseStatusAnn.reason();
-                if (!StringUtils.hasText(reason)) {
+                if (!StringUtils.hasText(reason))
+                {
                     response.setStatus(responseStatus.value());
-                } else {
-                    try {
+                }
+                else
+                {
+                    try
+                    {
                         response.sendError(responseStatus.value(), reason);
-                    } catch (IOException e) {
+                    }
+                    catch (IOException e)
+                    {
                         y.log().error(e.getMessage());
                     }
                 }
             }
             // 使用json方式返回异常视图处理信息
             return handleResponseBody(returnValue, request, response);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             return null;
         }
     }
 
     /**
      * 异常视图处理
+     *
      * @param returnValue 异常视图
      * @param request     请求
      * @param response    响应
      * @return 返回异常视图
      */
-    private ModelAndView handleResponseBody(ModelAndView returnValue,
-                                            HttpServletRequest request, HttpServletResponse response)
-            throws IOException {
+    private ModelAndView handleResponseBody(ModelAndView returnValue, HttpServletRequest request, HttpServletResponse response) throws IOException
+    {
         ModelMap value = returnValue.getModelMap();
         HttpInputMessage inputMessage = new ServletServerHttpRequest(request);
-        List<MediaType> acceptedMediaTypes = inputMessage.getHeaders()
-                .getAccept();
-        if (acceptedMediaTypes.isEmpty()) {
+        List<MediaType> acceptedMediaTypes = inputMessage.getHeaders().getAccept();
+        if (acceptedMediaTypes.isEmpty())
+        {
             acceptedMediaTypes = Collections.singletonList(MediaType.ALL);
         }
         MediaType.sortByQualityValue(acceptedMediaTypes);
-        ServletServerHttpResponse outputMessage = new ServletServerHttpResponse(
-                response);
-        try {
+        ServletServerHttpResponse outputMessage = new ServletServerHttpResponse(response);
+        try
+        {
             Class<?> returnValueType = value.getClass();
-            List<HttpMessageConverter<?>> messageConverters = super
-                    .getMessageConverters();
-            if (messageConverters != null) {
-                for (MediaType acceptedMediaType : acceptedMediaTypes) {
-                    for (
-                            HttpMessageConverter messageConverter : messageConverters) {
-                        if (messageConverter.canWrite(returnValueType,
-                                acceptedMediaType)) {
-                            messageConverter.write(value, acceptedMediaType,
-                                    outputMessage);
+            List<HttpMessageConverter<?>> messageConverters = super.getMessageConverters();
+            if (messageConverters != null)
+            {
+                for (MediaType acceptedMediaType : acceptedMediaTypes)
+                {
+                    for (HttpMessageConverter messageConverter : messageConverters)
+                    {
+                        if (messageConverter.canWrite(returnValueType, acceptedMediaType))
+                        {
+                            messageConverter.write(value, acceptedMediaType, outputMessage);
                             return new ModelAndView();
                         }
                     }
                 }
             }
-            y.log().warn("Could not find HttpMessageConverter that supports return type ["
-                    + returnValueType + "] and " + acceptedMediaTypes);
+            y.log().warn("Could not find HttpMessageConverter that supports return type [" + returnValueType + "] and " + acceptedMediaTypes);
             return null;
-        } finally {
+        }
+        finally
+        {
             outputMessage.close();
         }
     }

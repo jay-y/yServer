@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public interface MyBatisBaseDao<T, ID extends Serializable> {
+public interface MyBatisBaseDao<T, ID extends Serializable>
+{
     int insert(T entity);
 
     int update(T entity);

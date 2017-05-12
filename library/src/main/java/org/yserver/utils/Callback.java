@@ -6,9 +6,11 @@ package org.yserver.utils;
  * Date: 2015-12-2 下午2:32:52 <br>
  * Author ysj
  */
-public interface Callback {
+public interface Callback
+{
 
-    interface Cancelable {
+    interface Cancelable
+    {
         void cancel();
 
         boolean isCancelled();

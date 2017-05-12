@@ -26,7 +26,7 @@
                 /source/** = anon
                 /servlet/** = anon
                 ${clientPath}/** = anon
-		${apiPath}/** = anon
+                ${apiPath}/** = anon
                 ${adminPath}/login = authc
                 ${adminPath}/logout = logout
                 ${adminPath}/** = user
@@ -72,31 +72,31 @@
 
     <!--&lt;!&ndash; 自定义会话管理配置 &ndash;&gt;-->
     <!--<bean id="sessionManager" class="modules.system.shiro.session.SessionManager">-->
-        <!--<property name="sessionDAO" ref="sessionDao"/>-->
-        <!--&lt;!&ndash; 会话超时时间，单位：毫秒  &ndash;&gt;-->
-        <!--<property name="globalSessionTimeout" value="${session.sessionTimeout}"/>-->
+    <!--<property name="sessionDAO" ref="sessionDao"/>-->
+    <!--&lt;!&ndash; 会话超时时间，单位：毫秒  &ndash;&gt;-->
+    <!--<property name="globalSessionTimeout" value="${session.sessionTimeout}"/>-->
 
-        <!--&lt;!&ndash; 定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话   &ndash;&gt;-->
-        <!--<property name="sessionValidationInterval" value="${session.sessionTimeoutClean}"/>-->
-        <!--&lt;!&ndash; <property name="sessionValidationSchedulerEnabled" value="false"/> &ndash;&gt;-->
-        <!--<property name="sessionValidationSchedulerEnabled" value="true"/>-->
+    <!--&lt;!&ndash; 定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话   &ndash;&gt;-->
+    <!--<property name="sessionValidationInterval" value="${session.sessionTimeoutClean}"/>-->
+    <!--&lt;!&ndash; <property name="sessionValidationSchedulerEnabled" value="false"/> &ndash;&gt;-->
+    <!--<property name="sessionValidationSchedulerEnabled" value="true"/>-->
 
-        <!--<property name="sessionIdCookie" ref="sessionIdCookie"/>-->
-        <!--<property name="sessionIdCookieEnabled" value="true"/>-->
+    <!--<property name="sessionIdCookie" ref="sessionIdCookie"/>-->
+    <!--<property name="sessionIdCookieEnabled" value="true"/>-->
     <!--</bean>-->
 
     <!--&lt;!&ndash; 指定本系统SESSIONID, 默认为: JSESSIONID 问题: 与SERVLET容器名冲突, 如JETTY, TOMCAT 等默认JSESSIONID,-->
     <!--当跳出SHIRO SERVLET时如ERROR-PAGE容器会为JSESSIONID重新分配值导致登录会话丢失! &ndash;&gt;-->
     <!--<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">-->
-        <!--<constructor-arg name="name" value="${session.idKey}"/>-->
+    <!--<constructor-arg name="name" value="${session.idKey}"/>-->
     <!--</bean>-->
     <!--<bean id="idGen" class="modules.system.utils.IdGen"></bean>-->
 
     <!--&lt;!&ndash; 自定义Session存储容器 &ndash;&gt;-->
     <!--<bean id="sessionDao" class="modules.system.shiro.session.CacheShiroSessionDaoImpl">-->
-        <!--<property name="sessionIdGenerator" ref="idGen"/>-->
-        <!--<property name="activeSessionsCacheName" value="ySessionsCache"/>-->
-        <!--<property name="cacheManager" ref="shiroCacheManager"/>-->
+    <!--<property name="sessionIdGenerator" ref="idGen"/>-->
+    <!--<property name="activeSessionsCacheName" value="ySessionsCache"/>-->
+    <!--<property name="cacheManager" ref="shiroCacheManager"/>-->
     <!--</bean>-->
 
     <!-- 定义授权缓存管理器 -->

@@ -8,5 +8,6 @@ import modules.system.model.Payment;
  * Date: 2016/9/10 1:14<br>
  * Author: ysj
  */
-public interface PaymentDao extends SysBaseDao<Payment> {
+public interface PaymentDao extends SysBaseDao<Payment>
+{
 }
